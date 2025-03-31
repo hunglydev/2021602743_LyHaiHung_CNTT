@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:hunglydev_datn/features/feature.dart';
 import 'package:hunglydev_datn/generated/l10n.dart';
 
 void main() {
@@ -25,7 +26,8 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: Container(),
+      debugShowCheckedModeBanner: false,
+      home: const MainPage(),
     );
   }
 }

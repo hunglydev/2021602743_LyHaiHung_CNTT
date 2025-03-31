@@ -5,6 +5,7 @@ import 'package:csv/csv.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:hunglydev_datn/core/constant/constant.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:share_plus/share_plus.dart';
 
@@ -90,3 +91,33 @@ void finish(BuildContext context, [Object? result]) {
     Navigator.pop(context, result);
   }
 }
+
+TextStyle boldPrimaryTextStyle() => const TextStyle(
+      color: AppColor.primaryColor,
+      fontWeight: FontWeight.w600,
+      fontSize: 16,
+    );
+
+TextStyle boldTextStyle() => const TextStyle(
+      color: AppColor.textColor,
+      fontWeight: FontWeight.w600,
+      fontSize: 16,
+    );
+
+TextStyle primaryTextStyle() => const TextStyle(
+      color: AppColor.primaryColor,
+      fontWeight: FontWeight.w500,
+      fontSize: 14,
+    );
+
+TextStyle normalTextStyle() => const TextStyle(
+      color: AppColor.textColor,
+      fontWeight: FontWeight.w500,
+      fontSize: 14,
+    );
+
+TextStyle subTextColor() => const TextStyle(
+      color: AppColor.grayText,
+      fontWeight: FontWeight.w400,
+      fontSize: 12,
+    );
