@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hunglydev_datn/core/constant/constant.dart';
 import 'package:hunglydev_datn/core/constant/src/translaction.dart';
+import 'package:hunglydev_datn/generated/l10n.dart';
 
 class BMITypeEnum {
   static BMIType getBMITypeByValue(int bmi) {
@@ -47,42 +48,42 @@ extension BMITypeExtension on BMIType {
   String get message {
     switch (this) {
       case BMIType.verySeverelyUnderweight:
-        return TranslationConstants.bmiMessage;
+        return AppLocalization.current.bmiMessage;
       case BMIType.severelyUnderweight:
-        return TranslationConstants.bmiMessage;
+        return AppLocalization.current.bmiMessage;
       case BMIType.underweight:
-        return TranslationConstants.bmiMessage;
+        return AppLocalization.current.bmiMessage;
       case BMIType.normal:
-        return TranslationConstants.bmiMessage;
+        return AppLocalization.current.bmiMessage;
       case BMIType.overweight:
-        return TranslationConstants.bmiMessage;
+        return AppLocalization.current.bmiMessage;
       case BMIType.obeseClassI:
-        return TranslationConstants.bmiMessage;
+        return AppLocalization.current.bmiMessage;
       case BMIType.obeseClassII:
-        return TranslationConstants.bmiMessage;
+        return AppLocalization.current.bmiMessage;
       case BMIType.obeseClassIII:
-        return TranslationConstants.bmiMessage;
+        return AppLocalization.current.bmiMessage;
     }
   }
 
   String get bmiName {
     switch (this) {
       case BMIType.verySeverelyUnderweight:
-        return TranslationConstants.verySeverelyUnderweight;
+        return AppLocalization.current.verySeverelyUnderweight;
       case BMIType.severelyUnderweight:
-        return TranslationConstants.severelyUnderweight;
+        return AppLocalization.current.severelyUnderweight;
       case BMIType.underweight:
-        return TranslationConstants.underweight;
+        return AppLocalization.current.underweight;
       case BMIType.normal:
-        return TranslationConstants.normal;
+        return AppLocalization.current.normal;
       case BMIType.overweight:
-        return TranslationConstants.overweight;
+        return AppLocalization.current.overweight;
       case BMIType.obeseClassI:
-        return TranslationConstants.obeseClassI;
+        return AppLocalization.current.obeseClassI;
       case BMIType.obeseClassII:
-        return TranslationConstants.obeseClassII;
+        return AppLocalization.current.obeseClassII;
       case BMIType.obeseClassIII:
-        return TranslationConstants.obeseClassIII;
+        return AppLocalization.current.obeseClassIII;
     }
   }
 

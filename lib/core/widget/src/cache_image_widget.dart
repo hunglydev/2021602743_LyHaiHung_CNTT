@@ -35,21 +35,96 @@ class CachedImageWidget extends StatelessWidget {
     } else if (url.startsWith('http')) {
       if (url.toLowerCase().endsWith('.svg')) {
         return _buildSvgNetworkImage();
+      } else if (url.toLowerCase().endsWith('.json')) {
+        return _buildLottieNetworkImage();
       }
       return _buildCachedNetworkImage();
     } else {
       if (url.startsWith(r"assets/")) {
         if (url.toLowerCase().endsWith('.svg')) {
           return _buildSvgAssetImage();
+        } else if (url.toLowerCase().endsWith('.json')) {
+          return _buildLottieAssetImage();
         }
         return _buildAssetImage();
       } else {
         if (url.toLowerCase().endsWith('.svg')) {
           return _buildSvgFileImage();
+        } else if (url.toLowerCase().endsWith('.json')) {
+          return _buildLottieFileImage();
         }
         return _buildFileImage();
       }
     }
+  }
+
+  Widget _buildLottieNetworkImage() {
+    return Lottie.network(
+      url,
+      fit: fit,
+      width: width,
+      height: height,
+      alignment: alignment ?? Alignment.center,
+      errorBuilder: (context, error, stackTrace) {
+        return _buildPlaceholder();
+      },
+      frameBuilder: (context, child, composition) {
+        if (composition != null) {
+          return ClipRRect(
+            borderRadius: BorderRadius.circular(radius ?? (circle ? (height / 2) : 0)),
+            child: child,
+          );
+        } else {
+          return _buildPlaceholder();
+        }
+      },
+    );
+  }
+
+  Widget _buildLottieAssetImage() {
+    return Lottie.asset(
+      url,
+      fit: fit,
+      width: width,
+      height: height,
+      alignment: alignment ?? Alignment.center,
+      errorBuilder: (context, error, stackTrace) {
+        return _buildPlaceholder();
+      },
+      frameBuilder: (context, child, composition) {
+        if (composition != null) {
+          return ClipRRect(
+            borderRadius: BorderRadius.circular(radius ?? (circle ? (height / 2) : 0)),
+            child: child,
+          );
+        } else {
+          return _buildPlaceholder();
+        }
+      },
+    );
+  }
+
+  Widget _buildLottieFileImage() {
+    return Lottie.file(
+      File(url),
+      fit: fit,
+      width: width,
+      height: height,
+      alignment: alignment ?? Alignment.center,
+      errorBuilder: (context, error, stackTrace) {
+        return _buildPlaceholder();
+      },
+      frameBuilder: (context, child, composition) {
+        if (composition != null) {
+          return ClipRRect(
+            borderRadius: BorderRadius.circular(radius ?? (circle ? (height / 2) : 0)),
+            child: child,
+          );
+        } else {
+          return _buildPlaceholder();
+        }
+      },
+    );
   }
 
   Widget _buildPlaceholder() {

@@ -38,11 +38,11 @@ extension AlarmTypeExtension on AlarmType {
   String get tr {
     switch (this) {
       case AlarmType.heartRate:
-        return TranslationConstants.heartRate;
+        return AppLocalization.current.heartRate;
       case AlarmType.bloodPressure:
-        return TranslationConstants.bloodPressure;
+        return AppLocalization.current.bloodPressure;
       case AlarmType.weightAndBMI:
-        return TranslationConstants.weightAndBMI;
+        return AppLocalization.current.weightAndBMI;
     }
   }
 
@@ -50,11 +50,11 @@ extension AlarmTypeExtension on AlarmType {
     final int randomIndex = Random(DateTime.now().microsecondsSinceEpoch).nextInt(9);
     switch (this) {
       case AlarmType.heartRate:
-        return TranslationConstants.heartRateNotiMsgs[randomIndex];
+        return ' AppLocalization.current.heartRateNotiMsgs[randomIndex]';
       case AlarmType.bloodPressure:
-        return TranslationConstants.bloodPressureNotiMsgs[randomIndex];
+        return ' AppLocalization.current.bloodPressureNotiMsgs[randomIndex]';
       case AlarmType.weightAndBMI:
-        return TranslationConstants.weightAndBMINotiMsgs[randomIndex];
+        return ' AppLocalization.current.weightAndBMINotiMsgs[randomIndex]';
     }
   }
 

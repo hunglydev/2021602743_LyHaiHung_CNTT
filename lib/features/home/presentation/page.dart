@@ -8,7 +8,8 @@ class HomePage extends StatelessWidget {
       child: Column(
         children: [
           AppHeader(
-            titleText: TranslationConstants.bloodHealth,
+            centerTitle: true,
+            titleText: AppLocalization.of(context).bloodHealth.toUpperCase(),
           ),
           Expanded(
             child: ScrollConfiguration(
@@ -62,7 +63,7 @@ class HomePage extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Text(
-                                  TranslationConstants.heartRate,
+                                  AppLocalization.of(context).heartRate,
                                   style: const TextStyle(
                                     fontSize: 16.0,
                                     fontWeight: FontWeight.w500,
@@ -71,7 +72,7 @@ class HomePage extends StatelessWidget {
                                 ),
                                 const SizedBox(height: 10.0),
                                 Text(
-                                  TranslationConstants.descriptionHeartRate,
+                                  AppLocalization.of(context).descriptionHeartRate,
                                   textAlign: TextAlign.center,
                                   style: const TextStyle(
                                     fontSize: 12.0,
@@ -80,43 +81,18 @@ class HomePage extends StatelessWidget {
                                   ),
                                 ),
                                 const SizedBox(height: 20.0),
-                                // AppTouchable.common(
-                                //   onPressed: controller.onPressHeartBeat,
-                                //   decoration: BoxDecoration(
-                                //     gradient: const LinearGradient(
-                                //       colors: [
-                                //         Color(0xFFFFFFFF),
-                                //         Color(0xFFD9D9D9),
-                                //       ],
-                                //       begin: Alignment.topCenter,
-                                //       end: Alignment.bottomCenter,
-                                //     ),
-                                //     borderRadius: const BorderRadius.all(
-                                //       Radius.circular(10),
-                                //     ),
-                                //     boxShadow: [
-                                //       BoxShadow(
-                                //         color: const Color(0xFF000000).withOpacity(0.4),
-                                //         offset: const Offset(0, 0),
-                                //         blurRadius: 10,
-                                //       ),
-                                //     ],
-                                //   ),
-                                //   child: Padding(
-                                //     padding: const EdgeInsets.symmetric(
-                                //       vertical: 12.0,
-                                //       horizontal: 30.0,
-                                //     ),
-                                //     child: Text(
-                                //       TranslationConstants.heartRateButton,
-                                //       style: const TextStyle(
-                                //         fontSize: 16.0,
-                                //         fontWeight: FontWeight.w600,
-                                //         color: Color(0xFFC73838),
-                                //       ),
-                                //     ),
-                                //   ),
-                                // )
+                                AppButton(
+                                  backgroundColor: AppColor.white,
+                                  height: 48,
+                                  child: Text(
+                                    AppLocalization.of(context).heartRateButton,
+                                    style: const TextStyle(
+                                      fontSize: 16.0,
+                                      fontWeight: FontWeight.w600,
+                                      color: Color(0xFFC73838),
+                                    ),
+                                  ),
+                                ),
                               ],
                             ),
                           ),
@@ -125,115 +101,111 @@ class HomePage extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(height: 16.0),
-                    // Row(
-                    //   children: [
-                    //     Expanded(
-                    //       child: AppTouchable.common(
-                    //         backgroundColor: const Color(0xFF97C7FF),
-                    //         onPressed: controller.onPressBloodPressure,
-                    //         padding: const EdgeInsets.symmetric(vertical: 20.0),
-                    //         child: Column(
-                    //           mainAxisAlignment: MainAxisAlignment.center,
-                    //           children: [
-                    //             AppImageWidget.asset(
-                    //               path: AppImage.bloodPressure,
-                    //               width: 60.0,
-                    //             ),
-                    //             const SizedBox(height: 4.0),
-                    //             Text(
-                    //               TranslationConstants.bloodPressure,
-                    //               style: textStyle18500().copyWith(
-                    //                 color: AppColor.white,
-                    //                 fontSize: 16.0,
-                    //               ),
-                    //             ),
-                    //           ],
-                    //         ),
-                    //       ),
-                    //     ),
-                    //     const SizedBox(width: 16.0),
-                    //     Expanded(
-                    //       child: AppTouchable.common(
-                    //         backgroundColor: const Color(0xFF6DB80D),
-                    //         onPressed: controller.onPressWeightAndBMI,
-                    //         padding: const EdgeInsets.symmetric(vertical: 20.0),
-                    //         child: Column(
-                    //           mainAxisAlignment: MainAxisAlignment.center,
-                    //           children: [
-                    //             AppImageWidget.asset(
-                    //               path: AppImage.weightBmi,
-                    //               width: 60.0,
-                    //             ),
-                    //             const SizedBox(height: 4.0),
-                    //             Text(
-                    //               TranslationConstants.weightAndBMI,
-                    //               style: textStyle18500().copyWith(
-                    //                 color: AppColor.white,
-                    //                 fontSize: 16.0,
-                    //               ),
-                    //             ),
-                    //           ],
-                    //         ),
-                    //       ),
-                    //     ),
-                    //   ],
-                    // ),
+                    Row(
+                      children: [
+                        Expanded(
+                          child: AppTouchable.common(
+                            backgroundColor: const Color(0xFF97C7FF),
+                            onPressed: () {},
+                            padding: const EdgeInsets.symmetric(vertical: 20.0),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                const CachedImageWidget(
+                                  url: AppImage.bloodPressure,
+                                  height: 60,
+                                ),
+                                const SizedBox(height: 4.0),
+                                Text(
+                                  AppLocalization.of(context).bloodPressure,
+                                  style: boldTextStyle(
+                                    color: AppColor.white,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                        const SizedBox(width: 16.0),
+                        Expanded(
+                          child: AppTouchable.common(
+                            backgroundColor: const Color(0xFF6DB80D),
+                            onPressed: () {},
+                            padding: const EdgeInsets.symmetric(vertical: 20.0),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                const CachedImageWidget(
+                                  url: AppImage.weightBmi,
+                                  height: 60.0,
+                                ),
+                                const SizedBox(height: 4.0),
+                                Text(
+                                  AppLocalization.of(context).weightAndBMI,
+                                  style: boldTextStyle(
+                                    color: AppColor.white,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
                     const SizedBox(height: 16.0),
-                    // Row(
-                    //   children: [
-                    //     Expanded(
-                    //       child: AppTouchable.common(
-                    //         backgroundColor: const Color(0xFFC9CDCE),
-                    //         onPressed: controller.onPressPedometer,
-                    //         padding: const EdgeInsets.symmetric(vertical: 20.0),
-                    //         child: Column(
-                    //           mainAxisAlignment: MainAxisAlignment.center,
-                    //           children: [
-                    //             AppImageWidget.asset(
-                    //               path: AppImage.icPedometer,
-                    //               width: 60.0,
-                    //             ),
-                    //             const SizedBox(height: 4.0),
-                    //             Text(
-                    //               "Pedometer",
-                    //               style: textStyle18500().copyWith(
-                    //                 color: AppColor.white,
-                    //                 fontSize: 16.0,
-                    //               ),
-                    //               textAlign: TextAlign.center,
-                    //             ),
-                    //           ],
-                    //         ),
-                    //       ),
-                    //     ),
-                    //     const SizedBox(width: 16.0),
-                    //     Expanded(
-                    //       child: AppTouchable.common(
-                    //         backgroundColor: const Color(0xFFFFEFC6),
-                    //         onPressed: controller.onPressFoodScanner,
-                    //         padding: const EdgeInsets.symmetric(vertical: 20.0),
-                    //         child: Column(
-                    //           mainAxisAlignment: MainAxisAlignment.center,
-                    //           children: [
-                    //             AppImageWidget.asset(
-                    //               path: AppImage.ic_qr_code,
-                    //               width: 60.0,
-                    //             ),
-                    //             const SizedBox(height: 4.0),
-                    //             Text(
-                    //               TranslationConstants.foodScanner,
-                    //               style: textStyle18500().copyWith(
-                    //                 color: AppColor.grayText,
-                    //                 fontSize: 16.0,
-                    //               ),
-                    //               textAlign: TextAlign.center,
-                    //             ),
-                    //           ],
-                    //         ),
-                    //       ),
-                    //     ),
-                    //   ],
-                    // ),
+                    Row(
+                      children: [
+                        Expanded(
+                          child: AppTouchable.common(
+                            backgroundColor: const Color(0xFFC9CDCE),
+                            onPressed: () {},
+                            padding: const EdgeInsets.symmetric(vertical: 20.0),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                const CachedImageWidget(
+                                  url: AppImage.icPedometer,
+                                  height: 60.0,
+                                ),
+                                const SizedBox(height: 4.0),
+                                Text(
+                                  AppLocalization.of(context).pedometer,
+                                  style: boldTextStyle(
+                                    color: AppColor.white,
+                                  ),
+                                  textAlign: TextAlign.center,
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                        const SizedBox(width: 16.0),
+                        Expanded(
+                          child: AppTouchable.common(
+                            backgroundColor: const Color(0xFFFFEFC6),
+                            onPressed: () {},
+                            padding: const EdgeInsets.symmetric(vertical: 20.0),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                const CachedImageWidget(
+                                  url: AppImage.icQrCode,
+                                  height: 60.0,
+                                ),
+                                const SizedBox(height: 4.0),
+                                Text(
+                                  AppLocalization.of(context).foodScanner,
+                                  style: boldTextStyle(
+                                    color: AppColor.white,
+                                  ),
+                                  textAlign: TextAlign.center,
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
                   ],
                 ),
               ),

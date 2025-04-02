@@ -1,6 +1,6 @@
 part of '../widget.dart';
 
-class CustomAppButton extends StatefulWidget {
+class AppButton extends StatefulWidget {
   final Function? onPressed;
   final String? text;
   final double? width;
@@ -23,7 +23,7 @@ class CustomAppButton extends StatefulWidget {
   final double? focusElevation;
   final double? highlightElevation;
 
-  const CustomAppButton({
+  const AppButton({
     this.onPressed,
     this.text,
     this.width,
@@ -49,10 +49,10 @@ class CustomAppButton extends StatefulWidget {
   });
 
   @override
-  State<CustomAppButton> createState() => _CustomAppButtonState();
+  State<AppButton> createState() => _AppButtonState();
 }
 
-class _CustomAppButtonState extends State<CustomAppButton> with SingleTickerProviderStateMixin {
+class _AppButtonState extends State<AppButton> with SingleTickerProviderStateMixin {
   double _scale = 1.0;
   AnimationController? _controller;
 

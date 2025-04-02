@@ -98,8 +98,8 @@ TextStyle boldPrimaryTextStyle() => const TextStyle(
       fontSize: 16,
     );
 
-TextStyle boldTextStyle() => const TextStyle(
-      color: AppColor.textColor,
+TextStyle boldTextStyle({Color? color}) => TextStyle(
+      color: color ?? AppColor.textColor,
       fontWeight: FontWeight.w600,
       fontSize: 16,
     );

@@ -11,6 +11,7 @@ import 'package:hunglydev_datn/extension/context_extension.dart';
 import 'package:hunglydev_datn/extension/int_extension.dart';
 import 'package:hunglydev_datn/extension/widget_extension.dart';
 import 'package:hunglydev_datn/generated/l10n.dart';
+import 'package:lottie/lottie.dart';
 
 part 'src/loading_widget.dart';
 part 'src/back_widget.dart';
@@ -20,3 +21,4 @@ part 'src/app_header.dart';
 part 'src/app_scaffold.dart';
 part 'src/disable_glow_behavior.dart';
 part 'src/place_holder_widget.dart';
+part 'src/app_touchable.dart';

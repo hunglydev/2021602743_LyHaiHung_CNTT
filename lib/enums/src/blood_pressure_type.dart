@@ -1,13 +1,12 @@
 part of '../enum.dart';
 
-
 class BloodPressureTyeEnum {
   static BloodPressureType getBloodPressureTypeById(int? id) {
     if (id == null) {
       return BloodPressureType.normal;
     } else {
       return BloodPressureType.values.firstWhere(
-            (type) => type.id == id,
+        (type) => type.id == id,
         orElse: () => BloodPressureType.normal,
       );
     }
@@ -44,68 +43,68 @@ extension BloodPressureTypeExtension on BloodPressureType {
   String get name {
     switch (this) {
       case BloodPressureType.hypotension:
-        return TranslationConstants.hypotension;
+        return AppLocalization.current.hypotension;
       case BloodPressureType.normal:
-        return TranslationConstants.normal;
+        return AppLocalization.current.normal;
       case BloodPressureType.elevated:
-        return TranslationConstants.elevated;
+        return AppLocalization.current.elevated;
       case BloodPressureType.hypertensionStage1:
-        return TranslationConstants.hypertensionStage1;
+        return AppLocalization.current.hypertensionStage1;
       case BloodPressureType.hypertensionStage2:
-        return TranslationConstants.hypertensionStage2;
+        return AppLocalization.current.hypertensionStage2;
       case BloodPressureType.hypertensionCrisis:
-        return TranslationConstants.hypertensionCrisis;
+        return AppLocalization.current.hypertensionCrisis;
     }
   }
 
   String get messageRange {
     switch (this) {
       case BloodPressureType.hypotension:
-        return TranslationConstants.systolicRangeOrDiastolicRange;
+        return AppLocalization.current.systolicRangeOrDiastolicRange;
       case BloodPressureType.normal:
-        return TranslationConstants.systolicRangeOrDiastolicRange;
+        return AppLocalization.current.systolicRangeOrDiastolicRange;
       case BloodPressureType.elevated:
-        return TranslationConstants.systolicRangeOrDiastolicRange;
+        return AppLocalization.current.systolicRangeOrDiastolicRange;
       case BloodPressureType.hypertensionStage1:
-        return TranslationConstants.systolicRangeOrDiastolicRange;
+        return AppLocalization.current.systolicRangeOrDiastolicRange;
       case BloodPressureType.hypertensionStage2:
-        return TranslationConstants.systolicRangeOrDiastolicRange;
+        return AppLocalization.current.systolicRangeOrDiastolicRange;
       case BloodPressureType.hypertensionCrisis:
-        return TranslationConstants.systolicRangeOrDiastolicRange;
+        return AppLocalization.current.systolicRangeOrDiastolicRange;
     }
   }
 
   String get sortMessageRange {
     switch (this) {
       case BloodPressureType.hypotension:
-        return TranslationConstants.sysAndDIA;
+        return AppLocalization.current.sysAndDIA;
       case BloodPressureType.normal:
-        return TranslationConstants.sysAndDIA;
+        return AppLocalization.current.sysAndDIA;
       case BloodPressureType.elevated:
-        return TranslationConstants.sysAndDIA;
+        return AppLocalization.current.sysAndDIA;
       case BloodPressureType.hypertensionStage1:
-        return TranslationConstants.sysAndDIA;
+        return AppLocalization.current.sysAndDIA;
       case BloodPressureType.hypertensionStage2:
-        return TranslationConstants.sysAndDIA;
+        return AppLocalization.current.sysAndDIA;
       case BloodPressureType.hypertensionCrisis:
-        return TranslationConstants.sysAndDIA;
+        return AppLocalization.current.sysAndDIA;
     }
   }
 
   String get message {
     switch (this) {
       case BloodPressureType.hypotension:
-        return TranslationConstants.hypotensionMessage;
+        return AppLocalization.current.hypotensionMessage;
       case BloodPressureType.normal:
-        return TranslationConstants.normalMessage;
+        return AppLocalization.current.normalMessage;
       case BloodPressureType.elevated:
-        return TranslationConstants.elevatedMessage;
+        return AppLocalization.current.elevatedMessage;
       case BloodPressureType.hypertensionStage1:
-        return TranslationConstants.hypertensionStage1Message;
+        return AppLocalization.current.hypertensionStage1Message;
       case BloodPressureType.hypertensionStage2:
-        return TranslationConstants.hypertensionStage2Message;
+        return AppLocalization.current.hypertensionStage2Message;
       case BloodPressureType.hypertensionCrisis:
-        return TranslationConstants.hypertensionCrisisMessage;
+        return AppLocalization.current.hypertensionCrisisMessage;
     }
   }
 
