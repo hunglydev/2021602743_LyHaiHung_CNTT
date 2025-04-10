@@ -1,10 +1,18 @@
-part of '../../feature.dart';
+part of 'feature.dart';
 
 class SplashPage extends StatelessWidget {
   const SplashPage({super.key});
 
   @override
   Widget build(BuildContext context) {
+    WidgetsBinding.instance.addPostFrameCallback(
+      (timeStamp) {
+        Future.delayed(
+          const Duration(seconds: 3),
+          () => context.go(AppRoute.homePage),
+        );
+      },
+    );
     return AppScaffold(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,

@@ -98,26 +98,43 @@ TextStyle boldPrimaryTextStyle() => const TextStyle(
       fontSize: 16,
     );
 
-TextStyle boldTextStyle({Color? color}) => TextStyle(
+TextStyle boldTextStyle({Color? color, double? fontSize}) => TextStyle(
       color: color ?? AppColor.textColor,
       fontWeight: FontWeight.w600,
-      fontSize: 16,
+      fontSize: fontSize ?? 16,
     );
 
-TextStyle primaryTextStyle() => const TextStyle(
+TextStyle primaryTextStyle({double? fontSize}) => TextStyle(
       color: AppColor.primaryColor,
       fontWeight: FontWeight.w500,
-      fontSize: 14,
+      fontSize: fontSize ?? 14,
     );
 
-TextStyle normalTextStyle() => const TextStyle(
-      color: AppColor.textColor,
+TextStyle normalTextStyle({
+  double? fontSize,
+  Color? color,
+}) =>
+    TextStyle(
+      color: color ?? AppColor.textColor,
       fontWeight: FontWeight.w500,
-      fontSize: 14,
+      fontSize: fontSize ?? 14,
     );
 
-TextStyle subTextColor() => const TextStyle(
-      color: AppColor.grayText,
+TextStyle subTextColor({Color? color, double? fontSize}) => TextStyle(
+      color: color ?? AppColor.grayText,
       fontWeight: FontWeight.w400,
-      fontSize: 12,
+      fontSize: fontSize ?? 12,
     );
+BoxDecoration commonDecoration() {
+  return BoxDecoration(
+    color: AppColor.white,
+    borderRadius: BorderRadius.circular(10.0),
+    boxShadow: const [
+      BoxShadow(
+        color: Color(0x40000000),
+        offset: Offset(0, 0),
+        blurRadius: 10.0,
+      ),
+    ],
+  );
+}

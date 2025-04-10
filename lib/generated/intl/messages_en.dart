@@ -140,7 +140,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "descriptionSub1": MessageLookupByLibrary.simpleMessage(
       "Subscription description 1",
     ),
-    "diastolic": MessageLookupByLibrary.simpleMessage("Diastolic Pressure"),
+    "diastolic": MessageLookupByLibrary.simpleMessage("Diastolic"),
     "duringFastingCode": MessageLookupByLibrary.simpleMessage(
       "During Fasting Code",
     ),
@@ -312,7 +312,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Subscribe to Premium",
     ),
     "sysAndDIA": MessageLookupByLibrary.simpleMessage("Systolic and Diastolic"),
-    "systolic": MessageLookupByLibrary.simpleMessage("Systolic Pressure"),
+    "systolic": MessageLookupByLibrary.simpleMessage("Systolic"),
     "systolicRangeOrDiastolicRange": MessageLookupByLibrary.simpleMessage(
       "Systolic or Diastolic Range",
     ),

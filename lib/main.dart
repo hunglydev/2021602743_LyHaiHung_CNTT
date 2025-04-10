@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:hunglydev_datn/core/constant/src/app_router.dart';
-import 'package:hunglydev_datn/features/feature.dart';
 import 'package:hunglydev_datn/generated/l10n.dart';
 
 void main() {

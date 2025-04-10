@@ -1,4 +1,4 @@
-part of '../../feature.dart';
+part of 'feature.dart';
 
 class MainPage extends StatelessWidget {
   final StatefulNavigationShell statefulNavigationShell;
@@ -19,9 +19,29 @@ class MainPage extends StatelessWidget {
               type: BottomNavigationBarType.fixed,
               backgroundColor: AppColor.red,
               onTap: (value) {
-                // Ensure that the correct route is navigated when the tab is tapped
-                statefulNavigationShell.goBranch(value);
-                context.read<MainBloc>().add(ChangeTabIndexEvent(index: value));
+                // Điều hướng giữa các nhánh
+                // statefulNavigationShell.goBranch(value);
+                //
+                // switch (value) {
+                //   case 0:
+                //     context.go(AppRoute.homePage); // Đi đến HomePage
+                //     break;
+                //   case 1:
+                //     context.go(AppRoute.insightPage); // Đi đến InsightPage
+                //     break;
+                //   case 2:
+                //     context.go(AppRoute.alarmPage); // Đi đến AlarmPage
+                //     break;
+                //   default:
+                //     break;
+                // }
+                //
+                // context.read<MainBloc>().add(ChangeTabIndexEvent(index: value));
+                if (statefulNavigationShell.currentIndex != value) {
+                  statefulNavigationShell.goBranch(value);
+                } else {
+                  statefulNavigationShell.goBranch(value, initialLocation: true);
+                }
               },
               currentIndex: statefulNavigationShell.currentIndex,
               unselectedItemColor: AppColor.white.withOpacity(0.5),
@@ -61,18 +81,7 @@ class MainPage extends StatelessWidget {
                 ),
               ],
             ),
-            child: IndexedStack(
-              index: statefulNavigationShell.currentIndex,
-              children: const [
-                HomePage(),
-                Scaffold(
-                  backgroundColor: Colors.black,
-                ),
-                Scaffold(
-                  backgroundColor: Colors.green,
-                ),
-              ],
-            ),
+            child: statefulNavigationShell,
           );
         },
       ),

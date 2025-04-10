@@ -31,7 +31,7 @@ class AppHeader extends StatelessWidget {
       leading: leadingWidget ??
           (context.canPop
               ? IconButton(
-                  onPressed: () => finish,
+                  onPressed: () => finish(context),
                   icon: const Icon(
                     Icons.arrow_back_ios_new,
                   ),

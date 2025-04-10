@@ -1,4 +1,4 @@
-part of '../../feature.dart';
+part of 'feature.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -106,7 +106,9 @@ class HomePage extends StatelessWidget {
                         Expanded(
                           child: AppTouchable.common(
                             backgroundColor: const Color(0xFF97C7FF),
-                            onPressed: () {},
+                            onPressed: () {
+                              context.go(AppRoute.bloodPressurePath);
+                            },
                             padding: const EdgeInsets.symmetric(vertical: 20.0),
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
