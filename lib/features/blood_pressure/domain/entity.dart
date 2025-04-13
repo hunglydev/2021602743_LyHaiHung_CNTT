@@ -1,4 +1,5 @@
 import 'package:hunglydev_datn/features/app/data/user_model.dart';
+import 'package:hunglydev_datn/features/blood_pressure/data/models/blood_pressure.dart';
 
 class AlarmEntity {
   final String id;
@@ -12,15 +13,11 @@ class AlarmEntity {
 
 class BloodPressureEntity {
   final String key;
-  final int systolic;
-  final int diastolic;
-  final int? dateTime;
+  final BloodPressureModel bloodPressureModel;
 
   const BloodPressureEntity({
     required this.key,
-    required this.systolic,
-    required this.diastolic,
-    this.dateTime,
+    required this.bloodPressureModel,
   });
 }
 

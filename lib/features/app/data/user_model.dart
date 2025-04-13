@@ -1,17 +1,19 @@
 import 'package:hive/hive.dart';
+import 'package:hunglydev_datn/config/hive_config/hive_constant.dart';
 
+part 'user_model.g.dart';
+
+@HiveType(typeId: HiveTypeConstants.userModel)
 class UserModel extends HiveObject {
+  @HiveField(0)
   int? age;
+  @HiveField(1)
   String? genderId;
 
   UserModel({
     this.age,
     this.genderId,
   });
-
-  factory UserModel.init() {
-    return UserModel(age: 0, genderId: '');
-  }
 
   UserModel.fromJson(Map<String, dynamic> json) {
     age = json['age'] as int?;
@@ -23,5 +25,12 @@ class UserModel extends HiveObject {
     json['age'] = age;
     json['genderId'] = genderId;
     return json;
+  }
+
+  factory UserModel.init() {
+    return UserModel(
+      genderId: '',
+      age: 0,
+    );
   }
 }

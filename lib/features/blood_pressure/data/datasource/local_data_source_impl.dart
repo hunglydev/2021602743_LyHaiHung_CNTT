@@ -1,7 +1,15 @@
+import 'package:hive_flutter/hive_flutter.dart';
+import 'package:hunglydev_datn/config/hive_config/hive_config.dart';
 import 'package:hunglydev_datn/features/blood_pressure/data/datasource/local_data_source.dart';
 import 'package:hunglydev_datn/features/blood_pressure/domain/entity.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class LocalDataSourceImpl implements LocalDataSource {
+  final HiveConfig _hiveConfig;
+  final SharedPreferences _sharePreferenceUtils;
+
+  LocalDataSourceImpl(this._hiveConfig, this._sharePreferenceUtils);
+
   @override
   Future<void> addAlarm(AlarmEntity alarm) {
     // TODO: implement addAlarm

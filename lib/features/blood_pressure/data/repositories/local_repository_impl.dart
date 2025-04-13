@@ -1,5 +1,5 @@
 import 'package:hunglydev_datn/features/blood_pressure/domain/entity.dart';
-import 'package:hunglydev_datn/features/blood_pressure/domain/repository.dart';
+import 'package:hunglydev_datn/features/blood_pressure/domain/local_repository.dart';
 
 class LocalRepositoryImplement implements LocalRepository {
   @override

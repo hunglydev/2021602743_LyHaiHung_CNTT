@@ -23,5 +23,4 @@ abstract class LocalRepository {
   // Other preference methods
   Future<bool> setWeightUnitId(int id);
   int? getWeightUnitId();
-// ... other preference methods
 }
