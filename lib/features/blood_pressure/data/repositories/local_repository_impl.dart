@@ -1,7 +1,11 @@
+import 'package:hunglydev_datn/features/blood_pressure/data/datasource/local_data_source.dart';
 import 'package:hunglydev_datn/features/blood_pressure/domain/entity.dart';
 import 'package:hunglydev_datn/features/blood_pressure/domain/local_repository.dart';
 
 class LocalRepositoryImplement implements LocalRepository {
+  final LocalDataSource _dataSource;
+  const LocalRepositoryImplement(this._dataSource);
+
   @override
   Future<void> addAlarm(AlarmEntity alarm) {
     // TODO: implement addAlarm

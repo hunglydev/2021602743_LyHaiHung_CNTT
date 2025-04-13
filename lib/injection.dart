@@ -1,5 +1,4 @@
 import 'package:get_it/get_it.dart';
-import 'package:hive_flutter/adapters.dart';
 import 'package:hunglydev_datn/config/hive_config/hive_config.dart';
 import 'package:hunglydev_datn/features/blood_pressure/data/datasource/local_data_source.dart';
 import 'package:hunglydev_datn/features/blood_pressure/data/datasource/local_data_source_impl.dart';
@@ -21,6 +20,8 @@ Future<void> init() async {
   sl.registerLazySingleton<LocalDataSource>(() => LocalDataSourceImpl(HiveConfig(), sharedPreferences));
 
   // Repository
-  sl.registerLazySingleton<LocalRepository>(() => LocalRepositoryImplement());
+  sl.registerLazySingleton<LocalRepository>(
+    () => LocalRepositoryImplement(sl<LocalDataSource>()),
+  );
   // External
 }

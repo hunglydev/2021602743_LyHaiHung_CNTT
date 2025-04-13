@@ -1,5 +1,6 @@
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:hunglydev_datn/config/hive_config/hive_config.dart';
+import 'package:hunglydev_datn/config/hive_config/hive_constant.dart';
 import 'package:hunglydev_datn/features/blood_pressure/data/datasource/local_data_source.dart';
 import 'package:hunglydev_datn/features/blood_pressure/domain/entity.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -11,33 +12,24 @@ class LocalDataSourceImpl implements LocalDataSource {
   LocalDataSourceImpl(this._hiveConfig, this._sharePreferenceUtils);
 
   @override
-  Future<void> addAlarm(AlarmEntity alarm) {
-    // TODO: implement addAlarm
-    throw UnimplementedError();
+  Future<void> addAlarm(AlarmEntity alarm) async {
+    // return _hiveConfig.alarmBox.add(alarmModel);
   }
 
   @override
-  Future<void> deleteBMI(String key) {
-    // TODO: implement deleteBMI
-    throw UnimplementedError();
-  }
+  Future<void> deleteBMI(String key) async {}
 
   @override
-  Future<void> deleteBloodPressure(String key) {
-    // TODO: implement deleteBloodPressure
-    throw UnimplementedError();
-  }
+  Future<void> deleteBloodPressure(String key) async {}
 
   @override
   List<BMIEntity> filterBMI(int start, int end) {
-    // TODO: implement filterBMI
-    throw UnimplementedError();
+    return [];
   }
 
   @override
   List<BloodPressureEntity> filterBloodPressureDate(int start, int end) {
-    // TODO: implement filterBloodPressureDate
-    throw UnimplementedError();
+    return [];
   }
 
   @override
@@ -89,9 +81,8 @@ class LocalDataSourceImpl implements LocalDataSource {
   }
 
   @override
-  Future<void> saveUser(UserEntity user) {
-    // TODO: implement saveUser
-    throw UnimplementedError();
+  Future<void> saveUser(UserEntity user) async {
+    _hiveConfig.userBox.put(HiveKey.userModel, user.userModel);
   }
 
   @override
