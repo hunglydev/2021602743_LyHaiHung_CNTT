@@ -15,7 +15,7 @@ class AlarmAddDataButton extends StatelessWidget {
     return Row(
       children: [
         Expanded(
-          child: AppTouchable.common(
+          child: AppButton(
             onPressed: () {
               onSetAlarm.call();
             },

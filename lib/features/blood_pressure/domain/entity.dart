@@ -12,11 +12,9 @@ class AlarmEntity {
 }
 
 class BloodPressureEntity {
-  final String key;
   final BloodPressureModel bloodPressureModel;
 
   const BloodPressureEntity({
-    required this.key,
     required this.bloodPressureModel,
   });
 }
@@ -37,5 +35,33 @@ class UserEntity {
   final UserModel userModel;
   const UserEntity({
     required this.userModel,
+  });
+}
+
+class BloodPressureRangeEntity {
+  final int sysMin;
+  final int sysMax;
+  final int diaMin;
+  final int diaMax;
+
+  const BloodPressureRangeEntity({
+    this.sysMin = 0,
+    this.sysMax = 0,
+    this.diaMin = 0,
+    this.diaMax = 0,
+  });
+}
+
+class ChartSelectionEntity {
+  final int groupIndex;
+  final int xValue;
+  final DateTime? minDate;
+  final DateTime? maxDate;
+
+  const ChartSelectionEntity({
+    this.groupIndex = 0,
+    this.xValue = 0,
+    this.minDate,
+    this.maxDate,
   });
 }

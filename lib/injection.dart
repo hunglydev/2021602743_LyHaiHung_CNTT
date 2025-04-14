@@ -1,4 +1,5 @@
 import 'package:get_it/get_it.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:hunglydev_datn/config/hive_config/hive_config.dart';
 import 'package:hunglydev_datn/features/blood_pressure/data/datasource/local_data_source.dart';
 import 'package:hunglydev_datn/features/blood_pressure/data/datasource/local_data_source_impl.dart';
@@ -9,6 +10,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 final sl = GetIt.instance;
 
 Future<void> init() async {
+  await Hive.initFlutter();
   final sharedPreferences = await SharedPreferences.getInstance();
   sl.registerLazySingleton(() => sharedPreferences);
   // sl.registerLazySingleton<HiveInterface>(() => HiveInterface());

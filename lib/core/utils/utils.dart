@@ -138,3 +138,15 @@ BoxDecoration commonDecoration() {
     ],
   );
 }
+
+bool isEmpty(dynamic val) {
+  if (val is List) {
+    if (val.isEmpty) return true;
+    return false;
+  }
+  if (val is String) {
+    if (val.isEmpty) return true;
+    return false;
+  }
+  return true;
+}

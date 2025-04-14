@@ -18,72 +18,86 @@ class BloodPressurePage extends StatelessWidget {
       // appController.setAllowBloodPressureFirstTime(false);
     }
 
-    return AppScaffold(
-      child: Column(
-        children: [
-          AppHeader(
-            titleText: AppLocalization.of(context).bloodPressure,
-          ),
-          Expanded(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 12),
-              child: Column(
-                children: [
-                  const Expanded(
-                      child: SingleChildScrollView(
-                    physics: NeverScrollableScrollPhysics(),
-                    child: BloodPressureDataWidget(),
-                  )),
-                  AlarmAddDataButton(
-                    onSetAlarm: () {},
-                    onAddData: onAddData,
-                  ),
-                  const SizedBox(
-                    height: 12.0,
-                  ),
-                  AppTouchable.common(
-                    onPressed: () {},
-                    padding: const EdgeInsets.symmetric(
-                      vertical: 16.0,
+    return BlocProvider(
+      create: (context) => BloodPressureBloc(),
+      child: AppScaffold(
+        child: Column(
+          children: [
+            AppHeader(
+              extendWidget: FilterDateWidget(startDate: DateTime.now(), endDate: DateTime.now()),
+            ),
+            Expanded(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 12),
+                child: Column(
+                  children: [
+                    BlocBuilder<BloodPressureBloc, BloodPressureState>(
+                      builder: (context, state) {
+                        return Expanded(
+                          child: !isEmpty(state.bloodPressures)
+                              ? const SingleChildScrollView(
+                                  physics: NeverScrollableScrollPhysics(),
+                                  child: BloodPressureDataWidget(),
+                                )
+                              : EmptyWidget(
+                                  imagePath: AppImage.icBloodPressure2,
+                                  imageHeight: 168,
+                                  message: AppLocalization.of(context).addYourRecordToSeeStatistics,
+                                ),
+                        );
+                      },
                     ),
-                    backgroundColor: AppColor.green,
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        FittedBox(
-                          fit: BoxFit.scaleDown,
-                          child: false
-                              ? const SizedBox(
-                                  width: 20.0,
-                                  height: 20.0,
-                                  child: Center(
-                                    child: CircularProgressIndicator(
-                                      color: Colors.white,
-                                      strokeCap: StrokeCap.round,
-                                      strokeWidth: 3.0,
+                    AlarmAddDataButton(
+                      onSetAlarm: () {},
+                      onAddData: onAddData,
+                    ),
+                    const SizedBox(
+                      height: 12.0,
+                    ),
+                    AppTouchable.common(
+                      onPressed: () {},
+                      padding: const EdgeInsets.symmetric(
+                        vertical: 16.0,
+                      ),
+                      backgroundColor: AppColor.green,
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          FittedBox(
+                            fit: BoxFit.scaleDown,
+                            child: false
+                                ? const SizedBox(
+                                    width: 20.0,
+                                    height: 20.0,
+                                    child: Center(
+                                      child: CircularProgressIndicator(
+                                        color: Colors.white,
+                                        strokeCap: StrokeCap.round,
+                                        strokeWidth: 3.0,
+                                      ),
+                                    ),
+                                  )
+                                : Text(
+                                    AppLocalization.of(context).export,
+                                    textAlign: TextAlign.center,
+                                    style: boldTextStyle(
+                                      color: AppColor.white,
                                     ),
                                   ),
-                                )
-                              : Text(
-                                  AppLocalization.of(context).export,
-                                  textAlign: TextAlign.center,
-                                  style: boldTextStyle(
-                                    color: AppColor.white,
-                                  ),
-                                ),
-                        ),
-                      ],
+                          ),
+                        ],
+                      ),
                     ),
-                  ),
-                  SizedBox(
-                    height: MediaQuery.of(context).padding.bottom + 12,
-                  ),
-                ],
+                    SizedBox(
+                      height: MediaQuery.of(context).padding.bottom + 12,
+                    ),
+                  ],
+                ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

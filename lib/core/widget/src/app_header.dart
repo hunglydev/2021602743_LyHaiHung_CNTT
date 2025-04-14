@@ -8,6 +8,8 @@ class AppHeader extends StatelessWidget {
   final Widget? leadingWidget;
   final List<Widget>? action;
   final double? leadingWidth;
+  final Widget? extendWidget;
+
   const AppHeader({
     super.key,
     this.titleText = '',
@@ -17,28 +19,35 @@ class AppHeader extends StatelessWidget {
     this.leadingWidget,
     this.action,
     this.leadingWidth,
+    this.extendWidget,
   });
   @override
   Widget build(BuildContext context) {
-    return AppBar(
-      title: titleWidget ??
-          Text(
-            titleText,
-            style: boldTextStyle(),
-          ),
-      backgroundColor: backgroundColor ?? AppColor.whiteBG,
-      centerTitle: centerTitle,
-      leading: leadingWidget ??
-          (context.canPop
-              ? IconButton(
-                  onPressed: () => finish(context),
-                  icon: const Icon(
-                    Icons.arrow_back_ios_new,
-                  ),
-                )
-              : const SizedBox.shrink()),
-      leadingWidth: leadingWidth ?? 40,
-      actions: action,
+    return Column(
+      children: [
+        AppBar(
+          title: titleWidget ??
+              Text(
+                titleText,
+                style: boldTextStyle(),
+              ),
+          backgroundColor: backgroundColor ?? AppColor.whiteBG,
+          centerTitle: centerTitle,
+          leading: leadingWidget ??
+              (context.canPop
+                  ? IconButton(
+                      onPressed: () => finish(context),
+                      icon: const Icon(
+                        Icons.arrow_back_ios_new,
+                      ),
+                    )
+                  : const SizedBox.shrink()),
+          leadingWidth: leadingWidth ?? 40,
+          actions: action,
+        ),
+        4.height,
+        extendWidget ?? const SizedBox.shrink(),
+      ],
     );
   }
 }
