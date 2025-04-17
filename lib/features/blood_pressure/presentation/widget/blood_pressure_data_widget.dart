@@ -69,8 +69,8 @@ class BloodPressureDataWidget extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  Text('{cont}', style: boldTextStyle()),
-                  Text('{controller}', style: boldTextStyle()),
+                  Text('', style: boldTextStyle()),
+                  Text('', style: boldTextStyle()),
                 ],
               ),
               Column(
@@ -85,7 +85,7 @@ class BloodPressureDataWidget extends StatelessWidget {
                       ),
                     ),
                     padding: const EdgeInsets.all(8),
-                    child: Text('controller.name', style: boldTextStyle()),
+                    child: Text('', style: boldTextStyle()),
                   ),
                   AppTouchable(
                     width: 40.0,

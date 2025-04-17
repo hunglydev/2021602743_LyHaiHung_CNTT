@@ -45,7 +45,7 @@ class AddBloodPressurePage extends StatelessWidget {
                         horizontal: 12,
                       ),
                       child: Text(
-                        ' controller',
+                        date(state.stringBloodPrDate),
                         style: normalTextStyle(),
                       ),
                     ),
@@ -58,7 +58,7 @@ class AddBloodPressurePage extends StatelessWidget {
                         horizontal: 12,
                       ),
                       child: Text(
-                        'controller.sƯ',
+                        date(state.stringBloodPrTime, isShowTime: true),
                         style: normalTextStyle(),
                       ),
                     ),
@@ -73,7 +73,7 @@ class AddBloodPressurePage extends StatelessWidget {
                       child: ScrollBloodPressureValueWidget(
                           title: AppLocalization.of(context).systolic,
                           childCount: 281,
-                          initItem: 20,
+                          initItem: state.systolic,
                           onSelectedItemChanged: (p0) {
                             context.read<AddBloodPressureBloc>().add(SelectSysEvent(newSys: p0));
                           },
@@ -95,7 +95,7 @@ class AddBloodPressurePage extends StatelessWidget {
                       child: ScrollBloodPressureValueWidget(
                           title: AppLocalization.of(context).diastolic,
                           childCount: 281,
-                          initItem: 20,
+                          initItem: state.diastolic,
                           onSelectedItemChanged: (p0) {
                             context.read<AddBloodPressureBloc>().add(SelectDiastolicEvent(newDiastolic: p0));
                           },
@@ -116,7 +116,7 @@ class AddBloodPressurePage extends StatelessWidget {
                     Expanded(
                       child: ScrollBloodPressureValueWidget(
                         title: AppLocalization.of(context).pulse,
-                        initItem: 20,
+                        initItem: state.pulse,
                         childCount: 181,
                         onSelectedItemChanged: (p0) {
                           context.read<AddBloodPressureBloc>().add(SelectPulseEvent(newPulse: p0));
@@ -143,9 +143,9 @@ class AddBloodPressurePage extends StatelessWidget {
                 ),
                 Container(
                   width: double.maxFinite,
-                  decoration: const BoxDecoration(
-                    color: Color(0xffcccccc),
-                    borderRadius: BorderRadius.all(
+                  decoration: BoxDecoration(
+                    color: state.bloodPressureType.color,
+                    borderRadius: const BorderRadius.all(
                       Radius.circular(8),
                     ),
                   ),
@@ -153,7 +153,7 @@ class AddBloodPressurePage extends StatelessWidget {
                   child: FittedBox(
                     fit: BoxFit.scaleDown,
                     child: Text(
-                      ' controller.',
+                      state.bloodPressureType.name,
                       style: boldTextStyle(color: AppColor.white),
                     ),
                   ),
@@ -175,7 +175,7 @@ class AddBloodPressurePage extends StatelessWidget {
                       Flexible(
                         child: FittedBox(
                             child: Text(
-                          ' controller.bl',
+                          state.bloodPressureType.sortMessageRange,
                           style: subTextColor(),
                           textAlign: TextAlign.center,
                         )),
@@ -194,7 +194,7 @@ class AddBloodPressurePage extends StatelessWidget {
                 ),
                 Flexible(
                   child: Text(
-                    'controllge',
+                    state.bloodPressureType.message,
                     style: subTextColor(
                       color: AppColor.black,
                     ),
@@ -213,13 +213,12 @@ class AddBloodPressurePage extends StatelessWidget {
                             child: Column(
                               mainAxisSize: MainAxisSize.min,
                               children: [
-                                // controller.bloodPressureType.value == e
-                                false
-                                    ? const CachedImageWidget(
+                                state.bloodPressureType == e
+                                    ? CachedImageWidget(
                                         url: AppImage.icDown,
                                         width: 20.0,
                                         height: 12,
-                                        // color: controller.bloodPressureType.value.color,
+                                        color: state.bloodPressureType.color,
                                       )
                                     : const SizedBox(
                                         height: 12,

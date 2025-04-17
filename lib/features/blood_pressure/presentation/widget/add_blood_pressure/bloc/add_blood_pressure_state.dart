@@ -59,3 +59,16 @@ class AddBloodPressureState extends Equatable {
         bloodPressure,
       ];
 }
+
+class AddBloodPressureInitial extends AddBloodPressureState {
+  const AddBloodPressureInitial()
+      : super(
+          stringBloodPrDate: '',
+          stringBloodPrTime: '',
+          bloodPressureType: BloodPressureType.normal,
+          systolic: 100,
+          diastolic: 70,
+          pulse: 40,
+          loadingState: LoadingState.pure,
+        );
+}

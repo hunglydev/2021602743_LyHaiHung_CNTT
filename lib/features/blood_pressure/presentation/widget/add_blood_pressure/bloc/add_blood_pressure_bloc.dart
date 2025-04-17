@@ -8,7 +8,7 @@ part 'add_blood_pressure_event.dart';
 part 'add_blood_pressure_state.dart';
 
 class AddBloodPressureBloc extends Bloc<AddBloodPressureEvent, AddBloodPressureState> {
-  AddBloodPressureBloc() : super(const AddBloodPressureState()) {
+  AddBloodPressureBloc() : super(const AddBloodPressureInitial()) {
     on<SelectSysEvent>(_onSelectSysEvent);
     on<SelectDiastolicEvent>(_onSelectDiastolicEvent);
     on<SelectPulseEvent>(_onSelectPulseEvent);
@@ -16,15 +16,16 @@ class AddBloodPressureBloc extends Bloc<AddBloodPressureEvent, AddBloodPressureS
   void _onSelectSysEvent(SelectSysEvent event, Emitter<AddBloodPressureState> emit) {
     final sys = event.newSys;
     BloodPressureType bloodPressureType;
-    if (sys < 70) {
+
+    if (sys < 90) {
       bloodPressureType = BloodPressureType.hypotension;
-    } else if ((sys >= 70 && sys <= 99)) {
+    } else if (sys >= 90 && sys <= 119) {
       bloodPressureType = BloodPressureType.normal;
-    } else if ((sys >= 100 && sys <= 109)) {
+    } else if (sys >= 120 && sys <= 129) {
       bloodPressureType = BloodPressureType.elevated;
-    } else if ((sys >= 110 && sys <= 119)) {
+    } else if (sys >= 130 && sys <= 139) {
       bloodPressureType = BloodPressureType.hypertensionStage1;
-    } else if ((sys >= 120 && sys <= 160)) {
+    } else if (sys >= 140 && sys <= 180) {
       bloodPressureType = BloodPressureType.hypertensionStage2;
     } else {
       bloodPressureType = BloodPressureType.hypertensionCrisis;
@@ -38,19 +39,19 @@ class AddBloodPressureBloc extends Bloc<AddBloodPressureEvent, AddBloodPressureS
   void _onSelectDiastolicEvent(SelectDiastolicEvent event, Emitter<AddBloodPressureState> emit) {
     final dia = event.newDiastolic;
     BloodPressureType bloodPressureType = state.bloodPressureType;
-    if (dia < 40) {
+
+    if (dia < 60) {
       bloodPressureType = BloodPressureType.hypotension;
-    } else if ((dia >= 40 && dia <= 59)) {
+    } else if (dia >= 60 && dia <= 79) {
       final sys = state.systolic;
-      if ((sys >= 70 && sys <= 99)) {
+      if (sys >= 90 && sys <= 119) {
         bloodPressureType = BloodPressureType.normal;
-      }
-      if ((sys >= 100 && sys <= 119)) {
+      } else if (sys >= 120 && sys <= 129) {
         bloodPressureType = BloodPressureType.elevated;
       }
-    } else if ((dia >= 60 && dia <= 69)) {
+    } else if (dia >= 80 && dia <= 89) {
       bloodPressureType = BloodPressureType.hypertensionStage1;
-    } else if ((dia >= 70 && dia <= 120)) {
+    } else if (dia >= 90 && dia <= 120) {
       bloodPressureType = BloodPressureType.hypertensionStage2;
     } else {
       bloodPressureType = BloodPressureType.hypertensionCrisis;

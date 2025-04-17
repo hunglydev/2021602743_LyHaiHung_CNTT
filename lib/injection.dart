@@ -5,6 +5,7 @@ import 'package:hunglydev_datn/features/blood_pressure/data/datasource/local_dat
 import 'package:hunglydev_datn/features/blood_pressure/data/datasource/local_data_source_impl.dart';
 import 'package:hunglydev_datn/features/blood_pressure/data/repositories/local_repository_impl.dart';
 import 'package:hunglydev_datn/features/blood_pressure/domain/local_repository.dart';
+import 'package:hunglydev_datn/features/blood_pressure/domain/usecase.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 final sl = GetIt.instance;
@@ -17,6 +18,7 @@ Future<void> init() async {
   // Blocs
 
   // Use cases
+  sl.registerLazySingleton(() => FilterBloodPressuresByDateUseCase(sl()));
 
   //data_source
   sl.registerLazySingleton<LocalDataSource>(() => LocalDataSourceImpl(HiveConfig(), sharedPreferences));

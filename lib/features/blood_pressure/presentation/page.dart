@@ -12,6 +12,7 @@ class BloodPressurePage extends StatelessWidget {
         "",
         builder: (ctx) => const AddBloodPressurePage(),
       );
+      print('-------------- result: $result');
       if (result != null && result) {
         // filterBloodPressure();
       }

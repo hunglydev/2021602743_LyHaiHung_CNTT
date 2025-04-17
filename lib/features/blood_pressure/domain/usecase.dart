@@ -31,10 +31,10 @@ class GetBloodPressures {
   }
 }
 
-class FilterBloodPressuresByDate {
+class FilterBloodPressuresByDateUseCase {
   final LocalRepository repository;
 
-  FilterBloodPressuresByDate(this.repository);
+  FilterBloodPressuresByDateUseCase(this.repository);
 
   List<BloodPressureEntity> call(int start, int end) {
     return repository.filterBloodPressureDate(start, end);

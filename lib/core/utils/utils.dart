@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:ffi';
 import 'dart:io';
 
 import 'package:csv/csv.dart';
@@ -6,6 +7,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:hunglydev_datn/core/constant/constant.dart';
+import 'package:intl/intl.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:share_plus/share_plus.dart';
 
@@ -139,18 +141,61 @@ BoxDecoration commonDecoration() {
   );
 }
 
-bool isEmpty(dynamic val) {
+bool isEmpty(dynamic val, {bool allowZero = false}) {
   if (val == null) {
     return true;
   } else {
     if (val is List) {
       if (val.isEmpty) return true;
       return false;
-    }
-    if (val is String) {
-      if (val.isEmpty) return true;
+    } else if (val is String || val is int) {
+      if (val.toString().isEmpty) return true;
+      if (val.toString() == '0') {
+        return !allowZero;
+      }
       return false;
     }
+
     return true;
   }
+}
+
+String date(
+  dynamic dateTime, {
+  String? dateFormat,
+  bool containTime = false,
+  bool isShowTime = false,
+  String? timeFormat,
+}) {
+  DateTime dt;
+  if (isEmpty(dateTime)) {
+    dt = DateTime.now();
+  } else {
+    if (dateTime is int) {
+      dt = DateTime.fromMillisecondsSinceEpoch(dateTime * 1000);
+    } else if (dateTime is String) {
+      try {
+        dt = DateTime.parse(dateTime);
+      } catch (e) {
+        return 'Invalid date string';
+      }
+    } else if (dateTime is DateTime) {
+      dt = dateTime;
+    } else {
+      return 'Unsupported format';
+    }
+  }
+
+  String result = DateFormat(dateFormat ?? 'dd/MM/yyyy').format(dt);
+
+  // Format thêm giờ nếu isTime = true
+  String time = DateFormat(timeFormat ?? 'HH:mm').format(dt);
+  if (containTime) {
+    result += ' $time';
+  }
+  if (isShowTime) {
+    result = time;
+  }
+
+  return result;
 }
