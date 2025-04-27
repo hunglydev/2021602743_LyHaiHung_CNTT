@@ -1,40 +1,78 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:hunglydev_datn/core/constant/src/app_router.dart';
-import 'package:hunglydev_datn/features/app/presentation/bloc/app_bloc.dart';
-import 'package:hunglydev_datn/generated/l10n.dart';
-import 'package:hunglydev_datn/injection.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
+import 'package:timezone/data/latest_all.dart' as tz;
 
-void main() async {
+import 'common/config/hive_config/hive_config.dart';
+import 'common/constants/app_constant.dart';
+import 'common/constants/app_route.dart';
+import 'common/injector/app_di.dart';
+import 'common/injector/binding/app_binding.dart';
+import 'common/util/app_notification_local.dart';
+import 'common/util/share_preference_utils.dart';
+import 'common/util/translation/app_translation.dart';
+import 'presentation/app_page.dart';
+
+late AndroidNotificationChannel channel;
+
+late FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin;
+
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await init();
-  runApp(const MyApp());
-}
+  configDI();
+  final hiveConfig = getIt<HiveConfig>();
+  await hiveConfig.init();
+  await getIt<SharePreferenceUtils>().init();
+  AppNotificationLocal.initNotificationLocal();
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  tz.initializeTimeZones();
 
-  @override
-  Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => AppBloc(),
-      child: MaterialApp.router(
-        routerConfig: AppRoute.router,
-        localizationsDelegates: const [
-          AppLocalization.delegate,
-          GlobalMaterialLocalizations.delegate,
-          GlobalCupertinoLocalizations.delegate,
-          GlobalWidgetsLocalizations.delegate,
-        ],
-        supportedLocales: AppLocalization.delegate.supportedLocales,
-        title: 'Flutter Demo',
-        theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-          useMaterial3: true,
-        ),
+  SystemChrome.setSystemUIOverlayStyle(
+    const SystemUiOverlayStyle(
+      statusBarColor: Colors.transparent,
+      statusBarIconBrightness: Brightness.dark,
+      statusBarBrightness: Brightness.light,
+    ),
+  );
+
+  runApp(
+    ScreenUtilInit(
+      designSize: const Size(414, 736),
+      builder: (context, widget) => GetMaterialApp(
         debugShowCheckedModeBanner: false,
+        initialBinding: AppBinding(),
+        initialRoute: AppRoute.splashScreen,
+        defaultTransition: Transition.fade,
+        getPages: AppPage.pages,
+        localizationsDelegates: const [
+          GlobalMaterialLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
+          GlobalCupertinoLocalizations.delegate,
+        ],
+        translations: AppTranslation(),
+        supportedLocales: AppConstant.availableLocales,
+        locale: AppConstant.availableLocales[1],
+        fallbackLocale: AppConstant.availableLocales[0],
+        theme: ThemeData(
+          primaryColor: Colors.white,
+          iconButtonTheme: IconButtonThemeData(
+            style: ButtonStyle(
+              iconColor: WidgetStateProperty.resolveWith<Color>(
+                (states) {
+                  return Colors.white;
+                },
+              ),
+            ),
+          ),
+          fontFamily: 'Poppins',
+          textSelectionTheme: const TextSelectionThemeData(
+            selectionHandleColor: Colors.transparent,
+          ),
+        ),
       ),
-    );
-  }
+    ),
+  );
 }
