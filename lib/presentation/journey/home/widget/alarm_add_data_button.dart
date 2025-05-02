@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get.dart';
+import 'package:hunglydev_datn/generated/l10n.dart';
 
 import '../../../../common/constants/app_image.dart';
-import '../../../../common/util/translation/app_translation.dart';
 import '../../../theme/app_color.dart';
 import '../../../theme/theme_text.dart';
 import '../../../widget/app_image_widget.dart';
@@ -45,7 +44,7 @@ class AlarmAddDataButton extends StatelessWidget {
                   width: 4.0.sp,
                 ),
                 Text(
-                  TranslationConstants.setAlarm.tr,
+                  AppLocalization.of(context).setAlarm,
                   style: textStyle18700().copyWith(
                     fontWeight: FontWeight.w600,
                     fontSize: 16.0.sp,
@@ -65,7 +64,7 @@ class AlarmAddDataButton extends StatelessWidget {
             ),
             backgroundColor: AppColor.primaryColor,
             child: Text(
-              '+ ${TranslationConstants.addData.tr}',
+              '+ ${AppLocalization.of(context).addData}',
               style: textStyle18700().copyWith(
                 fontWeight: FontWeight.w600,
                 fontSize: 16.0.sp,

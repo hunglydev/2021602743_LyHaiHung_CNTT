@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:hunglydev_datn/generated/l10n.dart';
 
 import '../../../../common/util/app_util.dart';
-import '../../../../common/util/translation/app_translation.dart';
 import '../../../theme/app_color.dart';
 import '../../../theme/theme_text.dart';
 import '../../../widget/app_dialog.dart';
@@ -83,11 +83,11 @@ class AddDataDialog extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AppDialog(
-      firstButtonText: isEdit ? TranslationConstants.save.tr : TranslationConstants.add.tr,
+      firstButtonText: isEdit ? AppLocalization.current.save : AppLocalization.current.add,
       firstButtonCallback: () {
         firstButtonOnPressed?.call() ?? Get.back;
       },
-      secondButtonText: TranslationConstants.cancel.tr,
+      secondButtonText: AppLocalization.current.cancel,
       hasScroll: hasScroll,
       secondButtonCallback: () {
         secondButtonOnPressed?.call() ?? Get.back;

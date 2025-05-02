@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:hunglydev_datn/generated/l10n.dart';
 
-import '../../../../common/util/translation/app_translation.dart';
 import '../../../../domain/enum/alarm_type.dart';
 import '../../../../domain/model/alarm_model.dart';
 import '../../../theme/app_color.dart';
@@ -88,7 +88,7 @@ class AlarmDialog extends GetView<AlarmDialogController> {
                   ),
                   radius: 10.0.sp,
                   child: Text(
-                    TranslationConstants.cancel.tr,
+                    AppLocalization.of(context).cancel,
                     textAlign: TextAlign.center,
                     style: textStyle24700().copyWith(
                       fontWeight: FontWeight.w500,
@@ -115,7 +115,7 @@ class AlarmDialog extends GetView<AlarmDialogController> {
                     vertical: 12.0.sp,
                   ),
                   child: Text(
-                    TranslationConstants.save.tr,
+                    AppLocalization.of(context).save,
                     textAlign: TextAlign.center,
                     style: textStyle24700().copyWith(
                       fontWeight: FontWeight.w500,

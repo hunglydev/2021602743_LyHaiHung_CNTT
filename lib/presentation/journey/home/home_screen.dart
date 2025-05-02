@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:hunglydev_datn/generated/l10n.dart';
 import 'package:lottie/lottie.dart';
 
 import '../../../common/constants/app_image.dart';
 import '../../../common/util/disable_glow_behavior.dart';
-import '../../../common/util/translation/app_translation.dart';
 import '../../theme/app_color.dart';
 import '../../theme/theme_text.dart';
 import '../../widget/app_container.dart';
@@ -37,7 +36,7 @@ class HomeScreen extends GetView<HomeController> {
       child: Column(
         children: [
           AppHeader(
-            title: TranslationConstants.bloodHealth.tr,
+            title: AppLocalization.of(context).bloodHealth,
             leftWidget: SizedBox(width: 40.0.sp),
           ),
           Expanded(
@@ -92,7 +91,7 @@ class HomeScreen extends GetView<HomeController> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Text(
-                                  TranslationConstants.heartRate.tr,
+                                  AppLocalization.of(context).heartRate,
                                   style: TextStyle(
                                     fontSize: 16.0.sp,
                                     fontWeight: FontWeight.w500,
@@ -101,7 +100,7 @@ class HomeScreen extends GetView<HomeController> {
                                 ),
                                 SizedBox(height: 10.0.sp),
                                 Text(
-                                  TranslationConstants.descriptionHeartRate.tr,
+                                  AppLocalization.of(context).descriptionHeartRate,
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
                                     fontSize: 12.0.sp,
@@ -138,7 +137,7 @@ class HomeScreen extends GetView<HomeController> {
                                       horizontal: 30.0.sp,
                                     ),
                                     child: Text(
-                                      TranslationConstants.heartRateButton.tr,
+                                      AppLocalization.of(context).heartRateButton,
                                       style: TextStyle(
                                         fontSize: 16.0.sp,
                                         fontWeight: FontWeight.w600,
@@ -171,7 +170,7 @@ class HomeScreen extends GetView<HomeController> {
                                 ),
                                 SizedBox(height: 4.0.sp),
                                 Text(
-                                  TranslationConstants.bloodPressure.tr,
+                                  AppLocalization.of(context).bloodPressure,
                                   style: textStyle18500().copyWith(
                                     color: AppColor.white,
                                     fontSize: 16.0.sp,
@@ -196,7 +195,7 @@ class HomeScreen extends GetView<HomeController> {
                                 ),
                                 SizedBox(height: 4.0.sp),
                                 Text(
-                                  TranslationConstants.weightAndBMI.tr,
+                                  AppLocalization.of(context).weightAndBMI,
                                   style: textStyle18500().copyWith(
                                     color: AppColor.white,
                                     fontSize: 16.0.sp,
@@ -225,7 +224,7 @@ class HomeScreen extends GetView<HomeController> {
                                 ),
                                 SizedBox(height: 4.0.sp),
                                 Text(
-                                  "Pedometer",
+                                  AppLocalization.of(context).pedometer,
                                   style: textStyle18500().copyWith(
                                     color: AppColor.white,
                                     fontSize: 16.0.sp,
@@ -251,7 +250,7 @@ class HomeScreen extends GetView<HomeController> {
                                 ),
                                 SizedBox(height: 4.0.sp),
                                 Text(
-                                  TranslationConstants.foodScanner.tr,
+                                  AppLocalization.of(context).foodScanner,
                                   style: textStyle18500().copyWith(
                                     color: AppColor.grayText,
                                     fontSize: 16.0.sp,

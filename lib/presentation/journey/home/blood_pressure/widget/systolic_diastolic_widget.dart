@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get.dart';
+import 'package:hunglydev_datn/generated/l10n.dart';
 
-import '../../../../../common/util/translation/app_translation.dart';
 import '../../../../theme/app_color.dart';
 import '../../../../theme/theme_text.dart';
 import '../../../../widget/container_widget.dart';
@@ -32,12 +31,12 @@ class SystolicDiastolicWidget extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           _ItemWidget(
-            title: TranslationConstants.systolic.tr,
+            title: AppLocalization.of(context).systolic,
             min: systolicMin,
             max: systolicMax,
           ),
           _ItemWidget(
-            title: TranslationConstants.diastolic.tr,
+            title: AppLocalization.of(context).diastolic,
             min: diastolicMin,
             max: diastolicMax,
           ),
@@ -83,7 +82,7 @@ class _ItemWidget extends StatelessWidget {
               children: [
                 FittedBox(
                   child: Text(
-                    TranslationConstants.min.tr,
+                    AppLocalization.of(context).min,
                     style: textStyle14400().copyWith(color: AppColor.black),
                   ),
                 ),
@@ -102,7 +101,7 @@ class _ItemWidget extends StatelessWidget {
               children: [
                 FittedBox(
                   child: Text(
-                    TranslationConstants.max.tr,
+                    AppLocalization.of(context).max,
                     style: textStyle14400().copyWith(color: AppColor.black),
                   ),
                 ),

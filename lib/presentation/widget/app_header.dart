@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:hunglydev_datn/generated/l10n.dart';
 
 import '../../common/constants/app_image.dart';
-import '../../common/util/translation/app_translation.dart';
 import '../theme/app_color.dart';
 import '../theme/theme_text.dart';
 import 'app_image_widget.dart';
@@ -169,7 +169,7 @@ class ExportButton extends StatelessWidget {
                 ),
               )
             : Text(
-                TranslationConstants.export.tr,
+                AppLocalization.of(context).export.tr,
                 style: textStyle18500().merge(
                   TextStyle(
                     color: titleColor ?? AppColor.white,

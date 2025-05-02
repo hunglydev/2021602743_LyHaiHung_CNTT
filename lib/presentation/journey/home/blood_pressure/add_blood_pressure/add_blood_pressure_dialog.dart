@@ -1,11 +1,11 @@
-import 'package:hunglydev_datn/domain/enum/blood_pressure_type.dart';
-import 'package:hunglydev_datn/presentation/journey/home/blood_pressure/add_blood_pressure/widget/scroll_blood_pressure_value_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:hunglydev_datn/domain/enum/blood_pressure_type.dart';
+import 'package:hunglydev_datn/generated/l10n.dart';
+import 'package:hunglydev_datn/presentation/journey/home/blood_pressure/add_blood_pressure/widget/scroll_blood_pressure_value_widget.dart';
 
 import '../../../../../common/constants/app_image.dart';
-import '../../../../../common/util/translation/app_translation.dart';
 import '../../../../../domain/model/blood_pressure_model.dart';
 import '../../../../theme/app_color.dart';
 import '../../../../theme/theme_text.dart';
@@ -36,9 +36,9 @@ class AddBloodPressureDialog extends GetView<AddBloodPressureController> {
     }
 
     return AppDialog(
-      firstButtonText: bloodPressureModel != null ? TranslationConstants.save.tr : TranslationConstants.add.tr,
+      firstButtonText: bloodPressureModel != null ? AppLocalization.current.save : AppLocalization.current.add,
       firstButtonCallback: () => _onAddData(),
-      secondButtonText: TranslationConstants.cancel.tr,
+      secondButtonText: AppLocalization.current.cancel,
       secondButtonCallback: () => Get.back(),
       coverScreenWidget: Obx(
         () => controller.isLoading.value ? const AppLoading() : const SizedBox(),
@@ -86,7 +86,7 @@ class AddBloodPressureDialog extends GetView<AddBloodPressureController> {
             children: [
               Expanded(
                 child: ScrollBloodPressureValueWidget(
-                    title: TranslationConstants.systolic.tr,
+                    title: AppLocalization.current.systolic,
                     childCount: 281,
                     initItem: controller.systolic.value - 20,
                     onSelectedItemChanged: controller.onSelectSys,
@@ -108,7 +108,7 @@ class AddBloodPressureDialog extends GetView<AddBloodPressureController> {
               ),
               Expanded(
                 child: ScrollBloodPressureValueWidget(
-                    title: TranslationConstants.diastolic.tr,
+                    title: AppLocalization.current.diastolic,
                     childCount: 281,
                     initItem: controller.diastolic.value - 20,
                     onSelectedItemChanged: controller.onSelectDia,
@@ -130,7 +130,7 @@ class AddBloodPressureDialog extends GetView<AddBloodPressureController> {
               ),
               Expanded(
                 child: ScrollBloodPressureValueWidget(
-                    title: TranslationConstants.pulse.tr,
+                    title: AppLocalization.current.pulse,
                     initItem: controller.pulse.value - 20,
                     childCount: 181,
                     onSelectedItemChanged: controller.onSelectPules,

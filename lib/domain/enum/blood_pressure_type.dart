@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:hunglydev_datn/generated/l10n.dart';
 
-import '../../common/util/translation/app_translation.dart';
 import '../../presentation/theme/app_color.dart';
 
 class BloodPressureTyeEnum {
@@ -47,68 +46,68 @@ extension BloodPressureTypeExtension on BloodPressureType {
   String get name {
     switch (this) {
       case BloodPressureType.hypotension:
-        return TranslationConstants.hypotension.tr;
+        return AppLocalization.current.hypotension;
       case BloodPressureType.normal:
-        return TranslationConstants.normal.tr;
+        return AppLocalization.current.normal;
       case BloodPressureType.elevated:
-        return TranslationConstants.elevated.tr;
+        return AppLocalization.current.elevated;
       case BloodPressureType.hypertensionStage1:
-        return TranslationConstants.hypertensionStage1.tr;
+        return AppLocalization.current.hypertensionStage1;
       case BloodPressureType.hypertensionStage2:
-        return TranslationConstants.hypertensionStage2.tr;
+        return AppLocalization.current.hypertensionStage2;
       case BloodPressureType.hypertensionCrisis:
-        return TranslationConstants.hypertensionCrisis.tr;
+        return AppLocalization.current.hypertensionCrisis;
     }
   }
 
   String get messageRange {
     switch (this) {
       case BloodPressureType.hypotension:
-        return TranslationConstants.systolicRangeOrDiastolicRange.trParams({"sys": "<90", "dia": "<60"});
+        return AppLocalization.current.systolicRangeOrDiastolicRange("<90", "<60");
       case BloodPressureType.normal:
-        return TranslationConstants.systolicRangeOrDiastolicRange.trParams({"sys": "90-110", "dia": "60-79"});
+        return AppLocalization.current.systolicRangeOrDiastolicRange("90-110", "60-79");
       case BloodPressureType.elevated:
-        return TranslationConstants.systolicRangeOrDiastolicRange.trParams({"sys": "120-129", "dia": "80-79"});
+        return AppLocalization.current.systolicRangeOrDiastolicRange("120-129", "80-79");
       case BloodPressureType.hypertensionStage1:
-        return TranslationConstants.systolicRangeOrDiastolicRange.trParams({"sys": "130-139", "dia": "80-89"});
+        return AppLocalization.current.systolicRangeOrDiastolicRange("130-139", "80-89");
       case BloodPressureType.hypertensionStage2:
-        return TranslationConstants.systolicRangeOrDiastolicRange.trParams({"sys": "140-180", "dia": "90-120"});
+        return AppLocalization.current.systolicRangeOrDiastolicRange("140-180", "90-120");
       case BloodPressureType.hypertensionCrisis:
-        return TranslationConstants.systolicRangeOrDiastolicRange.trParams({"sys": ">180", "dia": ">120"});
+        return AppLocalization.current.systolicRangeOrDiastolicRange(">180", ">120");
     }
   }
 
   String get sortMessageRange {
     switch (this) {
       case BloodPressureType.hypotension:
-        return TranslationConstants.sysAndDIA.trParams({"sys": "<90", "dia": "<60"});
+        return AppLocalization.current.sysAndDIA("<90", "<60");
       case BloodPressureType.normal:
-        return TranslationConstants.sysAndDIA.trParams({"sys": "90-110", "dia": "60-79"});
+        return AppLocalization.current.sysAndDIA("90-110", "60-79");
       case BloodPressureType.elevated:
-        return TranslationConstants.sysAndDIA.trParams({"sys": "120-129", "dia": "80-79"});
+        return AppLocalization.current.sysAndDIA("120-129", "80-79");
       case BloodPressureType.hypertensionStage1:
-        return TranslationConstants.sysAndDIA.trParams({"sys": "130-139", "dia": "80-89"});
+        return AppLocalization.current.sysAndDIA("130-139", "80-89");
       case BloodPressureType.hypertensionStage2:
-        return TranslationConstants.sysAndDIA.trParams({"sys": "140-180", "dia": "90-120"});
+        return AppLocalization.current.sysAndDIA("140-180", "90-120");
       case BloodPressureType.hypertensionCrisis:
-        return TranslationConstants.sysAndDIA.trParams({"sys": ">180", "dia": ">120"});
+        return AppLocalization.current.sysAndDIA(">180", ">120");
     }
   }
 
   String get message {
     switch (this) {
       case BloodPressureType.hypotension:
-        return TranslationConstants.hypotensionMessage.tr;
+        return AppLocalization.current.hypotensionMessage;
       case BloodPressureType.normal:
-        return TranslationConstants.normalMessage.tr;
+        return AppLocalization.current.normalMessage;
       case BloodPressureType.elevated:
-        return TranslationConstants.elevatedMessage.tr;
+        return AppLocalization.current.elevatedMessage;
       case BloodPressureType.hypertensionStage1:
-        return TranslationConstants.hypertensionStage1Message.tr;
+        return AppLocalization.current.hypertensionStage1Message;
       case BloodPressureType.hypertensionStage2:
-        return TranslationConstants.hypertensionStage2Message.tr;
+        return AppLocalization.current.hypertensionStage2Message;
       case BloodPressureType.hypertensionCrisis:
-        return TranslationConstants.hypertensionCrisisMessage.tr;
+        return AppLocalization.current.hypertensionCrisisMessage;
     }
   }
 

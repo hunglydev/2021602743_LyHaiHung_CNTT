@@ -1,11 +1,11 @@
-import 'package:hunglydev_datn/common/extensions/date_time_extensions.dart';
-import 'package:hunglydev_datn/common/util/show_snack_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:hunglydev_datn/common/extensions/date_time_extensions.dart';
+import 'package:hunglydev_datn/common/util/show_snack_bar.dart';
+import 'package:hunglydev_datn/generated/l10n.dart';
 import 'package:intl/intl.dart';
 
 import '../../../../../common/mixin/date_time_mixin.dart';
-import '../../../../../common/util/translation/app_translation.dart';
 import '../../../../../domain/enum/blood_pressure_type.dart';
 import '../../../../../domain/model/blood_pressure_model.dart';
 import '../../../../../domain/usecase/blood_pressure_usecase.dart';
@@ -61,8 +61,8 @@ class AddBloodPressureController extends GetxController with DateTimeMixin {
   }
 
   void onShowBloodPressureInfo() {
-    showAppDialog(context, TranslationConstants.bloodPressure.tr, '',
-        widgetBody: const BloodPressureInfoWidget(), firstButtonText: TranslationConstants.ok.tr);
+    showAppDialog(context, AppLocalization.current.bloodPressure, '',
+        widgetBody: const BloodPressureInfoWidget(), firstButtonText: AppLocalization.current.ok);
   }
 
   Future onSelectBloodPressureDate() async {
@@ -152,7 +152,7 @@ class AddBloodPressureController extends GetxController with DateTimeMixin {
     await _bloodPressureUseCase.saveBloodPressure(bloodPres);
     isLoading.value = false;
 
-    _showSnackBar(TranslationConstants.addDataSuccess.tr);
+    _showSnackBar(AppLocalization.current.addDataSuccess);
 
     Get.back(result: true);
   }
@@ -166,7 +166,7 @@ class AddBloodPressureController extends GetxController with DateTimeMixin {
     _bloodPressure?.dateTime = bloodPressureDate.value.millisecondsSinceEpoch;
     await _bloodPressureUseCase.saveBloodPressure(_bloodPressure!);
     isLoading.value = false;
-    _showSnackBar(TranslationConstants.editDataSuccess.tr);
+    _showSnackBar(AppLocalization.current.editDataSuccess);
 
     Get.back(result: true);
   }

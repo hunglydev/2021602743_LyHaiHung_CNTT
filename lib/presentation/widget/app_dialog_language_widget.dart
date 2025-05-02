@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:hunglydev_datn/generated/l10n.dart';
 
-import '../../common/util/translation/app_translation.dart';
 import '../theme/app_color.dart';
 import '../theme/theme_text.dart';
 import 'app_button.dart';
@@ -23,8 +23,7 @@ class AppDialogLanguageWidget extends StatefulWidget {
   final void Function() onPressCancel;
 
   @override
-  State<AppDialogLanguageWidget> createState() =>
-      _AppDialogLanguageWidgetState();
+  State<AppDialogLanguageWidget> createState() => _AppDialogLanguageWidgetState();
 }
 
 class _AppDialogLanguageWidgetState extends State<AppDialogLanguageWidget> {
@@ -49,40 +48,30 @@ class _AppDialogLanguageWidgetState extends State<AppDialogLanguageWidget> {
         SizedBox(
           height: 102.sp,
         ),
-
         for (Locale locale in widget.availableLocales)
           AppTouchable(
             onPressed: () => _onLocaleSelected(locale),
             child: Container(
               width: double.infinity,
-              padding:
-                  EdgeInsets.symmetric(vertical: 8.0.sp, horizontal: 10.sp),
+              padding: EdgeInsets.symmetric(vertical: 8.0.sp, horizontal: 10.sp),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10.0.sp),
-                color: _currentLocale == locale
-                    ? AppColor.primaryColor.withOpacity(0.2)
-                    : AppColor.white,
+                color: _currentLocale == locale ? AppColor.primaryColor.withOpacity(0.2) : AppColor.white,
               ),
               child: Row(
                 children: [
                   Text(
                     locale.languageCode.tr,
                     style: TextStyle(
-                      color: _currentLocale == locale
-                          ? AppColor.primaryColor
-                          : AppColor.black,
+                      color: _currentLocale == locale ? AppColor.primaryColor : AppColor.black,
                       fontSize: 16.0.sp,
                       fontWeight: FontWeight.w600,
                     ),
                   ),
                   const Spacer(),
                   Icon(
-                    _currentLocale == locale
-                        ? Icons.check_circle
-                        : Icons.circle,
-                    color: _currentLocale == locale
-                        ? AppColor.primaryColor
-                        : AppColor.gray,
+                    _currentLocale == locale ? Icons.check_circle : Icons.circle,
+                    color: _currentLocale == locale ? AppColor.primaryColor : AppColor.gray,
                   ),
                 ],
               ),
@@ -101,7 +90,7 @@ class _AppDialogLanguageWidgetState extends State<AppDialogLanguageWidget> {
                 color: AppColor.red,
                 radius: 10.0.sp,
                 child: Text(
-                  TranslationConstants.cancel.tr,
+                  AppLocalization.of(context).cancel,
                   textAlign: TextAlign.center,
                   style: textStyle24700(),
                 ),
@@ -116,7 +105,7 @@ class _AppDialogLanguageWidgetState extends State<AppDialogLanguageWidget> {
                 color: AppColor.primaryColor,
                 radius: 10.0.sp,
                 child: Text(
-                  TranslationConstants.save.tr,
+                  AppLocalization.of(context).save,
                   textAlign: TextAlign.center,
                   style: textStyle24700(),
                 ),

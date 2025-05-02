@@ -6,6 +6,7 @@ import 'package:collection/collection.dart';
 import 'package:csv/csv.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:hunglydev_datn/generated/l10n.dart';
 import 'package:intl/intl.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:share_plus/share_plus.dart';
@@ -16,7 +17,6 @@ import '../../../../common/constants/app_route.dart';
 import '../../../../common/mixin/alarm_dialog_mixin.dart';
 import '../../../../common/util/app_util.dart';
 import '../../../../common/util/show_snack_bar.dart';
-import '../../../../common/util/translation/app_translation.dart';
 import '../../../../domain/enum/alarm_type.dart';
 import '../../../../domain/model/heart_rate_model.dart';
 import '../../../controller/app_controller.dart';
@@ -225,7 +225,7 @@ class HeartBeatController extends GetxController with AlarmDialogMixin {
     }
 
     Get.back();
-    showSnackBar(context, subtitle: TranslationConstants.addSuccess.tr);
+    showSnackBar(context, subtitle: AppLocalization.current.addSuccess);
     // _recentBPM = 0;
   }
 
@@ -233,10 +233,10 @@ class HeartBeatController extends GetxController with AlarmDialogMixin {
     isExporting.value = true;
     List<String> header = [];
     List<List<String>> listOfData = [];
-    header.add(TranslationConstants.date.tr);
-    header.add(TranslationConstants.time.tr);
-    header.add(TranslationConstants.age.tr);
-    header.add(TranslationConstants.gender.tr);
+    header.add(AppLocalization.current.date);
+    header.add(AppLocalization.current.time);
+    header.add(AppLocalization.current.age);
+    header.add(AppLocalization.current.gender);
     header.add('BPM');
     Map gender = AppConstant.listGender.firstWhere(
       (element) => element['id'] == appController.currentUser.value.genderId,
@@ -316,14 +316,14 @@ class HeartBeatController extends GetxController with AlarmDialogMixin {
   void onPressDeleteData() {
     showAppDialog(
       context,
-      TranslationConstants.deleteData.tr,
-      TranslationConstants.deleteDataConfirm.tr,
-      firstButtonText: TranslationConstants.delete.tr,
+      AppLocalization.current.deleteData,
+      AppLocalization.current.deleteDataConfirm,
+      firstButtonText: AppLocalization.current.delete,
       firstButtonCallback: () {
         Get.back();
         deleteHeartRateData(currentHeartRateModel.value);
       },
-      secondButtonText: TranslationConstants.cancel.tr,
+      secondButtonText: AppLocalization.current.cancel,
       secondButtonCallback: Get.back,
     );
   }

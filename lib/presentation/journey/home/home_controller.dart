@@ -1,5 +1,4 @@
 import 'package:get/get.dart';
-import 'package:hunglydev_datn/presentation/journey/home/ask_ai/ask_ai_screen.dart';
 
 import '../../../common/constants/app_route.dart';
 import 'pedometer/pedometer_screen.dart';

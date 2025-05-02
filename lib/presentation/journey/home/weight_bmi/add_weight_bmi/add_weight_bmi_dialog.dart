@@ -1,15 +1,15 @@
-import 'package:hunglydev_datn/domain/enum/bmi_type.dart';
-import 'package:hunglydev_datn/domain/enum/height_unit.dart';
-import 'package:hunglydev_datn/domain/enum/weight_unit.dart';
-import 'package:hunglydev_datn/presentation/journey/home/weight_bmi/add_weight_bmi/widget/unit_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:hunglydev_datn/domain/enum/bmi_type.dart';
+import 'package:hunglydev_datn/domain/enum/height_unit.dart';
+import 'package:hunglydev_datn/domain/enum/weight_unit.dart';
+import 'package:hunglydev_datn/generated/l10n.dart';
+import 'package:hunglydev_datn/presentation/journey/home/weight_bmi/add_weight_bmi/widget/unit_button.dart';
 
 import '../../../../../common/constants/app_image.dart';
 import '../../../../../common/util/app_util.dart';
 import '../../../../../common/util/format_utils.dart';
-import '../../../../../common/util/translation/app_translation.dart';
 import '../../../../../domain/model/bmi_model.dart';
 import '../../../../theme/app_color.dart';
 import '../../../../theme/theme_text.dart';
@@ -55,7 +55,7 @@ class AddWeightBMIDialog extends GetView<AddWeightBMIController> {
               Expanded(
                 child: Obx(
                   () => UnitButton(
-                    value: '${TranslationConstants.weight.tr} '
+                    value: '${AppLocalization.of(context).weight} '
                         '(${controller.weightUnit.value.label})',
                     onPressed: controller.onSelectWeightUnit,
                   ),
@@ -65,7 +65,7 @@ class AddWeightBMIDialog extends GetView<AddWeightBMIController> {
               Expanded(
                 child: Obx(
                   () => UnitButton(
-                    value: '${TranslationConstants.height.tr} '
+                    value: '${AppLocalization.of(context).height} '
                         '(${controller.heightUnit.value.label})',
                     onPressed: controller.onSelectHeightUnit,
                   ),
@@ -229,7 +229,7 @@ class AddWeightBMIDialog extends GetView<AddWeightBMIController> {
                 onPressed: controller.onPressedAge,
                 padding: EdgeInsets.symmetric(vertical: 8.0.sp, horizontal: 12.0.sp),
                 child: Obx(() => Text(
-                      '${TranslationConstants.age.tr}: ${controller.age.value}',
+                      '${AppLocalization.of(context).age.tr}: ${controller.age.value}',
                       style: textStyle18400().merge(const TextStyle(
                         shadows: [Shadow(color: AppColor.grayText2, offset: Offset(0, -5))],
                         color: Colors.transparent,

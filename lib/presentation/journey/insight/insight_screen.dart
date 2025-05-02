@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:hunglydev_datn/common/util/disable_glow_behavior.dart';
+import 'package:hunglydev_datn/generated/l10n.dart';
 
-import '../../../common/util/translation/app_translation.dart';
 import '../../theme/app_color.dart';
 import '../../theme/theme_text.dart';
 import '../../widget/app_container.dart';
@@ -22,7 +22,7 @@ class InsightScreen extends GetView<InsightController> {
       child: Column(
         children: [
           AppHeader(
-            title: TranslationConstants.insights.tr,
+            title: AppLocalization.of(context).insights,
             leftWidget: SizedBox(width: 40.0.sp),
             titleStyle: const TextStyle(fontWeight: FontWeight.w500),
           ),

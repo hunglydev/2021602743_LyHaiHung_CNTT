@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:hunglydev_datn/generated/l10n.dart';
 import 'package:permission_handler/permission_handler.dart';
 
 import '../../presentation/theme/app_color.dart';
 import '../../presentation/widget/app_touchable.dart';
-import 'translation/app_translation.dart';
 
 class AppPermission {
   static Future<PermissionStatus> checkPermission(
@@ -33,14 +33,14 @@ class AppPermission {
             context: context,
             builder: (buildContext) {
               return AlertDialog(
-                title: Text(TranslationConstants.notice.tr),
+                title: Text(AppLocalization.of(context).notice),
                 content: Text(messageDenied),
                 actions: [
                   AppTouchable(
                     onPressed: Get.back,
                     padding: EdgeInsets.symmetric(vertical: 4.0.sp, horizontal: 8.0.sp),
                     child: Text(
-                      TranslationConstants.close.tr,
+                      AppLocalization.of(context).close,
                       style: TextStyle(
                         color: AppColor.black.withOpacity(0.6),
                         fontSize: 16.0.sp,
@@ -56,7 +56,7 @@ class AppPermission {
                     },
                     padding: EdgeInsets.symmetric(vertical: 4.0.sp, horizontal: 8.0.sp),
                     child: Text(
-                      TranslationConstants.continues.tr,
+                      AppLocalization.of(context).continues,
                       style: TextStyle(
                         color: AppColor.primaryColor,
                         fontSize: 16.0.sp,
@@ -81,14 +81,14 @@ class AppPermission {
             context: context,
             builder: (buildContext) {
               return AlertDialog(
-                title: Text(TranslationConstants.notice.tr),
+                title: Text(AppLocalization.of(context).notice),
                 content: Text(messageDeniedNeedSetting),
                 actions: [
                   AppTouchable(
                     onPressed: Get.back,
                     padding: EdgeInsets.symmetric(vertical: 4.0.sp, horizontal: 8.0.sp),
                     child: Text(
-                      TranslationConstants.close.tr,
+                      AppLocalization.of(context).close,
                       style: TextStyle(
                         color: AppColor.black.withOpacity(0.6),
                         fontSize: 16.0.sp,
@@ -103,7 +103,7 @@ class AppPermission {
                     },
                     padding: EdgeInsets.symmetric(vertical: 4.0.sp, horizontal: 8.0.sp),
                     child: Text(
-                      TranslationConstants.setting.tr,
+                      AppLocalization.of(context).setting,
                       style: TextStyle(
                         color: AppColor.primaryColor,
                         fontSize: 16.0.sp,

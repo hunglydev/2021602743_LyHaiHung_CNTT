@@ -2,11 +2,11 @@ import "package:flutter/material.dart";
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
+import 'package:hunglydev_datn/generated/l10n.dart';
 import 'package:intl/intl.dart';
 
 import '../../../../../../domain/model/alarm_model.dart';
 import '../../../../../common/constants/app_image.dart';
-import '../../../../common/util/translation/app_translation.dart';
 import '../../../theme/theme_text.dart';
 import '../../../widget/app_touchable.dart';
 import '../../../widget/app_week_days_picker.dart';
@@ -47,14 +47,14 @@ class AlarmTile extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    TranslationConstants.remindToRecord.tr,
+                    AppLocalization.of(context).remindToRecord,
                     style: textStyle12400(),
                   ),
                   SizedBox(
                     height: 4.sp,
                   ),
                   Text(
-                    alarmModel.type == null ? "Unknown" : alarmModel.type.toString().split(".")[1].tr,
+                    alarmModel.type == null ? "Unknown" : alarmModel.type.toString().split(".")[1],
                     style: textStyle16500(),
                   )
                 ],

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:hunglydev_datn/generated/l10n.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
 import 'package:permission_handler/permission_handler.dart';
 
 import '../../../../common/util/app_permission.dart';
-import '../../../../common/util/translation/app_translation.dart';
 
 class FoodScannerController extends GetxController {
   final BuildContext context = Get.context!;
@@ -18,7 +18,6 @@ class FoodScannerController extends GetxController {
       BarcodeFormat.qrCode,
     ],
   );
-
 
   List<Map> listDataMapTypeTab = [
     {
@@ -86,8 +85,8 @@ class FoodScannerController extends GetxController {
     AppPermission.checkPermission(
       context,
       Permission.camera,
-      TranslationConstants.permissionCameraDenied01.tr,
-      TranslationConstants.permissionCameraSetting01.tr,
+      AppLocalization.of(context).permissionCameraDenied01,
+      AppLocalization.of(context).permissionCameraSetting01,
       onGrant: () {
         initCamera();
       },

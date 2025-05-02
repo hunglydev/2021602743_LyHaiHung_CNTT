@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:hunglydev_datn/generated/l10n.dart';
 import 'package:intl/intl.dart';
 
 import '../../../../common/constants/app_image.dart';
 import '../../../../common/util/disable_glow_behavior.dart';
-import '../../../../common/util/translation/app_translation.dart';
 import '../../../../domain/model/heart_rate_model.dart';
 import '../../../controller/app_controller.dart';
 import '../../../theme/app_color.dart';
@@ -53,7 +53,7 @@ class HeartBeatScreen extends GetView<HeartBeatController> {
     );
   }
 
-  Widget _buildBodyEmpty() {
+  Widget _buildBodyEmpty(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       mainAxisAlignment: MainAxisAlignment.center,
@@ -66,7 +66,7 @@ class HeartBeatScreen extends GetView<HeartBeatController> {
         Padding(
           padding: EdgeInsets.symmetric(horizontal: 48.sp),
           child: Text(
-            TranslationConstants.measureNowOrAdd.tr,
+            AppLocalization.of(context).measureNowOrAdd,
             textAlign: TextAlign.center,
             style: textStyle20700().merge(
               TextStyle(
@@ -81,7 +81,7 @@ class HeartBeatScreen extends GetView<HeartBeatController> {
     );
   }
 
-  Widget _buildBodyData() {
+  Widget _buildBodyData(BuildContext context) {
     return Column(
       children: [
         Container(
@@ -98,7 +98,7 @@ class HeartBeatScreen extends GetView<HeartBeatController> {
                 child: Column(
                   children: [
                     Text(
-                      TranslationConstants.average.tr,
+                      AppLocalization.of(context).average.tr,
                       style: textStyle20700().merge(
                         TextStyle(
                           color: AppColor.black,
@@ -126,7 +126,7 @@ class HeartBeatScreen extends GetView<HeartBeatController> {
                 child: Column(
                   children: [
                     Text(
-                      TranslationConstants.min.tr,
+                      AppLocalization.of(context).min.tr,
                       style: textStyle20700().merge(
                         TextStyle(
                           color: AppColor.black,
@@ -154,7 +154,7 @@ class HeartBeatScreen extends GetView<HeartBeatController> {
                 child: Column(
                   children: [
                     Text(
-                      TranslationConstants.max.tr,
+                      AppLocalization.of(context).max.tr,
                       style: textStyle20700().merge(
                         TextStyle(
                           color: AppColor.black,
@@ -208,13 +208,13 @@ class HeartBeatScreen extends GetView<HeartBeatController> {
             String status = '';
             Color color = AppColor.primaryColor;
             if (value < 60) {
-              status = TranslationConstants.slow.tr;
+              status = AppLocalization.of(context).slow.tr;
               color = AppColor.violet;
             } else if (value > 100) {
-              status = TranslationConstants.fast.tr;
+              status = AppLocalization.of(context).fast.tr;
               color = AppColor.red;
             } else {
-              status = TranslationConstants.normal.tr;
+              status = AppLocalization.of(context).normal.tr;
               color = AppColor.green;
             }
             return Row(
@@ -295,7 +295,7 @@ class HeartBeatScreen extends GetView<HeartBeatController> {
       child: Column(
         children: [
           AppHeader(
-            title: TranslationConstants.heartRate.tr,
+            title: AppLocalization.of(context).heartRate.tr,
             decoration: const BoxDecoration(
               color: AppColor.red,
             ),
@@ -374,8 +374,8 @@ class HeartBeatScreen extends GetView<HeartBeatController> {
                                 ),
                               )
                             : Get.find<AppController>().listHeartRateModel.isEmpty
-                                ? _buildBodyEmpty()
-                                : _buildBodyData(),
+                                ? _buildBodyEmpty(context)
+                                : _buildBodyData(context),
                       ),
                     ),
                     AppTouchable.common(
@@ -394,7 +394,7 @@ class HeartBeatScreen extends GetView<HeartBeatController> {
                           ),
                           SizedBox(width: 8.0.sp),
                           Text(
-                            TranslationConstants.measureNow.tr,
+                            AppLocalization.of(context).measureNow.tr,
                             style: textStyle18700().copyWith(
                               fontWeight: FontWeight.w600,
                               fontSize: 16.0.sp,
@@ -430,7 +430,7 @@ class HeartBeatScreen extends GetView<HeartBeatController> {
                                     width: 4.0.sp,
                                   ),
                                   Text(
-                                    TranslationConstants.setAlarm.tr,
+                                    AppLocalization.of(context).setAlarm.tr,
                                     style: textStyle18700().copyWith(
                                       fontWeight: FontWeight.w600,
                                       fontSize: 16.0.sp,
@@ -450,7 +450,7 @@ class HeartBeatScreen extends GetView<HeartBeatController> {
                                 vertical: 18.0.sp,
                               ),
                               child: Text(
-                                '+ ${TranslationConstants.addData.tr}',
+                                '+ ${AppLocalization.of(context).addData.tr}',
                                 style: textStyle18700().copyWith(
                                   fontWeight: FontWeight.w600,
                                   fontSize: 16.0.sp,
@@ -490,7 +490,7 @@ class HeartBeatScreen extends GetView<HeartBeatController> {
                                             ),
                                           )
                                         : Text(
-                                            TranslationConstants.export.tr,
+                                            AppLocalization.of(context).export.tr,
                                             textAlign: TextAlign.center,
                                             style: textStyle18700().copyWith(
                                               fontWeight: FontWeight.w600,

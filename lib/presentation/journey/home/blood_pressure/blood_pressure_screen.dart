@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:hunglydev_datn/generated/l10n.dart';
 
 import '../../../../common/constants/app_image.dart';
-import '../../../../common/util/translation/app_translation.dart';
 import '../../../theme/app_color.dart';
 import '../../../theme/theme_text.dart';
 import '../../../widget/app_container.dart';
@@ -27,7 +27,7 @@ class BloodPressureScreen extends GetView<BloodPressureController> {
       child: Column(
         children: [
           AppHeader(
-            title: TranslationConstants.bloodPressure.tr,
+            title: AppLocalization.of(context).bloodPressure,
             decoration: const BoxDecoration(
               color: AppColor.primaryColor,
             ),
@@ -62,7 +62,7 @@ class BloodPressureScreen extends GetView<BloodPressureController> {
                           : EmptyWidget(
                               imagePath: AppImage.ic_blood_pressure2,
                               imageWidth: 168.sp,
-                              message: TranslationConstants.addYourRecordToSeeStatistics.tr,
+                              message: AppLocalization.of(context).addYourRecordToSeeStatisitcs,
                             ),
                     ),
                   ),
@@ -100,7 +100,7 @@ class BloodPressureScreen extends GetView<BloodPressureController> {
                                           ),
                                         )
                                       : Text(
-                                          TranslationConstants.export.tr,
+                                          AppLocalization.of(context).export,
                                           textAlign: TextAlign.center,
                                           style: textStyle18700().copyWith(
                                             fontWeight: FontWeight.w600,

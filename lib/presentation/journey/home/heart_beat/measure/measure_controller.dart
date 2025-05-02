@@ -3,12 +3,12 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
+import 'package:hunglydev_datn/generated/l10n.dart';
 import 'package:permission_handler/permission_handler.dart';
 
 import '../../../../../common/mixin/reward_ads_mixin.dart';
 import '../../../../../common/util/app_permission.dart';
 import '../../../../../common/util/app_util.dart';
-import '../../../../../common/util/translation/app_translation.dart';
 import '../../../../../domain/model/heart_rate_model.dart';
 import '../../../../controller/app_controller.dart';
 import '../../../../widget/app_dialog.dart';
@@ -74,7 +74,7 @@ class MeasureController extends GetxController with RewardAdsMixin {
 
               Get.back();
               Get.back();
-              showToast(TranslationConstants.addSuccess.tr);
+              showToast(AppLocalization.of(context).addSuccess);
               _recentBPM = 0;
             },
           ),
@@ -92,8 +92,8 @@ class MeasureController extends GetxController with RewardAdsMixin {
     AppPermission.checkPermission(
       context,
       Permission.camera,
-      TranslationConstants.permissionCameraDenied01.tr,
-      TranslationConstants.permissionCameraSetting01.tr,
+      AppLocalization.of(context).permissionCameraDenied01,
+      AppLocalization.of(context).permissionCameraSetting01,
       onGrant: () async {
         currentMeasureScreenState.value = MeasureScreenState.measuring;
         _listDataBPM = [];

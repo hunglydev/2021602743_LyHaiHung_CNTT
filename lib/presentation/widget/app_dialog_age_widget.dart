@@ -1,9 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get.dart';
+import 'package:hunglydev_datn/generated/l10n.dart';
 
 import '../../common/util/disable_glow_behavior.dart';
-import '../../common/util/translation/app_translation.dart';
 import '../theme/app_color.dart';
 import '../theme/theme_text.dart';
 import 'app_button.dart';
@@ -89,7 +88,7 @@ class _AppDialogAgeWidgetState extends State<AppDialogAgeWidget> {
                 color: AppColor.red,
                 radius: 10.0.sp,
                 child: Text(
-                  TranslationConstants.cancel.tr,
+                  AppLocalization.of(context).cancel,
                   textAlign: TextAlign.center,
                   style: textStyle20700().merge(
                     TextStyle(
@@ -111,7 +110,7 @@ class _AppDialogAgeWidgetState extends State<AppDialogAgeWidget> {
                 color: AppColor.primaryColor,
                 radius: 10.0.sp,
                 child: Text(
-                  TranslationConstants.save.tr,
+                  AppLocalization.of(context).save,
                   textAlign: TextAlign.center,
                   style: textStyle20700().merge(
                     TextStyle(

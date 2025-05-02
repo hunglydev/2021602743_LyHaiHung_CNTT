@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:hunglydev_datn/generated/l10n.dart';
 
-import '../../../common/util/translation/app_translation.dart';
 import '../../../domain/model/alarm_model.dart';
 import '../../widget/app_container.dart';
 import '../../widget/app_header.dart';
@@ -18,7 +18,7 @@ class AlarmScreen extends GetView<AlarmController> {
       child: Column(
         children: [
           AppHeader(
-            title: TranslationConstants.alarm.tr,
+            title: AppLocalization.of(context).alarm,
             leftWidget: SizedBox(width: 40.0.sp),
             titleStyle: const TextStyle(fontWeight: FontWeight.w500),
           ),
@@ -30,7 +30,7 @@ class AlarmScreen extends GetView<AlarmController> {
                     padding: EdgeInsets.all(32.0.sp),
                     child: Center(
                       child: Text(
-                        TranslationConstants.noAlarm.tr,
+                        AppLocalization.of(context).noAlarm,
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           fontSize: 16.0.sp,

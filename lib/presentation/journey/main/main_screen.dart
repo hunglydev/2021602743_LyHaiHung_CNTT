@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:hunglydev_datn/generated/l10n.dart';
 
 import '../../../common/constants/app_image.dart';
-import '../../../common/util/translation/app_translation.dart';
 import '../../theme/app_color.dart';
 import '../../widget/app_container.dart';
 import '../../widget/app_image_widget.dart';
@@ -61,21 +61,21 @@ class MainScreen extends GetView<MainController> {
                   path: AppImage.ic_home,
                   color: controller.currentTab.value == 0 ? AppColor.white : AppColor.white.withOpacity(0.5),
                 ),
-                label: TranslationConstants.home.tr.toUpperCase(),
+                label: AppLocalization.of(context).home,
               ),
               BottomNavigationBarItem(
                 icon: AppImageWidget.asset(
                   path: AppImage.ic_insight,
                   color: controller.currentTab.value == 1 ? AppColor.white : AppColor.white.withOpacity(0.5),
                 ),
-                label: TranslationConstants.insights.tr.toUpperCase(),
+                label: AppLocalization.of(context).insights,
               ),
               BottomNavigationBarItem(
                 icon: AppImageWidget.asset(
                   path: AppImage.ic_alarm,
                   color: controller.currentTab.value == 2 ? AppColor.white : AppColor.white.withOpacity(0.5),
                 ),
-                label: TranslationConstants.alarm.tr.toUpperCase(),
+                label: AppLocalization.of(context).alarm,
               ),
             ],
           );

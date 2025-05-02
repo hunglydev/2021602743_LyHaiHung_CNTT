@@ -25,8 +25,6 @@ class AskAIController extends GetxController {
         "prompt": "hehehe",
       },
     );
-
-    print("hehehehehehehe" + res.statusCode.toString());
     listChat.add(ChatData(content: res.data["result"], isMe: false));
     isLoadingSendChat = false;
     update();

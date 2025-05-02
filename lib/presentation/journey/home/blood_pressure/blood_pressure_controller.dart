@@ -1,14 +1,14 @@
 import 'package:collection/collection.dart';
-import 'package:hunglydev_datn/common/extensions/int_extension.dart';
-import 'package:hunglydev_datn/common/util/show_snack_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:hunglydev_datn/common/extensions/int_extension.dart';
+import 'package:hunglydev_datn/common/util/show_snack_bar.dart';
+import 'package:hunglydev_datn/generated/l10n.dart';
 import 'package:intl/intl.dart';
 
 import '../../../../common/mixin/alarm_dialog_mixin.dart';
 import '../../../../common/mixin/date_time_mixin.dart';
 import '../../../../common/util/app_util.dart';
-import '../../../../common/util/translation/app_translation.dart';
 import '../../../../domain/enum/alarm_type.dart';
 import '../../../../domain/model/alarm_model.dart';
 import '../../../../domain/model/bar_chart_data_model.dart';
@@ -157,7 +157,7 @@ class BloodPressureController extends GetxController with DateTimeMixin, AlarmDi
     _bloodPressureUseCase.deleteBloodPressure(bloodPressSelected.value.key!);
     showSnackBar(
       context,
-      subtitle: TranslationConstants.deleteDataSuccess.tr,
+      subtitle: AppLocalization.current.deleteDataSuccess,
       type: SnackBarType.success,
     );
     filterBloodPressure();
@@ -181,12 +181,12 @@ class BloodPressureController extends GetxController with DateTimeMixin, AlarmDi
     isExporting.value = true;
     List<String> header = [];
     List<List<String>> listOfData = [];
-    header.add(TranslationConstants.date.tr);
-    header.add(TranslationConstants.time.tr);
-    header.add(TranslationConstants.systolic.tr);
-    header.add(TranslationConstants.diastolic.tr);
-    header.add(TranslationConstants.pulse.tr);
-    header.add(TranslationConstants.type.tr);
+    header.add(AppLocalization.current.date);
+    header.add(AppLocalization.current.time);
+    header.add(AppLocalization.current.systolic);
+    header.add(AppLocalization.current.diastolic);
+    header.add(AppLocalization.current.pulse);
+    header.add(AppLocalization.current.type);
     for (final item in bloodPressures) {
       DateTime dateTime = DateTime.fromMillisecondsSinceEpoch(item.dateTime ?? 0);
       listOfData.add(

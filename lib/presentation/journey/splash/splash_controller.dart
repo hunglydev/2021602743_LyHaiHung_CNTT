@@ -22,7 +22,7 @@ class SplashController extends GetxController {
     appController.userLocation.value = prefs.getString("user_location") ?? "US";
 
     appController.updateLocale(
-      AppConstant.availableLocales[int.tryParse(language ?? '') ?? 1],
+      AppConstant.availableLocales[int.tryParse(language ?? '') ?? 0],
     );
     await appController.getUser();
 

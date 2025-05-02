@@ -3,8 +3,8 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:hunglydev_datn/generated/l10n.dart';
 
-import '../../common/util/translation/app_translation.dart';
 import '../theme/app_color.dart';
 import '../theme/theme_text.dart';
 import 'app_button.dart';
@@ -20,7 +20,7 @@ showDialogSuccess(
     context: context,
     builder: (BuildContext context) => AppDialog(
       title: titleText,
-      firstButtonText: TranslationConstants.close.tr,
+      firstButtonText: AppLocalization.of(context).close,
       secondButtonText: secondButtonText,
       secondButtonCallback: secondButtonCallback,
       widgetBody: Column(
@@ -84,7 +84,7 @@ Future showAppDialog(
               widthDialog: widthDialog,
               hideGroupButton: hideGroupButton,
               fullContentWidget: fullContentWidget,
-              firstButtonText: firstButtonText ?? TranslationConstants.cancel.tr,
+              firstButtonText: firstButtonText ?? AppLocalization.of(context).cancel,
               padding: padding,
             ),
   );

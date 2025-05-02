@@ -2,13 +2,13 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:hunglydev_datn/generated/l10n.dart';
 import 'package:intl/intl.dart';
 
 import '../../../common/constants/app_constant.dart';
 import '../../common/constants/app_image.dart';
 import '../../common/util/app_util.dart';
 import '../../common/util/disable_glow_behavior.dart';
-import '../../common/util/translation/app_translation.dart';
 import '../../domain/model/user_model.dart';
 import '../controller/app_controller.dart';
 import '../theme/app_color.dart';
@@ -78,18 +78,18 @@ class _AppDialogHeartRateWidgetState extends State<AppDialogHeartRateWidget> {
   void _updateStatusByValue(int value) {
     if ((_value ?? 0) < 60) {
       _restingHeartRateValue = '< 60';
-      _restingHeartRateStatus = TranslationConstants.slow.tr;
-      _restingHeartRateMessage = TranslationConstants.rhSlowMessage.tr;
+      _restingHeartRateStatus = AppLocalization.current.slow;
+      _restingHeartRateMessage = AppLocalization.current.rhSlowMessage;
       _restingHeartRateColor = AppColor.violet;
     } else if ((_value ?? 0) > 100) {
       _restingHeartRateValue = '> 100';
-      _restingHeartRateStatus = TranslationConstants.fast.tr;
-      _restingHeartRateMessage = TranslationConstants.rhFastMessage.tr;
+      _restingHeartRateStatus = AppLocalization.current.fast;
+      _restingHeartRateMessage = AppLocalization.current.rhFastMessage;
       _restingHeartRateColor = AppColor.red;
     } else {
       _restingHeartRateValue = '60 - 100';
-      _restingHeartRateStatus = TranslationConstants.normal.tr;
-      _restingHeartRateMessage = TranslationConstants.rhNormalMessage.tr;
+      _restingHeartRateStatus = AppLocalization.current.normal;
+      _restingHeartRateMessage = AppLocalization.current.rhNormalMessage;
       _restingHeartRateColor = AppColor.green;
     }
   }
@@ -149,7 +149,7 @@ class _AppDialogHeartRateWidgetState extends State<AppDialogHeartRateWidget> {
             : initialAge;
     showAppDialog(
       context,
-      TranslationConstants.choseYourAge.tr,
+      AppLocalization.current.choseYourAge,
       '',
       hideGroupButton: true,
       widgetBody: AppDialogAgeWidget(
@@ -174,7 +174,7 @@ class _AppDialogHeartRateWidgetState extends State<AppDialogHeartRateWidget> {
     );
     showAppDialog(
       context,
-      TranslationConstants.choseYourAge.tr,
+      AppLocalization.current.choseYourAge,
       '',
       hideGroupButton: true,
       widgetBody: AppDialogGenderWidget(
@@ -196,7 +196,7 @@ class _AppDialogHeartRateWidgetState extends State<AppDialogHeartRateWidget> {
   void _onPressHint() {
     showAppDialog(
       context,
-      TranslationConstants.heartRate.tr,
+      AppLocalization.current.heartRate,
       '',
       firstButtonText: 'Ok',
       widgetBody: Column(
@@ -214,12 +214,12 @@ class _AppDialogHeartRateWidgetState extends State<AppDialogHeartRateWidget> {
             child: Row(
               children: [
                 Text(
-                  TranslationConstants.fast.tr,
+                  AppLocalization.current.fast,
                   style: textStyle20700(),
                 ),
                 const Spacer(),
                 Text(
-                  '${TranslationConstants.heartRate.tr} > 100',
+                  '${AppLocalization.current.heartRate} > 100',
                   style: textStyle16400().merge(const TextStyle(color: AppColor.white)),
                 ),
               ],
@@ -237,12 +237,12 @@ class _AppDialogHeartRateWidgetState extends State<AppDialogHeartRateWidget> {
             child: Row(
               children: [
                 Text(
-                  TranslationConstants.normal.tr,
+                  AppLocalization.current.normal,
                   style: textStyle20700(),
                 ),
                 const Spacer(),
                 Text(
-                  '${TranslationConstants.heartRate.tr} 60 - 100',
+                  '${AppLocalization.current.heartRate} 60 - 100',
                   style: textStyle16400().merge(const TextStyle(color: AppColor.white)),
                 ),
               ],
@@ -260,12 +260,12 @@ class _AppDialogHeartRateWidgetState extends State<AppDialogHeartRateWidget> {
             child: Row(
               children: [
                 Text(
-                  TranslationConstants.slow.tr,
+                  AppLocalization.current.slow,
                   style: textStyle20700(),
                 ),
                 const Spacer(),
                 Text(
-                  '${TranslationConstants.heartRate.tr} < 60',
+                  '${AppLocalization.current.heartRate} < 60',
                   style: textStyle16400().merge(const TextStyle(color: AppColor.white)),
                 ),
               ],
@@ -409,7 +409,7 @@ class _AppDialogHeartRateWidgetState extends State<AppDialogHeartRateWidget> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                '${TranslationConstants.restingHeartRate.tr} $_restingHeartRateValue',
+                '${AppLocalization.current.restingHeartRate} $_restingHeartRateValue',
                 style: textStyle16400(),
               ),
               SizedBox(width: 4.0.sp),
@@ -501,7 +501,7 @@ class _AppDialogHeartRateWidgetState extends State<AppDialogHeartRateWidget> {
               ),
               child: Obx(
                 () => Text(
-                  '${TranslationConstants.age.tr}: ${_appController.currentUser.value.age ?? 30}',
+                  '${AppLocalization.current.age}: ${_appController.currentUser.value.age ?? 30}',
                   style: textStyle18400().merge(
                     const TextStyle(
                       shadows: [
@@ -565,7 +565,7 @@ class _AppDialogHeartRateWidgetState extends State<AppDialogHeartRateWidget> {
                 color: AppColor.red,
                 radius: 10.0.sp,
                 child: Text(
-                  TranslationConstants.cancel.tr,
+                  AppLocalization.current.cancel,
                   textAlign: TextAlign.center,
                   style: textStyle20700().merge(
                     TextStyle(
@@ -587,7 +587,7 @@ class _AppDialogHeartRateWidgetState extends State<AppDialogHeartRateWidget> {
                 color: AppColor.primaryColor,
                 radius: 10.0.sp,
                 child: Text(
-                  TranslationConstants.add.tr,
+                  AppLocalization.current.add,
                   textAlign: TextAlign.center,
                   style: textStyle20700().merge(
                     TextStyle(

@@ -1,13 +1,13 @@
 import 'dart:convert';
+
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:flutter_timezone/flutter_timezone.dart';
-import 'package:get/get.dart';
 import 'package:hunglydev_datn/common/util/extensions/datetime_extension.dart';
 import 'package:hunglydev_datn/domain/enum/alarm_type.dart';
+import 'package:hunglydev_datn/generated/l10n.dart';
 import 'package:timezone/timezone.dart' as tz;
 
 import '../../common/util/app_notification_local.dart';
-import '../../common/util/translation/app_translation.dart';
 import '../../data/local_repository.dart';
 import '../model/alarm_model.dart';
 
@@ -73,7 +73,7 @@ class AlarmUseCase {
           "route": alarmModel.type!.notificationRoute,
         };
         AppNotificationLocal.setupNotification(
-          title: TranslationConstants.trackYourHealth.tr,
+          title: AppLocalization.current.trackYourHealth,
           content: alarmModel.type!.trNotiDes,
           scheduleDateTime: scheduledDate,
           notiId: alarmModel.id.hashCode + index + 1,

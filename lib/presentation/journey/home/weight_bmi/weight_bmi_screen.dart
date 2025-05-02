@@ -1,14 +1,14 @@
-import 'package:hunglydev_datn/presentation/journey/home/weight_bmi/weight_bmi_controller.dart';
-import 'package:hunglydev_datn/presentation/journey/home/weight_bmi/widget/bmi_detail_widget.dart';
-import 'package:hunglydev_datn/presentation/journey/home/weight_bmi/widget/line_chart_title_widget.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:hunglydev_datn/generated/l10n.dart';
+import 'package:hunglydev_datn/presentation/journey/home/weight_bmi/weight_bmi_controller.dart';
+import 'package:hunglydev_datn/presentation/journey/home/weight_bmi/widget/bmi_detail_widget.dart';
+import 'package:hunglydev_datn/presentation/journey/home/weight_bmi/widget/line_chart_title_widget.dart';
 import 'package:intl/intl.dart';
 
 import '../../../../common/constants/app_image.dart';
-import '../../../../common/util/translation/app_translation.dart';
 import '../../../../domain/enum/bmi_type.dart';
 import '../../../controller/app_controller.dart';
 import '../../../theme/app_color.dart';
@@ -32,7 +32,7 @@ class WeightBMIScreen extends GetView<WeightBMIController> {
       child: Column(
         children: [
           AppHeader(
-            title: TranslationConstants.weightAndBMI.tr,
+            title: AppLocalization.of(context).weightAndBMI,
             decoration: const BoxDecoration(
               color: AppColor.green,
             ),
@@ -66,7 +66,7 @@ class WeightBMIScreen extends GetView<WeightBMIController> {
                               mainAxisSize: MainAxisSize.min,
                               children: [
                                 LineChartTitleWidget(
-                                  title: '${TranslationConstants.weight.tr} (${controller.weightUnit.value.name})',
+                                  title: '${AppLocalization.of(context).weight} (${controller.weightUnit.value.name})',
                                   minDate: controller.chartMinDate.value,
                                   maxDate: controller.chartMaxDate.value,
                                   listChartData: controller.weightChartListData,
@@ -100,7 +100,7 @@ class WeightBMIScreen extends GetView<WeightBMIController> {
                                   ),
                                 ),
                                 LineChartTitleWidget(
-                                  title: TranslationConstants.bmi.tr,
+                                  title: AppLocalization.of(context).bmi,
                                   minDate: controller.chartMinDate.value,
                                   maxDate: controller.chartMaxDate.value,
                                   listChartData: controller.bmiChartListData,
@@ -128,7 +128,7 @@ class WeightBMIScreen extends GetView<WeightBMIController> {
                           padding: EdgeInsets.symmetric(horizontal: 12.sp),
                           child: EmptyWidget(
                             imagePath: AppImage.weight_scale_lottie,
-                            message: TranslationConstants.addYourRecordToSeeStatistics.tr,
+                            message: AppLocalization.of(context).addYourRecordToSeeStatisitcs,
                             imageWidth: 0.37 * Get.width,
                           ),
                         );
@@ -178,7 +178,7 @@ class WeightBMIScreen extends GetView<WeightBMIController> {
                                   ),
                                 )
                               : Text(
-                                  TranslationConstants.export.tr,
+                                  AppLocalization.of(context).export,
                                   textAlign: TextAlign.center,
                                   style: textStyle18700().copyWith(
                                     fontWeight: FontWeight.w600,
@@ -270,7 +270,7 @@ class WeightBMIScreen extends GetView<WeightBMIController> {
       final int bmi = bmiMap["value"];
       final BMIType bmiType = BMITypeEnum.getBMITypeByValue(bmi);
       return LineTooltipItem(
-        bmiType.bmiName,
+        bmiType.name,
         const TextStyle(
           color: Colors.white,
           fontWeight: FontWeight.bold,

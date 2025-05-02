@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:hunglydev_datn/generated/l10n.dart';
 
 import '../../presentation/theme/app_color.dart';
 import '../../presentation/widget/app_image_widget.dart';
 import '../../presentation/widget/app_touchable.dart';
 import '../constants/app_image.dart';
-import '../util/translation/app_translation.dart';
 
 mixin RewardAdsMixin {
   Future<void> showRewardAdsDialog(
@@ -24,8 +24,7 @@ mixin RewardAdsMixin {
             child: Container(
               width: Get.width * 0.85,
               padding: EdgeInsets.symmetric(vertical: 16.0.sp, horizontal: 18.0.sp),
-              decoration: BoxDecoration(
-                  color: Colors.white, borderRadius: BorderRadius.all(Radius.circular(20.0.sp))),
+              decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.all(Radius.circular(20.0.sp))),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
@@ -40,7 +39,7 @@ mixin RewardAdsMixin {
                           )),
                       Expanded(
                           child: Text(
-                        TranslationConstants.measure.tr,
+                        AppLocalization.of(context).measure,
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           fontSize: 20.0.sp,
@@ -80,7 +79,7 @@ mixin RewardAdsMixin {
                             ),
                             Expanded(
                                 child: Text(
-                              TranslationConstants.goPremium.tr,
+                              AppLocalization.of(context).goPremium,
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                 color: Colors.white,
@@ -109,7 +108,7 @@ mixin RewardAdsMixin {
                         child: FittedBox(
                           fit: BoxFit.scaleDown,
                           child: Text(
-                            TranslationConstants.watchingAds.tr,
+                            AppLocalization.of(context).watchingAds,
                             textAlign: TextAlign.center,
                             style: TextStyle(
                               color: const Color(0xFFA4A4A4),

@@ -4,16 +4,15 @@ import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:hunglydev_datn/generated/l10n.dart';
 import 'package:timezone/data/latest_all.dart' as tz;
 
 import 'common/config/hive_config/hive_config.dart';
-import 'common/constants/app_constant.dart';
 import 'common/constants/app_route.dart';
 import 'common/injector/app_di.dart';
 import 'common/injector/binding/app_binding.dart';
 import 'common/util/app_notification_local.dart';
 import 'common/util/share_preference_utils.dart';
-import 'common/util/translation/app_translation.dart';
 import 'presentation/app_page.dart';
 
 late AndroidNotificationChannel channel;
@@ -48,14 +47,13 @@ Future<void> main() async {
         defaultTransition: Transition.fade,
         getPages: AppPage.pages,
         localizationsDelegates: const [
+          AppLocalization.delegate,
           GlobalMaterialLocalizations.delegate,
-          GlobalWidgetsLocalizations.delegate,
           GlobalCupertinoLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
         ],
-        translations: AppTranslation(),
-        supportedLocales: AppConstant.availableLocales,
-        locale: AppConstant.availableLocales[1],
-        fallbackLocale: AppConstant.availableLocales[0],
+        locale: const Locale('vi'),
+        supportedLocales: AppLocalization.delegate.supportedLocales,
         theme: ThemeData(
           primaryColor: Colors.white,
           iconButtonTheme: IconButtonThemeData(

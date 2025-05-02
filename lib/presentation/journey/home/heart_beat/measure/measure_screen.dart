@@ -3,10 +3,10 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:hunglydev_datn/generated/l10n.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 
 import '../../../../../common/constants/app_image.dart';
-import '../../../../../common/util/translation/app_translation.dart';
 import '../../../../theme/app_color.dart';
 import '../../../../theme/theme_text.dart';
 import '../../../../widget/app_container.dart';
@@ -19,7 +19,7 @@ import 'measure_controller.dart';
 class MeasureScreen extends GetView<MeasureController> {
   const MeasureScreen({super.key});
 
-  Widget _buildStateIdle() {
+  Widget _buildStateIdle(BuildContext context) {
     String tutorialPath = AppImage.heart_rate_tutorial_android;
     if (Platform.isIOS) {
       tutorialPath = AppImage.heart_rate_tutorial_ios;
@@ -60,7 +60,7 @@ class MeasureScreen extends GetView<MeasureController> {
               ),
               SizedBox(width: 8.0.sp),
               Text(
-                TranslationConstants.measureNow.tr,
+                AppLocalization.of(context).measureNow,
                 style: textStyle18700().copyWith(
                   fontWeight: FontWeight.w600,
                   fontSize: 16.0.sp,
@@ -115,7 +115,7 @@ class MeasureScreen extends GetView<MeasureController> {
               SizedBox(height: 24.0.sp),
               Obx(
                 () => Text(
-                  '${TranslationConstants.measuring.tr} (${(controller.progress.value * 100).toInt()}%)',
+                  '${AppLocalization.of(context).measuring} (${(controller.progress.value * 100).toInt()}%)',
                   style: textStyle18400().copyWith(
                     fontWeight: FontWeight.w500,
                     fontSize: 20.0.sp,
@@ -125,7 +125,7 @@ class MeasureScreen extends GetView<MeasureController> {
               ),
               SizedBox(height: 4.0.sp),
               Text(
-                TranslationConstants.placeYourFinger.tr,
+                AppLocalization.of(context).placeYourFinger,
                 style: textStyle18400().copyWith(
                   fontWeight: FontWeight.w500,
                   fontSize: 16.0.sp,
@@ -151,7 +151,7 @@ class MeasureScreen extends GetView<MeasureController> {
           ),
           margin: EdgeInsets.fromLTRB(12.0.sp, 0, 12.0.sp, 0),
           child: Text(
-            TranslationConstants.stop.tr,
+            AppLocalization.of(context).stop,
             style: textStyle18700().copyWith(
               fontWeight: FontWeight.w600,
               fontSize: 16.0.sp,
@@ -171,7 +171,7 @@ class MeasureScreen extends GetView<MeasureController> {
       child: Column(
         children: [
           AppHeader(
-            title: TranslationConstants.measure.tr,
+            title: AppLocalization.of(context).measure,
             leftWidget: BackButton(
               color: AppColor.black,
               onPressed: Get.back,
@@ -183,7 +183,7 @@ class MeasureScreen extends GetView<MeasureController> {
                 duration: const Duration(milliseconds: 400),
                 child: controller.currentMeasureScreenState.value == MeasureScreenState.measuring
                     ? _buildStateMeasure(context)
-                    : _buildStateIdle(),
+                    : _buildStateIdle(context),
               );
             }),
           ),

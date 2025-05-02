@@ -1,15 +1,15 @@
 import 'dart:math';
 
-import 'package:hunglydev_datn/common/extensions/string_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:hunglydev_datn/common/extensions/string_extension.dart';
+import 'package:hunglydev_datn/generated/l10n.dart';
 
 import '../../../../../common/constants/app_constant.dart';
 import '../../../../../common/mixin/add_date_time_mixin.dart';
 import '../../../../../common/mixin/date_time_mixin.dart';
 import '../../../../../common/util/convert_utils.dart';
 import '../../../../../common/util/show_snack_bar.dart';
-import '../../../../../common/util/translation/app_translation.dart';
 import '../../../../../domain/enum/bmi_type.dart';
 import '../../../../../domain/enum/height_unit.dart';
 import '../../../../../domain/enum/weight_unit.dart';
@@ -123,7 +123,7 @@ class AddWeightBMIController extends GetxController with AddDateTimeMixin, DateT
             : age.value;
     showAppDialog(
       context,
-      TranslationConstants.choseYourAge.tr,
+      AppLocalization.of(context).choseYourAge,
       '',
       hideGroupButton: true,
       widgetBody: AppDialogAgeWidget(
@@ -146,7 +146,7 @@ class AddWeightBMIController extends GetxController with AddDateTimeMixin, DateT
   void onPressGender() {
     showAppDialog(
       context,
-      TranslationConstants.choseYourAge.tr,
+      AppLocalization.of(context).choseYourAge,
       '',
       hideGroupButton: true,
       widgetBody: AppDialogGenderWidget(
@@ -247,7 +247,7 @@ class AddWeightBMIController extends GetxController with AddDateTimeMixin, DateT
     if (context.mounted) {
       showSnackBar(
         context,
-        subtitle: TranslationConstants.addDataSuccess.tr,
+        subtitle: AppLocalization.of(context).addDataSuccess,
         type: SnackBarType.success,
       );
     }
@@ -313,7 +313,7 @@ class AddWeightBMIController extends GetxController with AddDateTimeMixin, DateT
     if (context.mounted) {
       showSnackBar(
         context,
-        subtitle: TranslationConstants.editDataSuccess.tr,
+        subtitle: AppLocalization.of(context).editDataSuccess,
         type: SnackBarType.success,
       );
     }

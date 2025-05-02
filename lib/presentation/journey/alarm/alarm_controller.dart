@@ -2,10 +2,10 @@ import 'dart:developer';
 
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
+import 'package:hunglydev_datn/generated/l10n.dart';
 
 import '../../../common/mixin/alarm_dialog_mixin.dart';
 import '../../../common/util/show_snack_bar.dart';
-import '../../../common/util/translation/app_translation.dart';
 import '../../../domain/model/alarm_model.dart';
 import '../../../domain/usecase/alarm_usecase.dart';
 
@@ -36,13 +36,13 @@ class AlarmController extends GetxController with AlarmDialogMixin {
       refresh();
       showSnackBar(
         Get.context!,
-        subtitle: TranslationConstants.deleteAlarmSuccess.tr,
+        subtitle: AppLocalization.current.deleteAlarmSuccess,
         type: SnackBarType.success,
       );
     } on Exception catch (_) {
       showSnackBar(
         Get.context!,
-        subtitle: TranslationConstants.deleteAlarmFailed.tr,
+        subtitle: AppLocalization.current.deleteAlarmFailed,
         type: SnackBarType.error,
       );
     }
@@ -59,13 +59,13 @@ class AlarmController extends GetxController with AlarmDialogMixin {
       refresh();
       showSnackBar(
         Get.context!,
-        subtitle: TranslationConstants.addAlarmSuccess.tr,
+        subtitle: AppLocalization.current.addAlarmSuccess,
         type: SnackBarType.success,
       );
     } on Exception catch (_) {
       showSnackBar(
         Get.context!,
-        subtitle: TranslationConstants.addAlarmFailed.tr,
+        subtitle: AppLocalization.current.addAlarmFailed,
         type: SnackBarType.error,
       );
     }
@@ -81,13 +81,13 @@ class AlarmController extends GetxController with AlarmDialogMixin {
       refresh();
       showSnackBar(
         Get.context!,
-        subtitle: TranslationConstants.updateAlarmSuccess.tr,
+        subtitle: AppLocalization.current.updateAlarmSuccess,
         type: SnackBarType.success,
       );
     } on Exception catch (_) {
       showSnackBar(
         Get.context!,
-        subtitle: TranslationConstants.updateAlarmFailed.tr,
+        subtitle: AppLocalization.current.updateAlarmFailed,
         type: SnackBarType.error,
       );
     }

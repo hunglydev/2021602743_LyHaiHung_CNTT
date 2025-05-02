@@ -3,8 +3,8 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:hunglydev_datn/generated/l10n.dart';
 
-import '../../../../../../common/util/translation/app_translation.dart';
 import '../../../../../../domain/enum/bmi_type.dart';
 import '../../../../../theme/app_color.dart';
 import '../../../../../theme/theme_text.dart';
@@ -32,7 +32,7 @@ class BMIINfoWidget extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           Text(
-            TranslationConstants.bmi.tr,
+            AppLocalization.of(context).bmi,
             textAlign: TextAlign.center,
             style: textStyle20700().merge(
               const TextStyle(
@@ -84,7 +84,7 @@ class BMIINfoWidget extends StatelessWidget {
             color: AppColor.primaryColor,
             radius: 10.0.sp,
             child: Text(
-              TranslationConstants.ok.tr,
+              AppLocalization.of(context).ok,
               textAlign: TextAlign.center,
               style: textStyle24700(),
             ),

@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get.dart';
+import 'package:hunglydev_datn/generated/l10n.dart';
 
 import '../../../../../common/constants/app_image.dart';
-import '../../../../../common/util/translation/app_translation.dart';
 import '../../../../../domain/enum/bmi_type.dart';
 import '../../../../theme/app_color.dart';
 import '../../../../theme/theme_text.dart';
@@ -61,7 +60,7 @@ class BMIDetailWidget extends StatelessWidget {
                   style: textStyle14500().copyWith(color: AppColor.black),
                 ),
                 Text(
-                  '${TranslationConstants.bmi.tr}: $bmi',
+                  '${AppLocalization.of(context).bmi}: $bmi',
                   style: textStyle18500().copyWith(color: AppColor.black),
                 )
               ],

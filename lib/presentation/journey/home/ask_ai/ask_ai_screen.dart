@@ -28,8 +28,9 @@ class AskAIScreen extends GetView<AskAIController> {
                   behavior: const DisableGlowBehavior(),
                   child: Column(
                     children: [
-                      Expanded(
+                      Flexible(
                         child: ListView.builder(
+                          reverse: true,
                           padding: EdgeInsets.zero,
                           itemCount: controller.listChat.length,
                           itemBuilder: (context, index) {
@@ -40,10 +41,11 @@ class AskAIScreen extends GetView<AskAIController> {
                           },
                         ),
                       ),
+                      // ChatLoading(),
                       controller.isLoadingSendChat
                           ? const ChatLoading().paddingSymmetric(horizontal: 20)
                           : const SizedBox.shrink(),
-                      50.height,
+                      20.height,
                     ],
                   ),
                 ),

@@ -1,10 +1,9 @@
 import 'dart:ui';
 
-import 'package:get/get.dart';
+import 'package:hunglydev_datn/generated/l10n.dart';
 import 'package:intl/intl.dart';
 
 import '../../presentation/theme/app_color.dart';
-import '../util/translation/app_translation.dart';
 
 class AppConstant {
   static final List<Locale> availableLocales = [
@@ -47,14 +46,14 @@ class BloodSugarStateCode {
 }
 
 final Map<String, String> bloodSugarStateDisplayMap = {
-  BloodSugarStateCode.defaultCode: TranslationConstants.bloodSugarDefaultState.tr,
-  BloodSugarStateCode.duringFastingCode: TranslationConstants.duringFastingCode.tr,
-  BloodSugarStateCode.beforeEatingCode: TranslationConstants.beforeEatingCode.tr,
-  BloodSugarStateCode.afterEating1hCode: TranslationConstants.afterEating1hCode.tr,
-  BloodSugarStateCode.afterEating2hCode: TranslationConstants.afterEating2hCode.tr,
-  BloodSugarStateCode.beforeBedtimeCode: TranslationConstants.beforeBedtimeCode.tr,
-  BloodSugarStateCode.beforeWorkoutCode: TranslationConstants.beforeWorkoutCode.tr,
-  BloodSugarStateCode.afterWorkoutCode: TranslationConstants.afterWorkoutCode.tr,
+  BloodSugarStateCode.defaultCode: AppLocalization.current.bloodSugarDefaultState,
+  BloodSugarStateCode.duringFastingCode: AppLocalization.current.duringFastingCode,
+  BloodSugarStateCode.beforeEatingCode: AppLocalization.current.beforeEatingCode,
+  BloodSugarStateCode.afterEating1hCode: AppLocalization.current.afterEating1hCode,
+  BloodSugarStateCode.afterEating2hCode: AppLocalization.current.afterEating2hCode,
+  BloodSugarStateCode.beforeBedtimeCode: AppLocalization.current.beforeBedtimeCode,
+  BloodSugarStateCode.beforeWorkoutCode: AppLocalization.current.beforeWorkoutCode,
+  BloodSugarStateCode.afterWorkoutCode: AppLocalization.current.afterWorkoutCode,
 };
 
 final List<String> bloodSugarStateCodeList = [
@@ -104,10 +103,10 @@ final Map<String, Color> bloodSugarInfoColorMap = {
 };
 
 final Map<String, String> bloodSugarInfoDisplayMap = {
-  BloodSugarInformationCode.lowCode: TranslationConstants.bloodSugarInforLow.tr,
-  BloodSugarInformationCode.normalCode: TranslationConstants.bloodSugarInforNormal.tr,
-  BloodSugarInformationCode.preDiabetesCode: TranslationConstants.bloodSugarInforPreDiabetes.tr,
-  BloodSugarInformationCode.diabetesCode: TranslationConstants.bloodSugarInforDiabetes.tr,
+  BloodSugarInformationCode.lowCode: AppLocalization.current.bloodSugarInforLow,
+  BloodSugarInformationCode.normalCode: AppLocalization.current.bloodSugarInforNormal,
+  BloodSugarInformationCode.preDiabetesCode: AppLocalization.current.bloodSugarInforPreDiabetes,
+  BloodSugarInformationCode.diabetesCode: AppLocalization.current.bloodSugarInforDiabetes,
 };
 
 class BloodSugarUnit {

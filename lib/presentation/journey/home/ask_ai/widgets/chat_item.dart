@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_markdown/flutter_markdown.dart';
 import 'package:get/get_utils/src/extensions/widget_extensions.dart';
 import 'package:hunglydev_datn/common/util/extensions/int_extension.dart';
 import 'package:hunglydev_datn/presentation/theme/app_color.dart';
@@ -92,13 +93,7 @@ class _ChatItemState extends State<ChatItem> {
                     padding: const EdgeInsets.all(
                       12,
                     ),
-                    child: Text(
-                      _textContent,
-                      // style: primaryTextStyle(
-                      //   size: labelTextSize,
-                      //   weight: FontWeight.w500,
-                      // ),
-                    ),
+                    child: MarkdownBody(data: _textContent),
                   ),
             8.height,
           ],
@@ -124,7 +119,7 @@ class _ChatItemState extends State<ChatItem> {
                   )
                   .toList()
               : _chatComponents(),
-        ),
+        ).paddingSymmetric(horizontal: 20),
         16.height,
       ],
     );

@@ -1,6 +1,7 @@
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:hunglydev_datn/generated/l10n.dart';
 import 'package:intl/intl.dart';
 
 import '../../../../common/constants/app_constant.dart';
@@ -8,7 +9,6 @@ import '../../../../common/mixin/alarm_dialog_mixin.dart';
 import '../../../../common/mixin/date_time_mixin.dart';
 import '../../../../common/util/app_util.dart';
 import '../../../../common/util/show_snack_bar.dart';
-import '../../../../common/util/translation/app_translation.dart';
 import '../../../../domain/enum/alarm_type.dart';
 import '../../../../domain/enum/bmi_type.dart';
 import '../../../../domain/enum/height_unit.dart';
@@ -62,14 +62,14 @@ class WeightBMIController extends GetxController with DateTimeMixin, AlarmDialog
     isExporting.value = true;
     List<String> header = [];
     List<List<String>> listOfData = [];
-    header.add(TranslationConstants.date.tr);
-    header.add(TranslationConstants.time.tr);
-    header.add(TranslationConstants.bmi.tr);
-    header.add("${TranslationConstants.weight.tr} (kg)");
-    header.add("${TranslationConstants.height.tr} (cm)");
-    header.add(TranslationConstants.age.tr);
-    header.add(TranslationConstants.gender.tr);
-    header.add(TranslationConstants.type.tr);
+    header.add(AppLocalization.of(context).date);
+    header.add(AppLocalization.of(context).time);
+    header.add(AppLocalization.of(context).bmi);
+    header.add("${AppLocalization.of(context).weight} (kg)");
+    header.add("${AppLocalization.of(context).height} (cm)");
+    header.add(AppLocalization.of(context).age);
+    header.add(AppLocalization.of(context).gender);
+    header.add(AppLocalization.of(context).type);
     for (final item in bmiList) {
       DateTime dateTime = DateTime.fromMillisecondsSinceEpoch(item.dateTime ?? 0);
       final bmiType = BMITypeEnum.getBMITypeById(item.typeId);
@@ -86,7 +86,7 @@ class WeightBMIController extends GetxController with DateTimeMixin, AlarmDialog
         '${item.heightCm}',
         '${item.age}',
         gender,
-        bmiType.bmiName
+        bmiType.name
       ]);
     }
     await exportFile(header, listOfData);
@@ -208,7 +208,7 @@ class WeightBMIController extends GetxController with DateTimeMixin, AlarmDialog
     if (context.mounted) {
       showSnackBar(
         context,
-        subtitle: TranslationConstants.deleteDataSuccess.tr,
+        subtitle: AppLocalization.of(context).deleteDataSuccess,
         type: SnackBarType.success,
       );
     }

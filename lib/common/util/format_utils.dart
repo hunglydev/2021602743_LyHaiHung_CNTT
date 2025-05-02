@@ -1,5 +1,5 @@
-import 'package:hunglydev_datn/common/extensions/string_extension.dart';
 import 'package:flutter/services.dart';
+import 'package:hunglydev_datn/common/extensions/string_extension.dart';
 
 class InchesFormatter extends TextInputFormatter {
   @override

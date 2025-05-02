@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:hunglydev_datn/generated/l10n.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
 import '../../../../common/util/disable_glow_behavior.dart';
-import '../../../../common/util/translation/app_translation.dart';
 import '../../../theme/app_color.dart';
 import '../../../theme/theme_text.dart';
 import '../../../widget/app_container.dart';
@@ -25,7 +25,7 @@ class FoodScannerScreen extends GetView<FoodScannerController> {
       child: Column(
         children: [
           AppHeader(
-            title: TranslationConstants.scanFood.tr,
+            title: AppLocalization.of(context).scanFood,
             leftWidget: AppTouchable.common(
               onPressed: () => Get.back(),
               decoration: const BoxDecoration(boxShadow: null),
@@ -56,9 +56,6 @@ class FoodScannerScreen extends GetView<FoodScannerController> {
                   child: CircularProgressIndicator.adaptive(),
                 );
               }
-
-              print("permissionStatusCamera = ${controller.permissionStatusCamera.value}");
-
               switch (controller.permissionStatusCamera.value) {
                 case PermissionStatus.denied:
                   return _permissionDenied(context);
@@ -71,7 +68,7 @@ class FoodScannerScreen extends GetView<FoodScannerController> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        Text(TranslationConstants.permissionCameraDenied01.tr),
+                        Text(AppLocalization.of(context).permissionCameraDenied01),
                         SizedBox(
                           height: 12.0.sp,
                         ),
@@ -79,7 +76,7 @@ class FoodScannerScreen extends GetView<FoodScannerController> {
                           onPressed: () {
                             controller.onPressRequestPermissionCamera(context);
                           },
-                          child: Text(TranslationConstants.requestPermission.tr),
+                          child: Text(AppLocalization.of(context).requestPermission),
                         ),
                       ],
                     ),
@@ -135,7 +132,7 @@ class FoodScannerScreen extends GetView<FoodScannerController> {
                         if (context.mounted) {
                           await showAppDialog(
                             context,
-                            TranslationConstants.scanResult.tr,
+                            AppLocalization.of(context).scanResult,
                             "",
                             widgetBody: Padding(
                               padding: EdgeInsets.all(12.0.sp),
@@ -158,7 +155,8 @@ class FoodScannerScreen extends GetView<FoodScannerController> {
                                               ),
                                             )
                                           : Text(
-                                              barcodes.barcodes.first.rawValue ?? TranslationConstants.noInformation.tr,
+                                              barcodes.barcodes.first.rawValue ??
+                                                  AppLocalization.of(context).noInformation,
                                               style: textStyle18500().copyWith(
                                                 fontSize: 16.0.sp,
                                               ),
@@ -179,7 +177,7 @@ class FoodScannerScreen extends GetView<FoodScannerController> {
                                       isShowDialog = false;
                                     },
                                     child: Text(
-                                      TranslationConstants.ok.tr.toUpperCase(),
+                                      AppLocalization.of(context).ok.toUpperCase(),
                                       style: textStyle24700().copyWith(
                                         color: AppColor.white,
                                         fontSize: 16.0.sp,
@@ -268,7 +266,7 @@ class FoodScannerScreen extends GetView<FoodScannerController> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(
-            TranslationConstants.permissionCameraDenied02.tr,
+            AppLocalization.of(context).permissionCameraDenied02,
             textAlign: TextAlign.center,
             style: textStyle16400(),
           ),
@@ -285,7 +283,7 @@ class FoodScannerScreen extends GetView<FoodScannerController> {
               horizontal: 20.0.sp,
             ),
             child: Text(
-              TranslationConstants.requestPermission.tr,
+              AppLocalization.of(context).requestPermission,
               style: textStyle16500().copyWith(
                 color: AppColor.white,
               ),
