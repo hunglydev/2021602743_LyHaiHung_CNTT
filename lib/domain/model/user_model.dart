@@ -1,5 +1,4 @@
 import 'package:hive/hive.dart';
-
 import '../../common/config/hive_config/hive_constants.dart';
 
 part 'user_model.g.dart';
@@ -7,24 +6,39 @@ part 'user_model.g.dart';
 @HiveType(typeId: HiveTypeConstants.userModel)
 class UserModel extends HiveObject {
   @HiveField(0)
-  int? age;
+  int id;
+
   @HiveField(1)
-  String? genderId;
+  String name;
+
+  @HiveField(2)
+  DateTime? birthDay;
+
+  @HiveField(3)
+  int? age;
+
+  @HiveField(4)
+  int gender;
 
   UserModel({
-    this.age,
-    this.genderId,
+    this.id = 0,
+    this.name = "",
+    this.birthDay,
+    this.age = 0,
+    this.gender = 0,
   });
 
-  UserModel.fromJson(Map<String, dynamic> json) {
-    age = json['age'] as int?;
-    genderId = json['genderId'] as String?;
-  }
+  factory UserModel.fromJson(Map<String, dynamic> json) => UserModel(
+        id: json['id'] as int,
+        name: json['name'] as String,
+        birthDay: DateTime.parse(json['birthDay']),
+        gender: json['gender'] as int,
+      );
 
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> json = <String, dynamic>{};
-    json['age'] = age;
-    json['genderId'] = genderId;
-    return json;
-  }
+  Map<String, dynamic> toJson() => {
+        'id': id,
+        'name': name,
+        'birthDay': birthDay,
+        'genderId': gender,
+      };
 }

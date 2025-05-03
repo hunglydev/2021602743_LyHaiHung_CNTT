@@ -2,7 +2,7 @@ class HeartRateModel {
   int? timeStamp;
   int? value;
   int? age;
-  String? genderId;
+  int? genderId;
 
   HeartRateModel({
     this.timeStamp,
@@ -15,7 +15,7 @@ class HeartRateModel {
     timeStamp = json['timeStamp'] as int?;
     value = json['value'] as int?;
     age = json['age'] as int?;
-    genderId = json['genderId'] as String?;
+    genderId = json['genderId'] as int?;
   }
 
   Map<String, dynamic> toJson() {

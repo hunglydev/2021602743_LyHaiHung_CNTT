@@ -44,7 +44,7 @@ class AddWeightBMIController extends GetxController with AddDateTimeMixin, DateT
   RxInt age = (Get.find<AppController>().currentUser.value.age ?? 30).obs;
   RxMap gender = AppConstant.listGender
       .firstWhere(
-        (element) => element['id'] == Get.find<AppController>().currentUser.value.genderId,
+        (element) => element['id'] == Get.find<AppController>().currentUser.value.gender,
         orElse: () => AppConstant.listGender[0],
       )
       .obs;
@@ -134,7 +134,7 @@ class AddWeightBMIController extends GetxController with AddDateTimeMixin, DateT
           _appController.updateUser(
             UserModel(
               age: value,
-              genderId: _appController.currentUser.value.genderId ?? '0',
+              gender: _appController.currentUser.value.gender,
             ),
           );
           age.value = value;
@@ -160,7 +160,7 @@ class AddWeightBMIController extends GetxController with AddDateTimeMixin, DateT
           _appController.updateUser(
             UserModel(
               age: _appController.currentUser.value.age ?? 30,
-              genderId: value['id'] ?? '0',
+              gender: value['id'] ?? '0',
             ),
           );
           gender.value = value;
@@ -220,7 +220,7 @@ class AddWeightBMIController extends GetxController with AddDateTimeMixin, DateT
     _setHeightUnit();
     _setWeightUnit();
     Map? initialGender = AppConstant.listGender.firstWhereOrNull(
-      (element) => element['id'] == (_appController.currentUser.value.genderId ?? '0'),
+      (element) => element['id'] == (_appController.currentUser.value.gender),
     );
     final DateTime bmiDateTime = DateTime(
       bloodPressureDate.year,

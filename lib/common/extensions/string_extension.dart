@@ -1,3 +1,6 @@
+import 'package:hunglydev_datn/common/util/app_util.dart';
+import 'package:hunglydev_datn/common/util/pattern.dart';
+
 extension StringExtension on String {
   int get toInt {
     final stringNumber = replaceAll(RegExp(r'[^0-9]'), '');

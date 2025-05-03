@@ -67,7 +67,7 @@ class MeasureController extends GetxController with RewardAdsMixin {
                     timeStamp: dateTime.millisecondsSinceEpoch,
                     value: value,
                     age: _appController.currentUser.value.age ?? 30,
-                    genderId: _appController.currentUser.value.genderId ?? '0',
+                    genderId: _appController.currentUser.value.gender,
                   ),
                 );
               }

@@ -160,7 +160,7 @@ class _AppDialogHeartRateWidgetState extends State<AppDialogHeartRateWidget> {
           _appController.updateUser(
             UserModel(
               age: value,
-              genderId: _appController.currentUser.value.genderId ?? '0',
+              gender: _appController.currentUser.value.gender,
             ),
           );
         },
@@ -170,7 +170,7 @@ class _AppDialogHeartRateWidgetState extends State<AppDialogHeartRateWidget> {
 
   void _onPressGender() {
     Map? initialGender = AppConstant.listGender.firstWhereOrNull(
-      (element) => element['id'] == (_appController.currentUser.value.genderId ?? '0'),
+      (element) => element['id'] == (_appController.currentUser.value.gender),
     );
     showAppDialog(
       context,
@@ -185,7 +185,7 @@ class _AppDialogHeartRateWidgetState extends State<AppDialogHeartRateWidget> {
           _appController.updateUser(
             UserModel(
               age: _appController.currentUser.value.age ?? 30,
-              genderId: value['id'] ?? '0',
+              gender: value['id'] ?? 0,
             ),
           );
         },
@@ -527,7 +527,7 @@ class _AppDialogHeartRateWidgetState extends State<AppDialogHeartRateWidget> {
               ),
               child: Obx(() {
                 Map gender = AppConstant.listGender.firstWhere(
-                  (element) => element['id'] == _appController.currentUser.value.genderId,
+                  (element) => element['id'] == _appController.currentUser.value.gender,
                   orElse: () => AppConstant.listGender[0],
                 );
                 return Text(

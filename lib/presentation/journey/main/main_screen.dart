@@ -2,11 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:hunglydev_datn/generated/l10n.dart';
+import 'package:hunglydev_datn/presentation/journey/personal/personal_screen.dart';
+import 'package:hunglydev_datn/presentation/widget/cache_image_widget.dart';
 
 import '../../../common/constants/app_image.dart';
 import '../../theme/app_color.dart';
 import '../../widget/app_container.dart';
-import '../../widget/app_image_widget.dart';
 import '../alarm/alarm_screen.dart';
 import '../alarm/widgets/alarm_add_button.dart';
 import '../home/home_screen.dart';
@@ -36,6 +37,7 @@ class MainScreen extends GetView<MainController> {
               HomeScreen(),
               InsightScreen(),
               AlarmScreen(),
+              PersonalScreen(),
             ],
           );
         }),
@@ -57,25 +59,36 @@ class MainScreen extends GetView<MainController> {
             ),
             items: [
               BottomNavigationBarItem(
-                icon: AppImageWidget.asset(
-                  path: AppImage.ic_home,
+                icon: CachedImageWidget(
+                  height: 32,
+                  url: AppImage.ic_home,
                   color: controller.currentTab.value == 0 ? AppColor.white : AppColor.white.withOpacity(0.5),
                 ),
-                label: AppLocalization.of(context).home,
+                label: "",
               ),
               BottomNavigationBarItem(
-                icon: AppImageWidget.asset(
-                  path: AppImage.ic_insight,
+                icon: CachedImageWidget(
+                  height: 32,
+                  url: AppImage.ic_insight,
                   color: controller.currentTab.value == 1 ? AppColor.white : AppColor.white.withOpacity(0.5),
                 ),
-                label: AppLocalization.of(context).insights,
+                label: "",
               ),
               BottomNavigationBarItem(
-                icon: AppImageWidget.asset(
-                  path: AppImage.ic_alarm,
+                icon: CachedImageWidget(
+                  height: 32,
+                  url: AppImage.ic_alarm,
                   color: controller.currentTab.value == 2 ? AppColor.white : AppColor.white.withOpacity(0.5),
                 ),
-                label: AppLocalization.of(context).alarm,
+                label: "",
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(
+                  Icons.settings,
+                  size: 32,
+                  color: controller.currentTab.value == 3 ? AppColor.white : AppColor.white.withOpacity(0.5),
+                ),
+                label: "",
               ),
             ],
           );

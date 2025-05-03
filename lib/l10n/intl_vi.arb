@@ -1,4 +1,20 @@
-const viStrings = {
+{
+  "@@locale": "vi",
+  "addAlarmSuccess": "Thêm báo thức thành công",
+  "confirm": "Xác nhận",
+  "weight": "Cân nặng",
+  "height": "Chiều cao",
+  "verySeverelyUnderweight": "Rất thiếu cân",
+  "severelyUnderweight": "Thiếu cân nghiêm trọng",
+  "month": "Tháng",
+  "year": "Năm",
+  "noAds": "Không có quảng cáo",
+  "withAds": "Có quảng cáo",
+  "product": "Sản phẩm",
+  "newProduct": "Sản phẩm mới",
+  "notification": "Thông báo",
+  "loading": "Đang tải",
+  "pedometer": "Đếm bước chân",
   "unknownError": "Lỗi không xác định",
   "notice": "Thông báo",
   "close": "Đóng",
@@ -20,7 +36,7 @@ const viStrings = {
   "moreApp": "Các ứng dụng khác",
   "errorLoadAds": "Chức năng chưa sẵn sàng, vui lòng thử lại sau giây lát",
   "shareMessage":
-      "Tải app để theo dõi nhiệt độ ngoài trời, độ ẩm, cập nhật tình hình thời tiết và chỉ số ô nhiễm không khí để bảo vệ bản thân và gia đình bạn",
+  "Tải app để theo dõi nhiệt độ ngoài trời, độ ẩm, cập nhật tình hình thời tiết và chỉ số ô nhiễm không khí để bảo vệ bản thân và gia đình bạn",
   "bloodHealth": "Blood Health",
   "heartRate": "Nhịp tim",
   "descriptionHeartRate": "Bạn có thể đo nhịp tim của mình bằng camera điện thoại",
@@ -53,7 +69,7 @@ const viStrings = {
   "permissionCameraSetting01": "Vui lòng vào phần cài đặt và cho phép ứng dụng truy cập camera của thiết bị để đo nhịp tim",
   "permissionCameraDenied02": "Vui lòng cho phép ứng dụng truy cập camera của thiết bị để tiến hành quét mã",
   "permissionCameraSetting02":
-      "Vui lòng vào phần cài đặt và cho phép ứng dụng truy cập camera của thiết bị để tiến hành quét mã",
+  "Vui lòng vào phần cài đặt và cho phép ứng dụng truy cập camera của thiết bị để tiến hành quét mã",
   "restingHeartRate": "Nhịp tim nghỉ ngơi",
   "slow": "Chậm",
   "normal": "Bình thường",
@@ -90,19 +106,19 @@ const viStrings = {
   "hypertensionStage1": "Tăng huyết áp giai đoạn 1",
   "hypertensionStage2": "Tăng huyết áp giai đoạn 2",
   "hypertensionCrisis": "Khủng hoảng tăng huyết áp",
-  "systolicRangeOrDiastolicRange": "Tâm thu @sys or Tâm trương @dia",
+  "systolicRangeOrDiastolicRange": "Tâm thu {sys} or Tâm trương {dia}",
   "ok": "Đồng ý",
   "pulse": "Nhịp tim",
-  "sysAndDIA": "Sys @sys and DIA @dia",
+  "sysAndDIA": "Sys {sys} and DIA {dia}",
   "hypertensionStage1Message":
-      "Ồ! huyết áp của bạn cao hơn bình thường. Nếu xảy ra 3 lần trở lên, bạn nên gặp bác sĩ để được hướng dẫn",
+  "Ồ! huyết áp của bạn cao hơn bình thường. Nếu xảy ra 3 lần trở lên, bạn nên gặp bác sĩ để được hướng dẫn",
   "hypotensionMessage":
-      "Huyết áp của bạn có vẻ hơi thấp. Vui lòng tìm kiếm sự giúp đỡ từ bác sĩ của bạn nếu nó vẫn ở mức thấp trong một thời gian dài",
+  "Huyết áp của bạn có vẻ hơi thấp. Vui lòng tìm kiếm sự giúp đỡ từ bác sĩ của bạn nếu nó vẫn ở mức thấp trong một thời gian dài",
   "normalMessage": "Tuyệt quá! Huyết áp của bạn nằm trong phạm vi khỏe mạnh. Chỉ cần giữ nó!",
   "elevatedMessage":
-      "Hơi cao. Bạn nên theo dõi thường xuyên huyết áp của mình và cân nhắc thực hiện các thay đổi để cải thiện sức khỏe của mình",
+  "Hơi cao. Bạn nên theo dõi thường xuyên huyết áp của mình và cân nhắc thực hiện các thay đổi để cải thiện sức khỏe của mình",
   "hypertensionStage2Message":
-      "Chú ý! Nếu bạn có 3 kết quả trở lên trong phạm vi, cần có lời khuyên của bác sĩ và điều trị y tế ngay lập tức",
+  "Chú ý! Nếu bạn có 3 kết quả trở lên trong phạm vi, cần có lời khuyên của bác sĩ và điều trị y tế ngay lập tức",
   "hypertensionCrisisMessage": "Chúng tôi lo lắng cho bạn, hãy gọi dịch vụ cấp cứu ngay lập tức",
   "edit": "Chỉnh sửa",
   "forSomething": "cho",
@@ -119,8 +135,6 @@ const viStrings = {
   "deleteDataFailed": "Xóa dữ liệu thất bại",
   "deleteAlarmConfirmMsg": "Bạn có chắc muốn xoá hẹn giờ này?",
   "remindToRecord": "Nhắc nhở theo dõi",
-
-  // Blood Sugar
   "bloodSugarAllState": "Tất cả",
   "bloodSugarState": "Trạng thái",
   "bloodSugarDefaultState": "Mặc định",
@@ -142,7 +156,6 @@ const viStrings = {
   "checkYourBloodSugar": "Kiểm tra lượng đường trong máu của bạn để theo dõi sức khoẻ tim mạch",
   "bloodSugarInfo": "Thông tin",
 
-  // Notification messages
   "bloodPressureNoti0": "Đã tới giờ đo huyết áp!",
   "bloodPressureNoti1": "Kiểm tra huyết áp và theo dõi sự khác biệt trong biểu đồ!",
   "bloodPressureNoti2": "Bạn đã kiểm tra huyết áp ngày hôm nay chưa? Chạm để đo ngay!",
@@ -153,7 +166,7 @@ const viStrings = {
   "bloodPressureNoti7": "Kiểm tra huyết áp và chạm vào đây để theo dõi chúng",
   "bloodPressureNoti8": "Đã tới giờ đo huyết áp và ghi lại!",
   "bloodPressureNoti9":
-      "Sống khoẻ bằng cách đo huyết áp để phát hiện các triệu chứng huyết áp cao, huyết áp thấp với công cụ của chúng tôi",
+  "Sống khoẻ bằng cách đo huyết áp để phát hiện các triệu chứng huyết áp cao, huyết áp thấp với công cụ của chúng tôi",
 
   "heartRateNoti0": "Hãy theo dõi sức khoẻ bằng cách kiểm tra nhịp tim",
   "heartRateNoti1": "Đo vào theo dõi nhịp tim ngay bây giờ",
@@ -162,7 +175,7 @@ const viStrings = {
   "heartRateNoti4": "Đã tới giờ đo nhịp tim, chạm vào đây để tiến hành đo và theo dõi",
   "heartRateNoti5": "Đo nhịp tim của bạn để kiểm tra sức khoẻ",
   "heartRateNoti6":
-      "Các hoạt động thể chất và trạng thái tinh thần có thể ảnh hưởng tới nhịp tim của bạn. Chạm để kiểm tra và ghi lại",
+  "Các hoạt động thể chất và trạng thái tinh thần có thể ảnh hưởng tới nhịp tim của bạn. Chạm để kiểm tra và ghi lại",
   "heartRateNoti7": "Bạn rảnh chứ? Hãy đo và theo dõi nhịp tim của mình",
   "heartRateNoti8": "Này! Đã tới giờ đo và theo dõi nhịp tim bằng công cụ của chúng tôi!",
   "heartRateNoti9": "Sống khoẻ bằng cách cùng chúng tôi theo dõi nhịp tim hàng ngày",
@@ -172,7 +185,7 @@ const viStrings = {
   "bloodSugarNoti2": "Lượng đường trong máu có thể phản ánh tình trạng sức khoẻ của bạn. Hãy kiểm tra ngay!",
   "bloodSugarNoti3": "Lượng đường trong máu có thể dùng để kiểm tra bệnh tiểu đường. Hãy kiểm tra ngay!",
   "bloodSugarNoti4":
-      "Bệnh tiểu đường và các bệnh lí khác có thể được phát hiện thông qua lượng đường trong máu. Chạm để kiểm tra",
+  "Bệnh tiểu đường và các bệnh lí khác có thể được phát hiện thông qua lượng đường trong máu. Chạm để kiểm tra",
   "bloodSugarNoti5": "Nắm được lượng đường trong máu và theo dõi hàng ngày",
   "bloodSugarNoti6": "Lượng đường trong máu cao có thể gây nguy hiểm. Chạm để kiểm tra ngay",
   "bloodSugarNoti7": "Bảo vệ bản thân bằng cách đo lượng đường trong máu hàng ngày",
@@ -189,27 +202,17 @@ const viStrings = {
   "weightAndBMINoti7": "Kiểm tra chỉ số cân nặng cơ thể để thay đổi chế độ ăn uống và cân nặng!",
   "weightAndBMINoti8": "Xem thông số BMI ngay!",
   "weightAndBMINoti9": "Đã tới giờ kiểm tra thành quả tập luyện bằng việc đo BMI",
-
-  ///Weight & BMI
-  "weight": "Cân nặng",
-  "height": "Chiều cao",
-  "verySeverelyUnderweight": "Thiếu cân rất nghiêm trọng",
-  "severelyUnderweight": "Thiếu cân nặng",
   "underweight": "Thiếu cân",
   "overweight": "Thừa cân",
   "obeseClassI": "Béo phì loại I",
   "obeseClassII": "Béo phì loại II",
   "obeseClassIII": "Béo phì loại III",
-  "bmiMessage": "BMI @value",
+  "bmiMessage": "BMI {value}",
   "bmi": "BMI",
-
-  /**
-   * Subscribe
-   */
   "subscribeTitle": "Gói ghi chú sức khỏe premium",
-  "descriptionSub": "Đăng ký này tự động gia hạn sau thời gian dùng thử 3 ngày cho @priceOfWeek/tuần và @priceOfYear/năm, bạn có thể hủy đăng ký bất cứ lúc nào. Thanh toán sẽ được tính vào tài khoản Google Play của bạn khi xác nhận mua hàng. Đăng ký tự động gia hạn trừ khi nó bị hủy ít nhất 24 giờ trước khi kết thúc giai đoạn hiện tại. Bạn có thể quản lý và hủy đăng ký của mình bằng cách truy cập cài đặt tài khoản của bạn trên GooglePlay sau khi mua. Mọi phần hoặc khoảng thời gian chưa sử dụng của giai đoạn dùng thử miễn phí sẽ bị hủy bỏ, ngay sau khi bạn mua đăng ký.",
+  "descriptionSub": "Đăng ký này tự động gia hạn sau thời gian dùng thử 3 ngày cho {priceOfWeek}/{week} và {priceOfYear}/{year}, bạn có thể hủy đăng ký bất cứ lúc nào. Thanh toán sẽ được tính vào tài khoản Google Play của bạn khi xác nhận mua hàng. Đăng ký tự động gia hạn trừ khi nó bị hủy ít nhất 24 giờ trước khi kết thúc giai đoạn hiện tại. Bạn có thể quản lý và hủy đăng ký của mình bằng cách truy cập cài đặt tài khoản của bạn trên GooglePlay sau khi mua. Mọi phần hoặc khoảng thời gian chưa sử dụng của giai đoạn dùng thử miễn phí sẽ bị hủy bỏ, ngay sau khi bạn mua đăng ký.",
   "descriptionSub1":
-      "Đăng ký này tự động gia hạn sau thời gian dùng thử 3 ngày cho @priceOfFullPack, bạn có thể hủy đăng ký bất cứ lúc nào. Thanh toán sẽ được tính vào tài khoản Google Play của bạn khi xác nhận mua hàng. Đăng ký tự động gia hạn trừ khi nó bị hủy ít nhất 24 giờ trước khi kết thúc giai đoạn hiện tại. Bạn có thể quản lý và hủy đăng ký của mình bằng cách truy cập cài đặt tài khoản của bạn trên GooglePlay sau khi mua. Mọi phần hoặc khoảng thời gian chưa sử dụng của giai đoạn dùng thử miễn phí sẽ bị hủy bỏ, ngay sau khi bạn mua đăng ký.",
+  "Đăng ký này tự động gia hạn sau thời gian dùng thử 3 ngày cho {priceOfFullPack}, bạn có thể hủy đăng ký bất cứ lúc nào. Thanh toán sẽ được tính vào tài khoản Google Play của bạn khi xác nhận mua hàng. Đăng ký tự động gia hạn trừ khi nó bị hủy ít nhất 24 giờ trước khi kết thúc giai đoạn hiện tại. Bạn có thể quản lý và hủy đăng ký của mình bằng cách truy cập cài đặt tài khoản của bạn trên GooglePlay sau khi mua. Mọi phần hoặc khoảng thời gian chưa sử dụng của giai đoạn dùng thử miễn phí sẽ bị hủy bỏ, ngay sau khi bạn mua đăng ký.",
   "subscribeContentIos1": "Start your 3 Days Free trial",
   "subscribeContentIos2": "Bắt đầu 3 ngày dùng thử miễn phí của bạn",
   "subscribeContentIos3": "Truy cập Tạp chí đường huyết; Theo dõi cân nặng & BMI và hơn thế nữa,...",
@@ -229,7 +232,7 @@ const viStrings = {
   "perWeek": "mỗi tuần",
   "perMonth": "mỗi tháng",
   "only": "Chỉ",
-  "3freeTrial": "Dùng thử miễn phí 3 ngày",
+  "threeFreeTrial": "Dùng thử miễn phí 3 ngày",
   "bestOffer": "Lựa chọn tốt nhất",
   "selectLocation": "Những thông tin dưới đây sẽ giúp ích cho bạn trong quá trình theo dõi sức khỏe của mình",
   "howOldAreYou": "Bạn bao nhiêu tuổi?",
@@ -237,5 +240,5 @@ const viStrings = {
   "male": "Nam",
   "female": "Nữ",
   "questionWhere": "Bạn đến từ đâu?",
-  "next": "Tiếp theo",
-};
+  "next": "Tiếp theo"
+}

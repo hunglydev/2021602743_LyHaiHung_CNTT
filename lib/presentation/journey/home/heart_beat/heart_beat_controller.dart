@@ -219,7 +219,7 @@ class HeartBeatController extends GetxController with AlarmDialogMixin {
           timeStamp: dateTime.millisecondsSinceEpoch,
           value: value,
           age: appController.currentUser.value.age ?? 30,
-          genderId: appController.currentUser.value.genderId ?? '0',
+          genderId: appController.currentUser.value.gender,
         ),
       );
     }
@@ -239,7 +239,7 @@ class HeartBeatController extends GetxController with AlarmDialogMixin {
     header.add(AppLocalization.current.gender);
     header.add('BPM');
     Map gender = AppConstant.listGender.firstWhere(
-      (element) => element['id'] == appController.currentUser.value.genderId,
+      (element) => element['id'] == appController.currentUser.value.gender,
       orElse: () => AppConstant.listGender[0],
     );
     for (final item in appController.listHeartRateModel) {
