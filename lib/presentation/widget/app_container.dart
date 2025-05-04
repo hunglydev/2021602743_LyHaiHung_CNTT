@@ -11,7 +11,7 @@ class AppContainer extends StatelessWidget {
     this.child,
     this.backgroundColor,
     this.coverScreenWidget,
-    this.resizeToAvoidBottomInset = false,
+    this.resizeToAvoidBottomInset = true,
     this.floatingActionButton,
     this.alignLayer,
   });

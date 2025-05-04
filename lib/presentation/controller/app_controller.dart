@@ -16,7 +16,7 @@ import '../../domain/model/user_model.dart';
 onSelectNotification(s1) async {}
 
 class AppController extends SuperController {
-  Locale currentLocale = AppConstant.availableLocales[0];
+  Rx<Locale> currentLocale = AppConstant.availableLocales[0].obs;
   Rx<UserModel> currentUser = UserModel().obs;
   final _localRepository = getIt.get<LocalRepository>();
 
@@ -92,7 +92,8 @@ class AppController extends SuperController {
 
   void updateLocale(Locale locale) {
     Get.updateLocale(locale);
-    currentLocale = locale;
+    currentLocale.value = locale;
+    update();
   }
 
   void updateUser(UserModel userModel) async {

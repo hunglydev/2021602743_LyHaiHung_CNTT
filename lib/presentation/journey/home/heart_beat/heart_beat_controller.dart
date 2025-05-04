@@ -167,7 +167,7 @@ class HeartBeatController extends GetxController with AlarmDialogMixin {
         end: endDate.value,
       ),
       initialEntryMode: DatePickerEntryMode.calendarOnly,
-      locale: Get.find<AppController>().currentLocale,
+      locale: Get.find<AppController>().currentLocale.value,
       builder: (context, Widget? child) => Theme(
         data: ThemeData(
           colorScheme: const ColorScheme.light(

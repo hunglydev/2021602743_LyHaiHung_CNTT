@@ -5,6 +5,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:hunglydev_datn/generated/l10n.dart';
+import 'package:hunglydev_datn/presentation/controller/app_controller.dart';
 import 'package:timezone/data/latest_all.dart' as tz;
 
 import 'common/config/hive_config/hive_config.dart';
@@ -37,6 +38,7 @@ Future<void> main() async {
     ),
   );
 
+  Get.put(AppController());
   runApp(
     ScreenUtilInit(
       designSize: const Size(414, 736),
@@ -52,7 +54,7 @@ Future<void> main() async {
           GlobalCupertinoLocalizations.delegate,
           GlobalWidgetsLocalizations.delegate,
         ],
-        locale: const Locale('vi'),
+        locale: Get.find<AppController>().currentLocale.value,
         supportedLocales: AppLocalization.delegate.supportedLocales,
         theme: ThemeData(
           primaryColor: Colors.white,

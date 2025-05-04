@@ -18,6 +18,7 @@ class AppButton extends StatelessWidget {
   final List<BoxShadow>? boxShadow;
   final LinearGradient? gradient;
   final Color? color;
+  final BoxDecoration? decoration;
   final Color? textColor;
   final FontWeight? fontWeight;
 
@@ -32,6 +33,7 @@ class AppButton extends StatelessWidget {
     required this.onPressed,
     this.margin,
     this.child,
+    this.decoration,
     this.boxShadow,
     this.gradient,
     this.color,
@@ -52,11 +54,12 @@ class AppButton extends StatelessWidget {
         outlinedBorder: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(radius ?? 17),
         ),
-        decoration: BoxDecoration(
-          color: color,
-          borderRadius: BorderRadius.circular(radius ?? 17),
-          boxShadow: boxShadow,
-        ),
+        decoration: decoration ??
+            BoxDecoration(
+              color: color,
+              borderRadius: BorderRadius.circular(radius ?? 17),
+              boxShadow: boxShadow,
+            ),
         child: child ??
             Text(
               text ?? '',

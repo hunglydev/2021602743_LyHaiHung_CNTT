@@ -76,6 +76,8 @@ class AppImage {
   static const String avatarBot = '${_internalImagePathPng}avatar_bot.png';
   static const String icPedometer = '${_internalImagePathPng}ic_pedometer.png';
   static const String icSmartToy = '${_internalImagePathPng}ic_smart_toy.png';
+  static const String icUS = '${_internalImagePathPng}flag/ic_us.png';
+  static const String icVI = '${_internalImagePathPng}flag/ic_vi.png';
 
   ///lottie
   static const String heart_rate_lottie = '${_internalImagePathLottie}heart-rate.json';

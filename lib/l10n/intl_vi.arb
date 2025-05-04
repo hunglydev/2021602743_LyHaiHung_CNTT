@@ -109,7 +109,7 @@
   "systolicRangeOrDiastolicRange": "Tâm thu {sys} or Tâm trương {dia}",
   "ok": "Đồng ý",
   "pulse": "Nhịp tim",
-  "sysAndDIA": "Sys {sys} and DIA {dia}",
+  "sysAndDIA": "Tâm thu {sys} và tâm trương {dia}",
   "hypertensionStage1Message":
   "Ồ! huyết áp của bạn cao hơn bình thường. Nếu xảy ra 3 lần trở lên, bạn nên gặp bác sĩ để được hướng dẫn",
   "hypotensionMessage":
@@ -210,7 +210,7 @@
   "bmiMessage": "BMI {value}",
   "bmi": "BMI",
   "subscribeTitle": "Gói ghi chú sức khỏe premium",
-  "descriptionSub": "Đăng ký này tự động gia hạn sau thời gian dùng thử 3 ngày cho {priceOfWeek}/{week} và {priceOfYear}/{year}, bạn có thể hủy đăng ký bất cứ lúc nào. Thanh toán sẽ được tính vào tài khoản Google Play của bạn khi xác nhận mua hàng. Đăng ký tự động gia hạn trừ khi nó bị hủy ít nhất 24 giờ trước khi kết thúc giai đoạn hiện tại. Bạn có thể quản lý và hủy đăng ký của mình bằng cách truy cập cài đặt tài khoản của bạn trên GooglePlay sau khi mua. Mọi phần hoặc khoảng thời gian chưa sử dụng của giai đoạn dùng thử miễn phí sẽ bị hủy bỏ, ngay sau khi bạn mua đăng ký.",
+  "descriptionSub": "Đăng ký này tự động gia hạn sau thời gian dùng thử 3 ngày cho {priceOfWeek}/{week}, {priceOfMonth}/{month} và {priceOfYear}/{year}, bạn có thể hủy đăng ký bất cứ lúc nào. Thanh toán sẽ được tính vào tài khoản Google Play của bạn khi xác nhận mua hàng. Đăng ký tự động gia hạn trừ khi nó bị hủy ít nhất 24 giờ trước khi kết thúc giai đoạn hiện tại. Bạn có thể quản lý và hủy đăng ký của mình bằng cách truy cập cài đặt tài khoản của bạn trên GooglePlay sau khi mua. Mọi phần hoặc khoảng thời gian chưa sử dụng của giai đoạn dùng thử miễn phí sẽ bị hủy bỏ, ngay sau khi bạn mua đăng ký.",
   "descriptionSub1":
   "Đăng ký này tự động gia hạn sau thời gian dùng thử 3 ngày cho {priceOfFullPack}, bạn có thể hủy đăng ký bất cứ lúc nào. Thanh toán sẽ được tính vào tài khoản Google Play của bạn khi xác nhận mua hàng. Đăng ký tự động gia hạn trừ khi nó bị hủy ít nhất 24 giờ trước khi kết thúc giai đoạn hiện tại. Bạn có thể quản lý và hủy đăng ký của mình bằng cách truy cập cài đặt tài khoản của bạn trên GooglePlay sau khi mua. Mọi phần hoặc khoảng thời gian chưa sử dụng của giai đoạn dùng thử miễn phí sẽ bị hủy bỏ, ngay sau khi bạn mua đăng ký.",
   "subscribeContentIos1": "Start your 3 Days Free trial",
@@ -240,5 +240,11 @@
   "male": "Nam",
   "female": "Nữ",
   "questionWhere": "Bạn đến từ đâu?",
-  "next": "Tiếp theo"
+  "next": "Tiếp theo",
+  "account": "Tài khoản",
+  "fullName": "Họ và tên",
+  "birthDay":"Ngày sinh",
+  "termAndService": "Điều khoản và dịch vụ",
+  "english": "Tiếng Anh",
+  "vietnamese": "Tiếng Việt"
 }

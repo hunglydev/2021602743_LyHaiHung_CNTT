@@ -44,7 +44,7 @@ class MainScreen extends GetView<MainController> {
         bottomNavigationBar: Obx(() {
           return BottomNavigationBar(
             type: BottomNavigationBarType.fixed,
-            backgroundColor: AppColor.red,
+            backgroundColor: AppColor.primaryColor,
             onTap: controller.onPressTab,
             currentIndex: controller.currentTab.value,
             unselectedItemColor: AppColor.white.withOpacity(0.5),

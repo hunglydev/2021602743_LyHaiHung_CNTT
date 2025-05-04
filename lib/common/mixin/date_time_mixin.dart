@@ -46,7 +46,7 @@ mixin DateTimeMixin {
       firstDate: firstDate ?? DateTime(2000),
       lastDate: lastDate ?? DateTime.now(),
       initialEntryMode: DatePickerEntryMode.calendarOnly,
-      locale: locale ?? Get.find<AppController>().currentLocale,
+      locale: locale ?? Get.find<AppController>().currentLocale.value,
       builder: (context, Widget? child) => Theme(
         data: ThemeData(
           colorScheme: ColorScheme.light(
@@ -73,7 +73,7 @@ mixin DateTimeMixin {
       lastDate: lastDate ?? DateTime.now(),
       initialDateRange: initialDateRange,
       initialEntryMode: DatePickerEntryMode.calendarOnly,
-      locale: locale ?? Get.find<AppController>().currentLocale,
+      locale: locale ?? Get.find<AppController>().currentLocale.value,
       builder: (context, Widget? child) => Theme(
         data: ThemeData(
           colorScheme: ColorScheme.light(

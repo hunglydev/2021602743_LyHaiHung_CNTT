@@ -87,9 +87,9 @@ class WeightBMIScreen extends GetView<WeightBMIController> {
                                   () => BMIDetailWidget(
                                     date: DateFormat(
                                       'MMM dd, yyyy',
-                                      appController.currentLocale.languageCode,
+                                      appController.currentLocale.value.languageCode,
                                     ).format(DateTime.now()),
-                                    time: DateFormat('hh:mm a', appController.currentLocale.languageCode)
+                                    time: DateFormat('hh:mm a', appController.currentLocale.value.languageCode)
                                         .format(DateTime.now()),
                                     bmi: controller.currentBMI.value.bmi ?? 0,
                                     weight: controller.currentBMI.value.weightKg.toInt(),

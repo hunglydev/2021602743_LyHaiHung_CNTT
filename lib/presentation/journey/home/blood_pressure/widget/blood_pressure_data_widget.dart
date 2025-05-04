@@ -75,7 +75,7 @@ class BloodPressureDataWidget extends GetView<BloodPressureController> {
                     Text(
                       DateFormat(
                         'MMM dd, yyyy',
-                        appController.currentLocale.languageCode,
+                        appController.currentLocale.value.languageCode,
                       ).format(
                         DateTime.fromMillisecondsSinceEpoch(controller.bloodPressSelected.value.dateTime!),
                       ),
@@ -84,7 +84,7 @@ class BloodPressureDataWidget extends GetView<BloodPressureController> {
                       ),
                     ),
                     Text(
-                      DateFormat('hh:mm a', appController.currentLocale.languageCode).format(
+                      DateFormat('hh:mm a', appController.currentLocale.value.languageCode).format(
                         DateTime.fromMillisecondsSinceEpoch(controller.bloodPressSelected.value.dateTime!),
                       ),
                     )

@@ -26,7 +26,8 @@ log(String text) {
 }
 
 String chooseContentByLanguage(String enContent, String viContent) {
-  if (Get.find<AppController>().currentLocale.toLanguageTag() == 'vi-VN' && viContent.isNotEmpty) return viContent;
+  if (Get.find<AppController>().currentLocale.value.toLanguageTag() == 'vi-VN' && viContent.isNotEmpty)
+    return viContent;
   return enContent.isNotEmpty ? enContent : viContent;
 }
 
@@ -89,4 +90,30 @@ bool isNumeric(dynamic s) {
     return false;
   }
   return (double.tryParse(sConvert) != null || int.tryParse(sConvert) != null);
+}
+
+bool isEmpty([dynamic data, bool acceptZero = false]) {
+  if (data != null) {
+    if ((data is Map || data is List) &&
+        (data.length == 0 || (data is List && data.length == 1 && isEmpty(data.first, acceptZero)))) {
+      return true;
+    }
+    if ((data is Map || data is Iterable) && data.isEmpty) {
+      return true;
+    }
+    if (data is bool) {
+      return !data;
+    }
+    if ((data is String || data is num) && (data == '0' || data == 0)) {
+      if (acceptZero) {
+        return false;
+      } else {
+        return true;
+      }
+    }
+    if (data.toString().trim().isNotEmpty) {
+      return false;
+    }
+  }
+  return true;
 }

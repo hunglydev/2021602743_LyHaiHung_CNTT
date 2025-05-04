@@ -24,10 +24,10 @@ class FilterDateWidget extends StatelessWidget {
       onPressed: onPressed,
       title: '${DateFormat(
         'MMM dd, yyyy',
-        appController.currentLocale.languageCode,
+        appController.currentLocale.value.languageCode,
       ).format(startDate)} - ${DateFormat(
         'MMM dd, yyyy',
-        appController.currentLocale.languageCode,
+        appController.currentLocale.value.languageCode,
       ).format(endDate)}',
     );
   }

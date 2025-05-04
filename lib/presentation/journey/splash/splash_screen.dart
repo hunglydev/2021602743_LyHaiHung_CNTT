@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:hunglydev_datn/generated/l10n.dart';
 
 import '../../../common/constants/app_image.dart';
 import '../../theme/app_color.dart';
@@ -28,7 +29,7 @@ class SplashScreen extends GetView<SplashController> {
           ),
           SizedBox(height: 12.0.sp),
           Text(
-            'Blood Pressure',
+            AppLocalization.of(context).bloodPressure,
             style: TextStyle(
               fontSize: 24.0.sp,
               fontWeight: FontWeight.w600,

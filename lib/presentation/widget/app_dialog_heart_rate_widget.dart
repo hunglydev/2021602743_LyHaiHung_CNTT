@@ -101,7 +101,7 @@ class _AppDialogHeartRateWidgetState extends State<AppDialogHeartRateWidget> {
       firstDate: DateTime(2000),
       lastDate: DateTime.now(),
       initialEntryMode: DatePickerEntryMode.calendarOnly,
-      locale: Get.find<AppController>().currentLocale,
+      locale: Get.find<AppController>().currentLocale.value,
       builder: (context, Widget? child) => Theme(
         data: ThemeData(
           colorScheme: const ColorScheme.light(

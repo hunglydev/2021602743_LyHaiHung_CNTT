@@ -240,5 +240,11 @@
   "male": "Male",
   "female": "Female",
   "questionWhere": "Where are you from?",
-  "next": "Next"
+  "next": "Next",
+  "account": "Account",
+  "fullName": "Full name",
+  "birthDay":"Birthday",
+  "termAndService": "Terms and services",
+  "english": "English",
+  "vietnamese": "Vietnamese"
 }

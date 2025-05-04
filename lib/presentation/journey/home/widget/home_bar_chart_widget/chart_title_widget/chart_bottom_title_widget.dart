@@ -28,7 +28,7 @@ class ChartBottomTitleWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final AppController appController = Get.find<AppController>();
     final dateTime = DateTime.fromMillisecondsSinceEpoch(value.toInt());
-    final title = DateFormat('dd/MM/yy', appController.currentLocale.languageCode).format(dateTime);
+    final title = DateFormat('dd/MM/yy', appController.currentLocale.value.languageCode).format(dateTime);
     return SideTitleWidget(
       axisSide: meta.axisSide,
       space: 6.0.sp,
