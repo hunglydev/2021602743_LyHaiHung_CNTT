@@ -160,7 +160,14 @@ class AppDialog extends StatelessWidget {
             onPressed: secondButtonCallback,
             width: Get.width,
             text: secondButtonText,
-            color: AppColor.red,
+            color: Colors.transparent,
+            decoration: BoxDecoration(
+              border: Border.all(
+                color: AppColor.red,
+                width: 1,
+              ),
+              borderRadius: BorderRadius.circular(12),
+            ),
             radius: 10.0.sp,
             padding: EdgeInsets.symmetric(
               vertical: 12.0.sp,
@@ -171,6 +178,7 @@ class AppDialog extends StatelessWidget {
               style: textStyle24700().copyWith(
                 fontWeight: FontWeight.w500,
                 fontSize: 16.0.sp,
+                color: AppColor.red,
               ),
             ),
           ),

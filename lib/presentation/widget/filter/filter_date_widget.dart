@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:hunglydev_datn/common/constants/app_constant.dart';
 import 'package:intl/intl.dart';
 
 import '../../controller/app_controller.dart';
@@ -23,10 +24,10 @@ class FilterDateWidget extends StatelessWidget {
     return FilterWidget(
       onPressed: onPressed,
       title: '${DateFormat(
-        'MMM dd, yyyy',
+        AppConstant.defaultDateFormat,
         appController.currentLocale.value.languageCode,
       ).format(startDate)} - ${DateFormat(
-        'MMM dd, yyyy',
+        AppConstant.defaultDateFormat,
         appController.currentLocale.value.languageCode,
       ).format(endDate)}',
     );

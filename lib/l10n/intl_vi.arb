@@ -246,5 +246,8 @@
   "birthDay":"Ngày sinh",
   "termAndService": "Điều khoản và dịch vụ",
   "english": "Tiếng Anh",
-  "vietnamese": "Tiếng Việt"
+  "vietnamese": "Tiếng Việt",
+  "version": "Phiên bản",
+  "contactWithUs": "Liên hệ với chúng tôi"
+
 }

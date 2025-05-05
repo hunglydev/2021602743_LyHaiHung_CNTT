@@ -14,6 +14,7 @@ import 'package:hunglydev_datn/presentation/journey/personal/widget/setting_item
 import 'package:hunglydev_datn/presentation/widget/app_container.dart';
 import 'package:hunglydev_datn/presentation/widget/app_header.dart';
 import 'package:hunglydev_datn/presentation/widget/cache_image_widget.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class PersonalScreen extends StatelessWidget {
   const PersonalScreen({super.key});
@@ -37,13 +38,13 @@ class PersonalScreen extends StatelessWidget {
                 child: Column(
                   children: [
                     24.height,
-                    Container(
-                      width: 64,
-                      height: 64,
-                      decoration: const BoxDecoration(
-                        color: Colors.red,
-                        shape: BoxShape.circle,
-                      ),
+                    Obx(
+                      () {
+                        return CachedImageWidget(
+                          url: controller.currentUserModel!.gender == 0 ? AppImage.imageBoy : AppImage.imageGirl,
+                          height: 80,
+                        );
+                      },
                     ),
                     12.height,
                     if (!isEmpty(controller.currentUserModel)) Text(controller.currentUserModel!.name),
@@ -63,7 +64,7 @@ class PersonalScreen extends StatelessWidget {
               24.height,
               SettingItem(
                 onPress: () {
-                  Get.to(ChangeLanguageScreen());
+                  Get.to(const ChangeLanguageScreen());
                 },
                 prefixIcon: CachedImageWidget(
                   url: appController.currentLocale.value == const Locale('vi', 'VN') ? AppImage.icVI : AppImage.icUS,
@@ -75,10 +76,41 @@ class PersonalScreen extends StatelessWidget {
               SettingItem(
                 onPress: () {},
                 prefixIcon: const Icon(
-                  Icons.person,
+                  Icons.local_police,
                 ),
                 label: AppLocalization.of(context).termAndService,
               ),
+              24.height,
+              Row(
+                children: [
+                  const Expanded(
+                    child: Divider(
+                      color: Colors.grey,
+                    ),
+                  ),
+                  12.width,
+                  Text(AppLocalization.of(context).contactWithUs),
+                  12.width,
+                  const Expanded(
+                    child: Divider(
+                      color: Colors.grey,
+                    ),
+                  ),
+                ],
+              ).paddingSymmetric(horizontal: 20),
+              12.height,
+              Center(
+                child: GestureDetector(
+                    onTap: () {
+                      launchUrl(Uri.parse('https://www.facebook.com/lyhaihung.1811/'));
+                    },
+                    child: const CachedImageWidget(url: AppImage.logoFacebook, height: 40)),
+              ),
+              const Spacer(),
+              Center(
+                child: Text("${AppLocalization.of(context).version} ${appController.packageInfo.version}"),
+              ),
+              24.height,
             ],
           ),
         );

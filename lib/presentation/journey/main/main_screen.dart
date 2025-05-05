@@ -42,55 +42,60 @@ class MainScreen extends GetView<MainController> {
           );
         }),
         bottomNavigationBar: Obx(() {
-          return BottomNavigationBar(
-            type: BottomNavigationBarType.fixed,
-            backgroundColor: AppColor.primaryColor,
-            onTap: controller.onPressTab,
-            currentIndex: controller.currentTab.value,
-            unselectedItemColor: AppColor.white.withOpacity(0.5),
-            unselectedFontSize: 12.0.sp,
-            unselectedLabelStyle: const TextStyle(
-              fontWeight: FontWeight.w600,
+          return ClipRRect(
+            borderRadius: const BorderRadius.vertical(
+              top: Radius.circular(24),
             ),
-            selectedItemColor: AppColor.white,
-            selectedFontSize: 12.0.sp,
-            selectedLabelStyle: const TextStyle(
-              fontWeight: FontWeight.w600,
+            child: BottomNavigationBar(
+              type: BottomNavigationBarType.fixed,
+              backgroundColor: AppColor.primaryColor,
+              onTap: controller.onPressTab,
+              currentIndex: controller.currentTab.value,
+              unselectedItemColor: AppColor.white.withOpacity(0.5),
+              unselectedFontSize: 12.0.sp,
+              unselectedLabelStyle: const TextStyle(
+                fontWeight: FontWeight.w600,
+              ),
+              selectedItemColor: AppColor.white,
+              selectedFontSize: 12.0.sp,
+              selectedLabelStyle: const TextStyle(
+                fontWeight: FontWeight.w600,
+              ),
+              items: [
+                BottomNavigationBarItem(
+                  icon: CachedImageWidget(
+                    height: 32,
+                    url: AppImage.ic_home,
+                    color: controller.currentTab.value == 0 ? AppColor.white : AppColor.white.withOpacity(0.5),
+                  ),
+                  label: "",
+                ),
+                BottomNavigationBarItem(
+                  icon: CachedImageWidget(
+                    height: 32,
+                    url: AppImage.ic_insight,
+                    color: controller.currentTab.value == 1 ? AppColor.white : AppColor.white.withOpacity(0.5),
+                  ),
+                  label: "",
+                ),
+                BottomNavigationBarItem(
+                  icon: CachedImageWidget(
+                    height: 32,
+                    url: AppImage.ic_alarm,
+                    color: controller.currentTab.value == 2 ? AppColor.white : AppColor.white.withOpacity(0.5),
+                  ),
+                  label: "",
+                ),
+                BottomNavigationBarItem(
+                  icon: Icon(
+                    Icons.settings,
+                    size: 32,
+                    color: controller.currentTab.value == 3 ? AppColor.white : AppColor.white.withOpacity(0.5),
+                  ),
+                  label: "",
+                ),
+              ],
             ),
-            items: [
-              BottomNavigationBarItem(
-                icon: CachedImageWidget(
-                  height: 32,
-                  url: AppImage.ic_home,
-                  color: controller.currentTab.value == 0 ? AppColor.white : AppColor.white.withOpacity(0.5),
-                ),
-                label: "",
-              ),
-              BottomNavigationBarItem(
-                icon: CachedImageWidget(
-                  height: 32,
-                  url: AppImage.ic_insight,
-                  color: controller.currentTab.value == 1 ? AppColor.white : AppColor.white.withOpacity(0.5),
-                ),
-                label: "",
-              ),
-              BottomNavigationBarItem(
-                icon: CachedImageWidget(
-                  height: 32,
-                  url: AppImage.ic_alarm,
-                  color: controller.currentTab.value == 2 ? AppColor.white : AppColor.white.withOpacity(0.5),
-                ),
-                label: "",
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(
-                  Icons.settings,
-                  size: 32,
-                  color: controller.currentTab.value == 3 ? AppColor.white : AppColor.white.withOpacity(0.5),
-                ),
-                label: "",
-              ),
-            ],
           );
         }),
       ),

@@ -36,6 +36,7 @@ class _AccountScreenState extends State<AccountScreen> {
     birthDay =
         !isEmpty(personalController.currentUserModel) ? personalController.currentUserModel!.birthDay : DateTime.now();
     birthDayController.text = DateFormat('dd/MM/yyyy').format(birthDay ?? DateTime.now());
+    gender = !isEmpty(personalController.currentUserModel) ? personalController.currentUserModel!.gender : 0;
     super.initState();
   }
 
@@ -108,6 +109,7 @@ class _AccountScreenState extends State<AccountScreen> {
                     Text(AppLocalization.of(context).gender),
                     12.width,
                     Radio(
+                      activeColor: AppColor.primaryColor,
                       value: 0,
                       groupValue: gender,
                       onChanged: (value) {
@@ -117,6 +119,7 @@ class _AccountScreenState extends State<AccountScreen> {
                     ),
                     Text(AppLocalization.of(context).male),
                     Radio(
+                      activeColor: AppColor.primaryColor,
                       value: 1,
                       groupValue: gender,
                       onChanged: (value) {

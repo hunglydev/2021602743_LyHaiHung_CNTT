@@ -71,6 +71,10 @@ class AppImage {
   static const String setting_banner = '${_internalImagePathPng}setting_banner.png';
   static const String heart_rate_tutorial_ios = '${_internalImagePathPng}heart_rate_tutorial_ios.png';
   static const String heart_rate_tutorial_android = '${_internalImagePathPng}heart_rate_tutorial_android.png';
+  static const String logoFacebook = '${_internalImagePathPng}logo_facebook.png';
+  static const String imagePerson = '${_internalImagePathPng}person.png';
+  static const String imageBoy = '${_internalImagePathPng}boy_flat_design.png';
+  static const String imageGirl = '${_internalImagePathPng}girl_flat_design.png';
 
   static const String adImage = '${_internalImagePathPng}ad_image.png';
   static const String avatarBot = '${_internalImagePathPng}avatar_bot.png';

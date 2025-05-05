@@ -4,6 +4,8 @@ import 'dart:ui';
 
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:get/get.dart';
+import 'package:hunglydev_datn/presentation/journey/insight/insight_controller.dart';
+import 'package:package_info_plus/package_info_plus.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../common/config/hive_config/hive_config.dart';
@@ -36,13 +38,15 @@ class AppController extends SuperController {
   RxList<HeartRateModel> listHeartRateModel = RxList();
   List<HeartRateModel> listHeartRateModelAll = [];
 
+  late final PackageInfo packageInfo;
+
   @override
   void onInit() {
     _setupAllowAd();
     super.onInit();
   }
 
-  void _setupAllowAd() {
+  void _setupAllowAd() async {
     _localRepository.getAllowHeartRateFirstTime().then((value) {
       allowHeartRateFirstTime.value = value;
     });
@@ -58,6 +62,7 @@ class AppController extends SuperController {
     _localRepository.getAllowWeightAndBMIFirstTime().then((value) {
       allowWeightAndBMIFirstTime.value = value;
     });
+    packageInfo = await PackageInfo.fromPlatform();
   }
 
   @override
@@ -93,6 +98,9 @@ class AppController extends SuperController {
   void updateLocale(Locale locale) {
     Get.updateLocale(locale);
     currentLocale.value = locale;
+    if (Get.isRegistered<InsightController>()) {
+      Get.find<InsightController>().loadData();
+    }
     update();
   }
 

@@ -78,7 +78,7 @@ class AppHeader extends StatelessWidget {
                       borderRadius: BorderRadius.circular(22.0.sp),
                     ),
                     child: BackButton(
-                      color: AppColor.white,
+                      color: AppColor.black,
                       onPressed: Get.back,
                     ),
                   ),

@@ -42,7 +42,7 @@ class InsightScreen extends GetView<InsightController> {
                       top: 16.0.sp,
                       bottom: 16.0.sp,
                     ),
-                    itemCount: controller.insightList.value.length,
+                    itemCount: controller.insightList.length,
                     itemBuilder: (context, index) {
                       final Map<String, dynamic> content = controller.insightList[index];
 

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:hunglydev_datn/common/constants/app_constant.dart';
 import 'package:hunglydev_datn/generated/l10n.dart';
 import 'package:intl/intl.dart';
 
@@ -339,7 +340,7 @@ class HeartBeatScreen extends GetView<HeartBeatController> {
                       fit: BoxFit.scaleDown,
                       child: Obx(
                         () => Text(
-                          '${DateFormat('MMM dd, yyyy').format(controller.startDate.value)} - ${DateFormat('MMM dd, yyyy').format(controller.endDate.value)}',
+                          '${DateFormat(AppConstant.defaultDateFormat).format(controller.startDate.value)} - ${DateFormat(AppConstant.defaultDateFormat).format(controller.endDate.value)}',
                           textAlign: TextAlign.center,
                           style: textStyle18700().copyWith(
                             fontWeight: FontWeight.w500,

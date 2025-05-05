@@ -57,6 +57,15 @@ class ChangeLanguageScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               AppHeader(
+                leftWidget: IconButton(
+                  onPressed: () {
+                    Get.back();
+                  },
+                  icon: const Icon(
+                    Icons.arrow_back_ios,
+                    color: Colors.black,
+                  ),
+                ),
                 title: AppLocalization.of(context).language,
               ),
               24.height,

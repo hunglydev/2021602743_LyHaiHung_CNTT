@@ -221,41 +221,41 @@ class AddWeightBMIDialog extends GetView<AddWeightBMIController> {
           SizedBox(
             height: 30.sp,
           ),
-          Row(
-            mainAxisSize: MainAxisSize.min,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              AppTouchable(
-                onPressed: controller.onPressedAge,
-                padding: EdgeInsets.symmetric(vertical: 8.0.sp, horizontal: 12.0.sp),
-                child: Obx(() => Text(
-                      '${AppLocalization.of(context).age.tr}: ${controller.age.value}',
-                      style: textStyle18400().merge(const TextStyle(
-                        shadows: [Shadow(color: AppColor.grayText2, offset: Offset(0, -5))],
-                        color: Colors.transparent,
-                        decoration: TextDecoration.underline,
-                        decorationColor: AppColor.grayText2,
-                      )),
-                    )),
-              ),
-              SizedBox(width: 12.0.sp),
-              AppTouchable(
-                onPressed: controller.onPressGender,
-                padding: EdgeInsets.symmetric(vertical: 8.0.sp, horizontal: 12.0.sp),
-                child: Obx(() {
-                  return Text(
-                    chooseContentByLanguage(controller.gender['nameEN'], controller.gender['nameVN']),
-                    style: textStyle18400().merge(const TextStyle(
-                      shadows: [Shadow(color: AppColor.grayText2, offset: Offset(0, -5))],
-                      color: Colors.transparent,
-                      decoration: TextDecoration.underline,
-                      decorationColor: AppColor.grayText2,
-                    )),
-                  );
-                }),
-              ),
-            ],
-          ),
+          // Row(
+          //   mainAxisSize: MainAxisSize.min,
+          //   mainAxisAlignment: MainAxisAlignment.center,
+          //   children: [
+          //     AppTouchable(
+          //       onPressed: controller.onPressedAge,
+          //       padding: EdgeInsets.symmetric(vertical: 8.0.sp, horizontal: 12.0.sp),
+          //       child: Obx(() => Text(
+          //             '${AppLocalization.of(context).age.tr}: ${controller.age.value}',
+          //             style: textStyle18400().merge(const TextStyle(
+          //               shadows: [Shadow(color: AppColor.grayText2, offset: Offset(0, -5))],
+          //               color: Colors.transparent,
+          //               decoration: TextDecoration.underline,
+          //               decorationColor: AppColor.grayText2,
+          //             )),
+          //           )),
+          //     ),
+          //     SizedBox(width: 12.0.sp),
+          //     AppTouchable(
+          //       onPressed: controller.onPressGender,
+          //       padding: EdgeInsets.symmetric(vertical: 8.0.sp, horizontal: 12.0.sp),
+          //       child: Obx(() {
+          //         return Text(
+          //           chooseContentByLanguage(controller.gender['nameEN'], controller.gender['nameVN']),
+          //           style: textStyle18400().merge(const TextStyle(
+          //             shadows: [Shadow(color: AppColor.grayText2, offset: Offset(0, -5))],
+          //             color: Colors.transparent,
+          //             decoration: TextDecoration.underline,
+          //             decorationColor: AppColor.grayText2,
+          //           )),
+          //         );
+          //       }),
+          //     ),
+          //   ],
+          // ),
           SizedBox(
             height: 36.sp,
           )

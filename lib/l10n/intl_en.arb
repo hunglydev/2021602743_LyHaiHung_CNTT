@@ -246,5 +246,7 @@
   "birthDay":"Birthday",
   "termAndService": "Terms and services",
   "english": "English",
-  "vietnamese": "Vietnamese"
+  "vietnamese": "Vietnamese",
+  "version": "Version",
+  "contactWithUs": "Contact with us"
 }

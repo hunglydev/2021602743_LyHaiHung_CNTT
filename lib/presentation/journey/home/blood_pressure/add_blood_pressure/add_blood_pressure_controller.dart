@@ -50,11 +50,11 @@ class AddBloodPressureController extends GetxController with DateTimeMixin {
   _updateDateTimeString(DateTime? dateTime) {
     if (dateTime != null) {
       stringBloodPrTime.value = DateFormat(
-        'h:mm a',
+        'h:mm',
         _appController.currentLocale.value.languageCode,
       ).format(dateTime);
       stringBloodPrDate.value = DateFormat(
-        'MMM dd, yyyy',
+        'dd/MM/yyyy',
         _appController.currentLocale.value.languageCode,
       ).format(dateTime);
     }

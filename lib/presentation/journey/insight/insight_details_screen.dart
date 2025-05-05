@@ -29,13 +29,14 @@ class InsightDetails extends StatelessWidget {
         children: [
           AppHeader(
             leftWidget: AppTouchable.common(
-              onPressed: () => Get.back(),
-              decoration: const BoxDecoration(boxShadow: null),
-              child: BackButton(
-                color: AppColor.black,
-                onPressed: Get.back,
-              ),
-            ),
+                onPressed: () => Get.back(),
+                decoration: const BoxDecoration(boxShadow: null),
+                child: IconButton(
+                    onPressed: Get.back,
+                    icon: const Icon(
+                      Icons.arrow_back_ios_new,
+                      color: Colors.black,
+                    ))),
             title: title,
           ),
           Expanded(

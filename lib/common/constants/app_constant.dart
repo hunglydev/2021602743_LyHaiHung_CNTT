@@ -13,6 +13,8 @@ class AppConstant {
   static final DateFormat dateTimeFormatCommon = DateFormat('HH:mm dd/MM/yyyy');
   static const int minHeartRate = 40;
   static const int maxHeartRate = 220;
+  static const String defaultDateFormat = 'dd/MM/yyyy';
+  static const String defaultHourFormat = 'HH:mm';
   static final List<Map> listGender = [
     {
       'id': '0',
@@ -31,7 +33,8 @@ class AppConstant {
     },
   ];
 
-  static String insightAsset = "assets/json/insight.json";
+  static String insightAssetEn = "assets/json/insight_en.json";
+  static String insightAssetVi = "assets/json/insight_vi.json";
 }
 
 class BloodSugarStateCode {
