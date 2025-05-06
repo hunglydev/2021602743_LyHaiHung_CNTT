@@ -41,4 +41,8 @@ class UserModel extends HiveObject {
         'birthDay': birthDay,
         'genderId': gender,
       };
+  @override
+  String toString() {
+    return 'id: $id ------------ name: $name ------------ birthDay: ${birthDay.toString()}, ------gender: $gender';
+  }
 }

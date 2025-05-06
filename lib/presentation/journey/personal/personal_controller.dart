@@ -2,10 +2,12 @@ import 'package:get/get.dart';
 import 'package:hunglydev_datn/common/injector/app_di.dart';
 import 'package:hunglydev_datn/common/util/app_util.dart';
 import 'package:hunglydev_datn/data/local_repository.dart';
+import 'package:hunglydev_datn/domain/enum/loading_state.dart';
 import 'package:hunglydev_datn/domain/model/user_model.dart';
 
 class PersonalController extends GetxController {
   UserModel? currentUserModel;
+  Rx<LoadingState> loadingState = LoadingState.pure.obs;
   final _localRepository = getIt.get<LocalRepository>();
 
   @override
@@ -26,6 +28,7 @@ class PersonalController extends GetxController {
   }
 
   void saveUser(String name, DateTime birthDay, int gender) async {
+    loadingState.value = LoadingState.loading;
     UserModel userModel = UserModel(
         id: !isEmpty(currentUserModel) ? currentUserModel!.id : 0,
         gender: gender,
@@ -35,6 +38,8 @@ class PersonalController extends GetxController {
     await Future.delayed(Duration(seconds: 2));
     await _localRepository.saveUser(userModel);
     currentUserModel = userModel;
+    loadingState.value = LoadingState.finish;
+
     update();
   }
 }

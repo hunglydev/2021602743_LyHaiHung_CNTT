@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:hunglydev_datn/common/util/app_util.dart';
+import 'package:hunglydev_datn/presentation/journey/personal/personal_screen.dart';
+import 'package:hunglydev_datn/presentation/journey/personal/screen/account_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../common/constants/app_constant.dart';
@@ -25,7 +28,11 @@ class SplashController extends GetxController {
       AppConstant.availableLocales[int.tryParse(language ?? '') ?? 0],
     );
     await appController.getUser();
-
-    Get.offAndToNamed(AppRoute.mainScreen);
+    print('-------------User: ${appController.currentUser.value.toString()}');
+    !isEmpty(appController.currentUser.value)
+        ? Get.offAll(const AccountScreen(
+            isRegister: true,
+          ))
+        : Get.offAndToNamed(AppRoute.mainScreen);
   }
 }

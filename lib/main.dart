@@ -44,7 +44,7 @@ Future<void> main() async {
       designSize: const Size(414, 736),
       builder: (context, widget) => GetMaterialApp(
         debugShowCheckedModeBanner: false,
-        initialBinding: AppBinding(),
+        // initialBinding: AppBinding(),
         initialRoute: AppRoute.splashScreen,
         defaultTransition: Transition.fade,
         getPages: AppPage.pages,

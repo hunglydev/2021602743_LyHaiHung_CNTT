@@ -4,6 +4,7 @@ import 'dart:ui';
 
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:get/get.dart';
+import 'package:hunglydev_datn/common/util/app_util.dart';
 import 'package:hunglydev_datn/presentation/journey/insight/insight_controller.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -111,11 +112,14 @@ class AppController extends SuperController {
   }
 
   Future<void> getUser() async {
-    final prefs = await SharedPreferences.getInstance();
-    String? stringUser = prefs.getString('user');
-    if ((stringUser ?? '').isNotEmpty) {
-      currentUser.value = UserModel.fromJson(jsonDecode(stringUser!));
-    }
+    // final prefs = await SharedPreferences.getInstance();
+    // String? stringUser = prefs.getString('user');
+    // print('-----------------userString: $stringUser');
+    // if ((stringUser ?? '').isNotEmpty) {
+    //   currentUser.value = UserModel.fromJson(jsonDecode(stringUser!));
+    // }
+    final userLocal = _localRepository.getUser();
+    if (!isEmpty(userLocal)) currentUser.value = userLocal!;
   }
 
   _initNotificationSelectHandle() async {

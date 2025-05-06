@@ -38,13 +38,9 @@ class PersonalScreen extends StatelessWidget {
                 child: Column(
                   children: [
                     24.height,
-                    Obx(
-                      () {
-                        return CachedImageWidget(
-                          url: controller.currentUserModel!.gender == 0 ? AppImage.imageBoy : AppImage.imageGirl,
-                          height: 80,
-                        );
-                      },
+                    CachedImageWidget(
+                      url: controller.currentUserModel!.gender == 0 ? AppImage.imageBoy : AppImage.imageGirl,
+                      height: 80,
                     ),
                     12.height,
                     if (!isEmpty(controller.currentUserModel)) Text(controller.currentUserModel!.name),
