@@ -119,6 +119,7 @@ class AppController extends SuperController {
     //   currentUser.value = UserModel.fromJson(jsonDecode(stringUser!));
     // }
     final userLocal = _localRepository.getUser();
+    print('------------user: ${userLocal.toString()}');
     if (!isEmpty(userLocal)) currentUser.value = userLocal!;
   }
 

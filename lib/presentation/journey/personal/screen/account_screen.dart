@@ -158,7 +158,7 @@ class _AccountScreenState extends State<AccountScreen> {
                 height: 48,
                 color: AppColor.primaryColor,
                 onPressed: () async {
-                  controller.saveUser(nameController.text, birthDay!, gender);
+                  controller.saveUser(nameController.text, birthDay!, gender, isRegister: widget.isRegister);
                 },
                 text: AppLocalization.of(context).save,
                 textColor: Colors.white,

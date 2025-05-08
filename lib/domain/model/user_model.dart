@@ -38,8 +38,8 @@ class UserModel extends HiveObject {
   Map<String, dynamic> toJson() => {
         'id': id,
         'name': name,
-        'birthDay': birthDay,
-        'genderId': gender,
+        'birthDay': birthDay.toString(),
+        'gender': gender,
       };
   @override
   String toString() {

@@ -9,7 +9,7 @@ class APIService {
   static final APIService instance = APIService._singleton();
 
   String get baseUrl {
-    return 'http://192.168.1.104:3000';
+    return 'http://192.168.1.107:3000';
   }
 
   Future<Response> request(

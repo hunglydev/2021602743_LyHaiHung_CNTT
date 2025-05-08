@@ -248,5 +248,7 @@
   "english": "English",
   "vietnamese": "Vietnamese",
   "version": "Version",
-  "contactWithUs": "Contact with us"
+  "contactWithUs": "Contact with us",
+  "someThingWentWrong": "Something went wrong, please try again",
+  "success": "Success"
 }

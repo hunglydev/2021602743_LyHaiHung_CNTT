@@ -1,9 +1,13 @@
 import 'package:get/get.dart';
+import 'package:hunglydev_datn/common/constants/api_constant.dart';
+import 'package:hunglydev_datn/common/constants/app_route.dart';
 import 'package:hunglydev_datn/common/injector/app_di.dart';
+import 'package:hunglydev_datn/common/network/api_service.dart';
 import 'package:hunglydev_datn/common/util/app_util.dart';
 import 'package:hunglydev_datn/data/local_repository.dart';
 import 'package:hunglydev_datn/domain/enum/loading_state.dart';
 import 'package:hunglydev_datn/domain/model/user_model.dart';
+import 'package:hunglydev_datn/generated/l10n.dart';
 
 class PersonalController extends GetxController {
   UserModel? currentUserModel;
@@ -13,6 +17,7 @@ class PersonalController extends GetxController {
   @override
   void onInit() {
     currentUserModel = _localRepository.getUser();
+    print('-------------currentUser: ${currentUserModel.toString()}');
     super.onInit();
   }
 
@@ -27,19 +32,32 @@ class PersonalController extends GetxController {
     return age;
   }
 
-  void saveUser(String name, DateTime birthDay, int gender) async {
+  void saveUser(String name, DateTime birthDay, int gender, {bool isRegister = false}) async {
     loadingState.value = LoadingState.loading;
-    UserModel userModel = UserModel(
-        id: !isEmpty(currentUserModel) ? currentUserModel!.id : 0,
-        gender: gender,
-        name: name,
-        birthDay: birthDay,
-        age: calculateAge(birthDay));
-    await Future.delayed(Duration(seconds: 2));
-    await _localRepository.saveUser(userModel);
-    currentUserModel = userModel;
+    UserModel userModel = UserModel(gender: gender, name: name, birthDay: birthDay, age: calculateAge(birthDay));
+    print('---------userModel: ${userModel.toString()}');
+    try {
+      final res = await APIService.instance.request(
+        ApiConstant.saveUser,
+        DioMethod.post,
+        param: userModel.toJson(),
+      );
+      print('---------res: ${res.data}');
+      if (res.data['status'] == 'success') {
+        final UserModel userResponse = UserModel.fromJson(res.data['user']);
+        await _localRepository.saveUser(userResponse);
+        currentUserModel = userResponse;
+      } else {
+        showToast(AppLocalization.current.someThingWentWrong);
+      }
+    } catch (e) {
+      print('-------------e: ${e.toString()}');
+    }
     loadingState.value = LoadingState.finish;
 
     update();
+    // if (isRegister) {
+    //   Get.offAndToNamed(AppRoute.mainScreen);
+    // }
   }
 }

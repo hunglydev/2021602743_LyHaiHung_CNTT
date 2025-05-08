@@ -29,7 +29,7 @@ class SplashController extends GetxController {
     );
     await appController.getUser();
     print('-------------User: ${appController.currentUser.value.toString()}');
-    !isEmpty(appController.currentUser.value)
+    appController.currentUser.value.id == 0
         ? Get.offAll(const AccountScreen(
             isRegister: true,
           ))
