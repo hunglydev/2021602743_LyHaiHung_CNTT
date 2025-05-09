@@ -96,7 +96,7 @@ class AddBloodPressureController extends GetxController with DateTimeMixin {
   }
 
   void onSelectSys(int newSys) {
-    final sys = newSys + 20;
+    final sys = newSys;
     systolic.value = sys;
     if (sys < 90) {
       bloodPressureType.value = BloodPressureType.hypotension;
@@ -114,7 +114,7 @@ class AddBloodPressureController extends GetxController with DateTimeMixin {
   }
 
   void onSelectDia(int newDia) {
-    final dia = newDia + 20;
+    final dia = newDia;
     diastolic.value = dia;
     if (dia < 60) {
       bloodPressureType.value = BloodPressureType.hypotension;
@@ -136,7 +136,7 @@ class AddBloodPressureController extends GetxController with DateTimeMixin {
   }
 
   void onSelectPules(int newPules) {
-    pulse.value = newPules + 20;
+    pulse.value = newPules;
   }
 
   Future<void> addBloodPressure() async {

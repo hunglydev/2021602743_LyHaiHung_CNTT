@@ -25,7 +25,7 @@ class BMIModelAdapter extends TypeAdapter<BMIModel> {
       age: fields[5] as int?,
       height: fields[6] as double?,
       heightUnitId: fields[7] as int?,
-      gender: fields[8] as String?,
+      gender: fields[8] as int?,
       bmi: fields[9] as int?,
     );
   }

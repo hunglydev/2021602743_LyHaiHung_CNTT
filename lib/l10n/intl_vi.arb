@@ -250,5 +250,6 @@
   "version": "Phiên bản",
   "contactWithUs": "Liên hệ với chúng tôi",
   "someThingWentWrong": "Có lỗi xảy ra, vui lòng thử lại sau",
-  "success": "Thành công"
+  "success": "Thành công",
+  "healthConsultingAi": "Chatbot tư vấn sức khỏe"
 }

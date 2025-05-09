@@ -31,7 +31,7 @@ class BMIModel extends HiveObject {
   @HiveField(7)
   int? heightUnitId;
   @HiveField(8)
-  String? gender;
+  int? gender;
   @HiveField(9)
   int? bmi;
   BMIModel({

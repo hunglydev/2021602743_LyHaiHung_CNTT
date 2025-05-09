@@ -17,7 +17,6 @@ class PersonalController extends GetxController {
   @override
   void onInit() {
     currentUserModel = _localRepository.getUser();
-    print('-------------currentUser: ${currentUserModel.toString()}');
     super.onInit();
   }
 
@@ -35,14 +34,12 @@ class PersonalController extends GetxController {
   void saveUser(String name, DateTime birthDay, int gender, {bool isRegister = false}) async {
     loadingState.value = LoadingState.loading;
     UserModel userModel = UserModel(gender: gender, name: name, birthDay: birthDay, age: calculateAge(birthDay));
-    print('---------userModel: ${userModel.toString()}');
     try {
       final res = await APIService.instance.request(
         ApiConstant.saveUser,
         DioMethod.post,
         param: userModel.toJson(),
       );
-      print('---------res: ${res.data}');
       if (res.data['status'] == 'success') {
         final UserModel userResponse = UserModel.fromJson(res.data['user']);
         await _localRepository.saveUser(userResponse);
@@ -50,9 +47,7 @@ class PersonalController extends GetxController {
       } else {
         showToast(AppLocalization.current.someThingWentWrong);
       }
-    } catch (e) {
-      print('-------------e: ${e.toString()}');
-    }
+    } catch (e) {}
     loadingState.value = LoadingState.finish;
 
     update();

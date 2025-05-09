@@ -219,9 +219,7 @@ class AddWeightBMIController extends GetxController with AddDateTimeMixin, DateT
     _weightBMIController.heightUnit.value = heightUnit.value;
     _setHeightUnit();
     _setWeightUnit();
-    Map? initialGender = AppConstant.listGender.firstWhereOrNull(
-      (element) => element['id'] == (_appController.currentUser.value.gender),
-    );
+
     final DateTime bmiDateTime = DateTime(
       bloodPressureDate.year,
       bloodPressureDate.month,
@@ -238,7 +236,7 @@ class AddWeightBMIController extends GetxController with AddDateTimeMixin, DateT
       age: age.value,
       height: _getHeight(),
       heightUnitId: heightUnit.value.id,
-      gender: initialGender!['id'] ?? '0',
+      gender: _appController.currentUser.value.gender,
       bmi: bmi.value,
     );
     await _bmiUseCase.saveBMI(bmiModel);

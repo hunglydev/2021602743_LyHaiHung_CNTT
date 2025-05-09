@@ -50,7 +50,7 @@ class AddBloodPressureDialog extends GetView<AddBloodPressureController> {
             children: [
               AppTouchable(
                 onPressed: controller.onSelectBloodPressureDate,
-                backgroundColor: AppColor.lightGray,
+                // backgroundColor: AppColor.lightGray,
                 padding: EdgeInsets.symmetric(
                   vertical: 8.sp,
                   horizontal: 12.sp,
@@ -65,7 +65,7 @@ class AddBloodPressureDialog extends GetView<AddBloodPressureController> {
               const Spacer(),
               AppTouchable(
                 onPressed: controller.onSelectBloodPressureTime,
-                backgroundColor: AppColor.lightGray,
+                // backgroundColor: AppColor.lightGray,
                 padding: EdgeInsets.symmetric(
                   vertical: 8.sp,
                   horizontal: 12.sp,
@@ -88,16 +88,16 @@ class AddBloodPressureDialog extends GetView<AddBloodPressureController> {
                 child: ScrollBloodPressureValueWidget(
                     title: AppLocalization.current.systolic,
                     childCount: 281,
-                    initItem: controller.systolic.value - 20,
+                    initItem: controller.systolic.value,
                     onSelectedItemChanged: controller.onSelectSys,
                     itemBuilder: (ctx, value) {
                       return Center(
                         child: Obx(
                           () => Text(
-                            '${value + 20}',
+                            '$value',
                             style: TextStyle(
                               color: controller.bloodPressureType.value.color,
-                              fontSize: 40.0.sp,
+                              fontSize: 28.0,
                               fontWeight: FontWeight.w700,
                               height: 5 / 4,
                             ),
@@ -110,16 +110,16 @@ class AddBloodPressureDialog extends GetView<AddBloodPressureController> {
                 child: ScrollBloodPressureValueWidget(
                     title: AppLocalization.current.diastolic,
                     childCount: 281,
-                    initItem: controller.diastolic.value - 20,
+                    initItem: controller.diastolic.value,
                     onSelectedItemChanged: controller.onSelectDia,
                     itemBuilder: (ctx, value) {
                       return Center(
                         child: Obx(
                           () => Text(
-                            '${value + 20}',
+                            '$value',
                             style: TextStyle(
                               color: controller.bloodPressureType.value.color,
-                              fontSize: 40.0.sp,
+                              fontSize: 28.0,
                               fontWeight: FontWeight.w700,
                               height: 5 / 4,
                             ),
@@ -131,17 +131,17 @@ class AddBloodPressureDialog extends GetView<AddBloodPressureController> {
               Expanded(
                 child: ScrollBloodPressureValueWidget(
                     title: AppLocalization.current.pulse,
-                    initItem: controller.pulse.value - 20,
+                    initItem: controller.pulse.value,
                     childCount: 181,
                     onSelectedItemChanged: controller.onSelectPules,
                     itemBuilder: (ctx, value) {
                       return Center(
                         child: Obx(
                           () => Text(
-                            '${value + 20}',
+                            '$value',
                             style: TextStyle(
                               color: controller.bloodPressureType.value.color,
-                              fontSize: 40.0.sp,
+                              fontSize: 28,
                               fontWeight: FontWeight.w700,
                               height: 5 / 4,
                             ),

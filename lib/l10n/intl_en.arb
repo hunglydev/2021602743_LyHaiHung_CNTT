@@ -250,5 +250,7 @@
   "version": "Version",
   "contactWithUs": "Contact with us",
   "someThingWentWrong": "Something went wrong, please try again",
-  "success": "Success"
+  "success": "Success",
+  "healthConsultingAi": "Health consulting AI"
+
 }

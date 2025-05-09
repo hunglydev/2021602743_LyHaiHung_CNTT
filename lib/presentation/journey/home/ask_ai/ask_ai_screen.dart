@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hunglydev_datn/common/util/disable_glow_behavior.dart';
 import 'package:hunglydev_datn/common/util/extensions/int_extension.dart';
+import 'package:hunglydev_datn/generated/l10n.dart';
 import 'package:hunglydev_datn/presentation/journey/home/ask_ai/ask_ai_controller.dart';
 import 'package:hunglydev_datn/presentation/journey/home/ask_ai/widgets/chat_loading.dart';
 import 'package:hunglydev_datn/presentation/widget/app_container.dart';
@@ -20,36 +21,39 @@ class AskAIScreen extends GetView<AskAIController> {
         return AppContainer(
           child: Column(
             children: [
-              const AppHeader(
-                title: "",
+              AppHeader(
+                title: AppLocalization.of(context).healthConsultingAi,
+                leftWidget: IconButton(
+                  onPressed: () {
+                    Get.back();
+                  },
+                  icon: const Icon(
+                    Icons.keyboard_arrow_left,
+                    color: Colors.black,
+                  ),
+                ),
               ),
               Expanded(
                 child: ScrollConfiguration(
                   behavior: const DisableGlowBehavior(),
-                  child: Column(
-                    children: [
-                      Flexible(
-                        child: ListView.builder(
-                          reverse: true,
-                          padding: EdgeInsets.zero,
-                          itemCount: controller.listChat.length,
-                          itemBuilder: (context, index) {
-                            return ChatItem(
-                              isMe: controller.listChat[index].isMe,
-                              content: controller.listChat[index].content,
-                            );
-                          },
-                        ),
-                      ),
-                      // ChatLoading(),
-                      controller.isLoadingSendChat
-                          ? const ChatLoading().paddingSymmetric(horizontal: 20)
-                          : const SizedBox.shrink(),
-                      20.height,
-                    ],
+                  child: ListView.builder(
+                    key: ValueKey(controller.listChat.length.toString()),
+                    reverse: true, // ✅ Đẩy ngược từ dưới lên
+                    padding: const EdgeInsets.symmetric(horizontal: 16),
+                    itemCount: controller.listChat.length,
+                    itemBuilder: (context, index) {
+                      final reversedIndex = controller.listChat.length - 1 - index;
+                      final chatItem = controller.listChat[reversedIndex];
+                      return ChatItem(
+                        isMe: chatItem.isMe,
+                        content: chatItem.content,
+                      );
+                    },
                   ),
                 ),
               ),
+              if (controller.isLoadingSendChat) const ChatLoading().paddingSymmetric(horizontal: 20),
+              20.height,
               const Padding(
                 padding: EdgeInsets.only(
                   bottom: 12,

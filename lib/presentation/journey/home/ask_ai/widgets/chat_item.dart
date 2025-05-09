@@ -1,6 +1,8 @@
+import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
 import 'package:get/get_utils/src/extensions/widget_extensions.dart';
+import 'package:hunglydev_datn/common/constants/app_image.dart';
 import 'package:hunglydev_datn/common/util/extensions/int_extension.dart';
 import 'package:hunglydev_datn/presentation/theme/app_color.dart';
 import 'package:hunglydev_datn/presentation/widget/cache_image_widget.dart';
@@ -22,11 +24,10 @@ class ChatItem extends StatefulWidget {
 class _ChatItemState extends State<ChatItem> {
   final TextEditingController _contentController = TextEditingController();
   String _textContent = "";
-
+  bool isShowMarkDown = false;
   @override
   void initState() {
     super.initState();
-
     _contentController.text = widget.content;
     _textContent = widget.content;
   }
@@ -39,29 +40,22 @@ class _ChatItemState extends State<ChatItem> {
 
   List<Widget> _chatComponents() {
     return [
-      // widget.isMe
-      //     ? ClipRRect(
-      //         borderRadius: BorderRadius.circular(100),
-      //         child: const CachedImageWidget(
-      //           url: AppImages.icPerson,
-      //           height: 36,
-      //           width: 36,
-      //         ),
-      //       )
-      //     : Container(
-      //         width: 36,
-      //         height: 36,
-      //         alignment: Alignment.center,
-      //         decoration: const BoxDecoration(
-      //           color: AppColor.hintColor,
-      //           shape: BoxShape.circle,
-      //         ),
-      //         child: const CachedImageWidget(
-      //           url: AppImages.icSmartToy,
-      //           height: 20,
-      //           width: 20,
-      //         ),
-      //       ),
+      widget.isMe
+          ? const SizedBox.shrink()
+          : Container(
+              width: 36,
+              height: 36,
+              alignment: Alignment.center,
+              decoration: const BoxDecoration(
+                color: AppColor.lightGray,
+                shape: BoxShape.circle,
+              ),
+              child: Image.asset(
+                AppImage.icSmartToy,
+                width: 20,
+                height: 20,
+              ),
+            ),
       12.width,
       Flexible(
         child: Column(
@@ -85,7 +79,7 @@ class _ChatItemState extends State<ChatItem> {
                   )
                 : Container(
                     decoration: BoxDecoration(
-                      color: AppColor.lightGray,
+                      color: widget.isMe ? const Color(0xff7ceaf5) : AppColor.lightGray,
                       borderRadius: BorderRadius.circular(
                         12,
                       ),
@@ -93,12 +87,30 @@ class _ChatItemState extends State<ChatItem> {
                     padding: const EdgeInsets.all(
                       12,
                     ),
-                    child: MarkdownBody(data: _textContent),
+                    child: isShowMarkDown
+                        ? MarkdownBody(data: widget.content)
+                        : AnimatedTextKit(
+                            isRepeatingAnimation: false,
+                            totalRepeatCount: 1,
+                            animatedTexts: [
+                              TypewriterAnimatedText(
+                                widget.content,
+                                textStyle: const TextStyle(
+                                  fontSize: 16.0,
+                                  color: Colors.black87,
+                                ),
+                                speed: const Duration(milliseconds: 5),
+                              ),
+                            ],
+                            onFinished: () {
+                              setState(() {
+                                isShowMarkDown = true;
+                              });
+                            },
+                          ),
                   ),
             8.height,
           ],
-        ).paddingOnly(
-          left: 12,
         ),
       ),
     ];
@@ -119,7 +131,7 @@ class _ChatItemState extends State<ChatItem> {
                   )
                   .toList()
               : _chatComponents(),
-        ).paddingSymmetric(horizontal: 20),
+        ),
         16.height,
       ],
     );
