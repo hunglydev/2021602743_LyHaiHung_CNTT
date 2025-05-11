@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:hunglydev_datn/common/config/hive_config/hive_config.dart';
+import 'package:hunglydev_datn/common/injector/app_di.dart';
 import 'package:hunglydev_datn/common/util/app_util.dart';
 import 'package:hunglydev_datn/presentation/journey/auth/login.dart';
 import 'package:hunglydev_datn/presentation/journey/personal/personal_screen.dart';
@@ -29,6 +31,9 @@ class SplashController extends GetxController {
       AppConstant.availableLocales[int.tryParse(language ?? '') ?? 0],
     );
     await appController.getUser();
+    final hiveConfig = getIt<HiveConfig>();
+    hiveConfig.initLater(appController.currentUser.value.id);
+
     print('-------------User: ${appController.currentUser.value.toString()}');
     appController.currentUser.value.id == 0 ? Get.offAll(const LoginPage()) : Get.offAndToNamed(AppRoute.mainScreen);
   }

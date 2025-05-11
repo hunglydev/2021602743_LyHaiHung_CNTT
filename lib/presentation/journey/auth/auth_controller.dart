@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:hunglydev_datn/common/config/hive_config/hive_config.dart';
 import 'package:hunglydev_datn/common/constants/api_constant.dart';
 import 'package:hunglydev_datn/common/constants/app_route.dart';
 import 'package:hunglydev_datn/common/injector/app_di.dart';
@@ -38,7 +39,10 @@ class AuthController extends GetxController {
       if (res.data['status'] == 'success') {
         loadingState.value = LoadingState.finish;
         UserModel user = UserModel.fromJson(res.data['user']);
+        final hiveConfig = getIt<HiveConfig>();
+        hiveConfig.initLater(user.id);
         _localRepository.saveUser(user);
+
         if (Get.isRegistered<AppController>()) {
           Get.find<AppController>().updateUser(user);
         }

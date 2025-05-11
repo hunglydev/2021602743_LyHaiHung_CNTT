@@ -262,5 +262,6 @@
   "backToLogin": "Back to login",
   "youHaveAccount": "You had account?",
   "passwordNotMatch": "Password not match",
-  "confirmPassword": "Confirm password"
+  "confirmPassword": "Confirm password",
+  "logout": "Logout"
 }

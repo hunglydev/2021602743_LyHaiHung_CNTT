@@ -8,6 +8,7 @@ import 'package:hunglydev_datn/data/local_repository.dart';
 import 'package:hunglydev_datn/domain/enum/loading_state.dart';
 import 'package:hunglydev_datn/domain/model/user_model.dart';
 import 'package:hunglydev_datn/generated/l10n.dart';
+import 'package:hunglydev_datn/presentation/journey/auth/login.dart';
 
 class PersonalController extends GetxController {
   UserModel? currentUserModel;
@@ -54,5 +55,10 @@ class PersonalController extends GetxController {
     // if (isRegister) {
     //   Get.offAndToNamed(AppRoute.mainScreen);
     // }
+  }
+
+  void logout() async {
+    await _localRepository.deleteUser();
+    Get.offAll(const LoginPage());
   }
 }

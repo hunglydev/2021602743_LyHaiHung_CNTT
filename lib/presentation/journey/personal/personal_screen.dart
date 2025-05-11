@@ -77,6 +77,19 @@ class PersonalScreen extends StatelessWidget {
                 label: AppLocalization.of(context).termAndService,
               ),
               24.height,
+              SettingItem(
+                onPress: () {
+                  controller.logout();
+                },
+                prefixIcon: const Icon(
+                  Icons.logout,
+                  color: Colors.white,
+                ),
+                label: AppLocalization.of(context).logout,
+                labelColor: Colors.white,
+                color: Colors.red,
+              ),
+              24.height,
               Row(
                 children: [
                   const Expanded(

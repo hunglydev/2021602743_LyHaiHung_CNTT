@@ -18,14 +18,18 @@ class HiveConfig {
     final appDocumentDirectory = await path_provider.getApplicationDocumentsDirectory();
     Hive.init(appDocumentDirectory.path);
     Hive.registerAdapter(UserModelAdapter());
+    Hive.registerAdapter(BloodPressureModelAdapter());
+    Hive.registerAdapter(BMIModelAdapter());
+
     Hive.registerAdapter(AlarmModelAdapter());
     Hive.registerAdapter(AlarmTypeAdapter());
     userBox = await Hive.openBox(HiveBox.userBox);
     alarmBox = await Hive.openBox(HiveBox.alarmBox);
-    Hive.registerAdapter(BloodPressureModelAdapter());
-    bloodPressureBox = await Hive.openBox(HiveBox.bloodPressureBox);
-    Hive.registerAdapter(BMIModelAdapter());
-    bmiBox = await Hive.openBox(HiveBox.bmiBox);
+  }
+
+  Future<void> initLater(int userId) async {
+    bloodPressureBox = await Hive.openBox(HiveBox.bloodPressureBox(userId));
+    bmiBox = await Hive.openBox(HiveBox.bmiBox(userId));
   }
 
   void dispose() {

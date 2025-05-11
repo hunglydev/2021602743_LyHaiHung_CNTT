@@ -17,6 +17,10 @@ class LocalRepository {
     _hiveConfig.userBox.put(HiveKey.userModel, user);
   }
 
+  Future deleteUser() async {
+    _hiveConfig.userBox.delete(HiveKey.userModel);
+  }
+
   UserModel? getUser() {
     return _hiveConfig.userBox.get(HiveKey.userModel);
   }

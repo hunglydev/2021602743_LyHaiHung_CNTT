@@ -8,15 +8,15 @@ class HiveTypeConstants {
 }
 
 class HiveKey {
-  static const userModel = "userModel";
-  static const alarmModel = "alarmModel";
-  static const alarmType = "alarmType";
-  static const bmiModel = "bmiModel";
+  static const String userModel = "userModel";
+  // static String alarmModel(int userId) => "alarmModel+$userId";
+  // static String alarmType(int userId) => "alarmType$userId";
+  // static String bmiModel(int userId) => "bmiModel$userId";
 }
 
 class HiveBox {
   static const String userBox = "userBox";
-  static const String bloodPressureBox = "bloodPressureBox";
-  static const String alarmBox = "alarmBox";
-  static const String bmiBox = "bmiBox";
+  static String bloodPressureBox(int userId) => "bloodPressureBox$userId";
+  static const String alarmBox = "alamBox";
+  static String bmiBox(int userId) => "bmiBox$userId";
 }

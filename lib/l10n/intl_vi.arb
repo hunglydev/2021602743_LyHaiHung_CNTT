@@ -262,6 +262,6 @@
   "backToLogin": "Trở lại đăng nhập",
   "youHaveAccount": "Bạn đã có tài khoản?",
   "passwordNotMatch": "Mật khẩu không giống nhau",
-  "confirmPassword": "Nhập lại mật khẩu"
-
+  "confirmPassword": "Nhập lại mật khẩu",
+  "logout": "Đăng xuất"
 }

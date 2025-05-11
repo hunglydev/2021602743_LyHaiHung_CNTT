@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:hunglydev_datn/generated/l10n.dart';
+import 'package:hunglydev_datn/presentation/widget/cache_image_widget.dart';
 import 'package:lottie/lottie.dart';
 
 import '../../../common/constants/app_image.dart';
@@ -24,13 +25,10 @@ class HomeScreen extends GetView<HomeController> {
       floatingActionButton: InkWell(
         borderRadius: BorderRadius.circular(100),
         onTap: controller.onPressAskAi,
-        child: Ink(
-          width: 60,
-          height: 60,
-          decoration: BoxDecoration(
-            color: Colors.blue,
-            borderRadius: BorderRadius.circular(100),
-          ),
+        child: const CachedImageWidget(
+          url: "assets/lottie/robot.json",
+          height: 80,
+          width: 80,
         ),
       ),
       child: Column(

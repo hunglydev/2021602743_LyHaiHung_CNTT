@@ -9,17 +9,24 @@ class SettingItem extends StatelessWidget {
   final VoidCallback onPress;
   final String label;
   final Widget prefixIcon;
+  final Color? color;
+  final Color? labelColor;
+  final BoxDecoration? decoration;
   const SettingItem({
     super.key,
     required this.onPress,
     required this.prefixIcon,
     required this.label,
+    this.color,
+    this.labelColor,
+    this.decoration,
   });
   @override
   Widget build(BuildContext context) {
     return AppButton(
       margin: const EdgeInsets.symmetric(horizontal: 20),
-      color: AppColor.white,
+      color: color ?? AppColor.white,
+      decoration: decoration,
       boxShadow: [
         BoxShadow(
           color: Colors.black.withOpacity(0.1),
@@ -36,8 +43,8 @@ class SettingItem extends StatelessWidget {
           12.width,
           Text(
             label,
-            style: const TextStyle(
-              color: Colors.black,
+            style: TextStyle(
+              color: labelColor ?? Colors.black,
               fontWeight: FontWeight.w600,
               fontSize: 16,
             ),
