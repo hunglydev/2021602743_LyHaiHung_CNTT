@@ -251,6 +251,16 @@
   "contactWithUs": "Contact with us",
   "someThingWentWrong": "Something went wrong, please try again",
   "success": "Success",
-  "healthConsultingAi": "Health consulting AI"
-
+  "healthConsultingAi": "Health consulting AI",
+  "userName": "User name",
+  "password": "Password",
+  "login": "Login",
+  "register": "Register",
+  "email": "Email",
+  "youDoNotHaveAccount": "You don't have account?",
+  "clickHereToRegister": "Click here to register",
+  "backToLogin": "Back to login",
+  "youHaveAccount": "You had account?",
+  "passwordNotMatch": "Password not match",
+  "confirmPassword": "Confirm password"
 }

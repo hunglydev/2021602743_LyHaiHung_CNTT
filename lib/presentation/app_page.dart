@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 import 'package:hunglydev_datn/common/injector/binding/ask_ai_binding.dart';
+import 'package:hunglydev_datn/presentation/journey/auth/login.dart';
 import 'package:hunglydev_datn/presentation/journey/home/ask_ai/ask_ai_screen.dart';
 
 import '../common/constants/app_route.dart';
@@ -58,6 +59,10 @@ class AppPage {
       name: AppRoute.askAIScreen,
       page: () => const AskAIScreen(),
       binding: AskAiBinding(),
-    )
+    ),
+    GetPage(
+      name: AppRoute.loginScreen,
+      page: () => const LoginPage(),
+    ),
   ];
 }

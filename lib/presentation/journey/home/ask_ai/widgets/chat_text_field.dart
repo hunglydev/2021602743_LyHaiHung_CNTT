@@ -62,7 +62,7 @@ class _ChatTextFieldState extends State<ChatTextField> {
                 ),
               ),
               GestureDetector(onTap: () async {
-                final res = await controller.sendChat(_chatController.text);
+                await controller.sendChat(_chatController.text);
               }, child: Obx(
                 () {
                   return AnimatedContainer(

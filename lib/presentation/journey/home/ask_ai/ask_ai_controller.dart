@@ -4,14 +4,14 @@ import 'package:hunglydev_datn/common/constants/api_constant.dart';
 import 'package:hunglydev_datn/common/network/api_service.dart';
 import 'package:hunglydev_datn/domain/model/chat_data.dart';
 import 'package:hunglydev_datn/generated/l10n.dart';
+import 'package:hunglydev_datn/presentation/controller/app_controller.dart';
 
 class AskAIController extends GetxController {
   List<ChatData> listChat = [];
   bool isLoadingSendChat = false;
   RxString chatContent = "".obs;
-
   final ScrollController scrollController = ScrollController();
-
+  final AppController _appController = Get.find<AppController>();
   Future<void> scrollToBottom() async {
     await Future.delayed(const Duration(milliseconds: 100));
     if (scrollController.hasClients) {
@@ -23,7 +23,7 @@ class AskAIController extends GetxController {
     }
   }
 
-  Future<Map> sendChat(String content) async {
+  Future<void> sendChat(String content) async {
     listChat.add(ChatData(content: content, isMe: true));
     isLoadingSendChat = true;
     chatContent.value = "";
@@ -34,7 +34,7 @@ class AskAIController extends GetxController {
       ApiConstant.sendChat,
       DioMethod.post,
       param: {
-        "userId": "hehehe", // <-- thêm userId
+        "userId": _appController.currentUser.value.id, // <-- thêm userId
         "prompt": content,
       },
     );
@@ -46,13 +46,5 @@ class AskAIController extends GetxController {
     isLoadingSendChat = false;
     update();
     await scrollToBottom();
-    print('Toàn bộ listChat:');
-    for (var c in listChat) {
-      print('${c.isMe ? "Me" : "Bot"}: ${c.content}');
-    }
-    print('----------res: ${res.data['result'].toString()}');
-    return {
-      'status': true,
-    };
   }
 }

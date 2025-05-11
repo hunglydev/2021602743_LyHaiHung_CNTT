@@ -14,8 +14,9 @@ class AppContainer extends StatelessWidget {
     this.resizeToAvoidBottomInset = true,
     this.floatingActionButton,
     this.alignLayer,
+    this.padding,
   });
-
+  final EdgeInsets? padding;
   final AlignmentDirectional? alignLayer;
   final PreferredSizeWidget? appBar;
   final Widget? bottomNavigationBar;
@@ -41,7 +42,8 @@ class AppContainer extends StatelessWidget {
             resizeToAvoidBottomInset: resizeToAvoidBottomInset,
             backgroundColor: backgroundColor ?? AppColor.white,
             appBar: appBar,
-            body: SizedBox(
+            body: Container(
+              padding: padding,
               width: Get.width,
               height: Get.height,
               child: child ?? const SizedBox.shrink(),

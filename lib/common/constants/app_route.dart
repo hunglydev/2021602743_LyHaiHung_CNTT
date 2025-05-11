@@ -8,4 +8,6 @@ class AppRoute {
   static const String weightBMI = '/weightBMI';
   static const String foodScanner = '/foodScanner';
   static const String askAIScreen = '/askAIScreen';
+  static const String loginScreen = '/loginScreen';
+  static const String registerScreen = '/registerScreen';
 }

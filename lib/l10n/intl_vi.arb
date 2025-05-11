@@ -251,5 +251,17 @@
   "contactWithUs": "Liên hệ với chúng tôi",
   "someThingWentWrong": "Có lỗi xảy ra, vui lòng thử lại sau",
   "success": "Thành công",
-  "healthConsultingAi": "Chatbot tư vấn sức khỏe"
+  "healthConsultingAi": "Chatbot tư vấn sức khỏe",
+  "userName": "Tên đăng nhập",
+  "password": "Mật khẩu",
+  "login": "Đăng nhập",
+  "register": "Đăng ký",
+  "email": "Email",
+  "youDoNotHaveAccount": "Bạn không có tài khoản?",
+  "clickHereToRegister": "Bấm vào đây để đăng nhập",
+  "backToLogin": "Trở lại đăng nhập",
+  "youHaveAccount": "Bạn đã có tài khoản?",
+  "passwordNotMatch": "Mật khẩu không giống nhau",
+  "confirmPassword": "Nhập lại mật khẩu"
+
 }

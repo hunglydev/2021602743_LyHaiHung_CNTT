@@ -4,4 +4,8 @@ abstract class ApiConstant {
 
   //saveUser
   static const String saveUser = "/api/saveUser";
+
+  //auth
+  static const String login = '/api/login';
+  static const String register = '/api/register';
 }
