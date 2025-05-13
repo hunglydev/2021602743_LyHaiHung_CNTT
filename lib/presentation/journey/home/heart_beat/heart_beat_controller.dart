@@ -246,7 +246,7 @@ class HeartBeatController extends GetxController with AlarmDialogMixin {
       DateTime dateTime = DateTime.fromMillisecondsSinceEpoch(item.timeStamp ?? 0);
       listOfData.add(
         [
-          DateFormat('MMM dd, yyyy').format(dateTime),
+          DateFormat('dd/MM/yyyy').format(dateTime),
           DateFormat('h:mm a').format(dateTime),
           '${appController.currentUser.value.age ?? 0}',
           chooseContentByLanguage(gender['nameEN'], gender['nameVN']),

@@ -24,11 +24,11 @@ mixin AddDateTimeMixin {
   void updateDateTimeString(DateTime? dateTime) {
     if (dateTime != null) {
       stringBloodPrTime.value = DateFormat(
-        'h:mm a',
+        'hh:mm',
         Get.find<AppController>().currentLocale.value.languageCode,
       ).format(dateTime);
       stringBloodPrDate.value = DateFormat(
-        'MMM dd, yyyy',
+        'dd/MM/yyyy',
         Get.find<AppController>().currentLocale.value.languageCode,
       ).format(dateTime);
     }

@@ -226,7 +226,7 @@ class HeartBeatScreen extends GetView<HeartBeatController> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      DateFormat('MMM dd, yyyy').format(dateTime),
+                      DateFormat('dd/MM/yyyy').format(dateTime),
                       style: textStyle14500(),
                     ),
                     SizedBox(height: 2.0.sp),

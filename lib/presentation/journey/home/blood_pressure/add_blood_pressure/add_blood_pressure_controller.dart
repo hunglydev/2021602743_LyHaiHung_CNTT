@@ -22,7 +22,7 @@ class AddBloodPressureController extends GetxController with DateTimeMixin {
   Rx<BloodPressureType> bloodPressureType = BloodPressureType.normal.obs;
   RxInt systolic = 100.obs;
   RxInt diastolic = 70.obs;
-  RxInt pulse = 40.obs;
+  RxInt pulse = 80.obs;
   Rx<DateTime> bloodPressureDate = DateTime.now().obs;
   RxBool isLoading = false.obs;
   final AppController _appController = Get.find<AppController>();

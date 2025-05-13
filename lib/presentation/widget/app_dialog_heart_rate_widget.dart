@@ -69,7 +69,7 @@ class _AppDialogHeartRateWidgetState extends State<AppDialogHeartRateWidget> {
   void _updateDateTimeString(DateTime? dateTime) {
     if (dateTime != null) {
       setState(() {
-        _date = DateFormat('MMM dd, yyyy').format(dateTime);
+        _date = DateFormat('dd/MM/yyyy').format(dateTime);
         _time = DateFormat('h:mm a').format(dateTime);
       });
     }
@@ -490,69 +490,69 @@ class _AppDialogHeartRateWidgetState extends State<AppDialogHeartRateWidget> {
           ),
         ),
         SizedBox(height: 12.0.sp),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            AppTouchable(
-              onPressed: _onPressAge,
-              padding: EdgeInsets.symmetric(
-                vertical: 8.0.sp,
-                horizontal: 12.0.sp,
-              ),
-              child: Obx(
-                () => Text(
-                  '${AppLocalization.current.age}: ${_appController.currentUser.value.age ?? 30}',
-                  style: textStyle18400().merge(
-                    const TextStyle(
-                      shadows: [
-                        Shadow(
-                          color: AppColor.grayText2,
-                          offset: Offset(0, -5),
-                        ),
-                      ],
-                      color: Colors.transparent,
-                      decoration: TextDecoration.underline,
-                      decorationColor: AppColor.grayText2,
-                    ),
-                  ),
-                ),
-              ),
-            ),
-            SizedBox(width: 12.0.sp),
-            AppTouchable(
-              onPressed: _onPressGender,
-              padding: EdgeInsets.symmetric(
-                vertical: 8.0.sp,
-                horizontal: 12.0.sp,
-              ),
-              child: Obx(() {
-                Map gender = AppConstant.listGender.firstWhere(
-                  (element) => element['id'] == _appController.currentUser.value.gender,
-                  orElse: () => AppConstant.listGender[0],
-                );
-                return Text(
-                  chooseContentByLanguage(
-                    gender['nameEN'],
-                    gender['nameVN'],
-                  ),
-                  style: textStyle18400().merge(
-                    const TextStyle(
-                      shadows: [
-                        Shadow(
-                          color: AppColor.grayText2,
-                          offset: Offset(0, -5),
-                        ),
-                      ],
-                      color: Colors.transparent,
-                      decoration: TextDecoration.underline,
-                      decorationColor: AppColor.grayText2,
-                    ),
-                  ),
-                );
-              }),
-            ),
-          ],
-        ),
+        // Row(
+        //   mainAxisAlignment: MainAxisAlignment.center,
+        //   children: [
+        //     AppTouchable(
+        //       onPressed: _onPressAge,
+        //       padding: EdgeInsets.symmetric(
+        //         vertical: 8.0.sp,
+        //         horizontal: 12.0.sp,
+        //       ),
+        //       child: Obx(
+        //         () => Text(
+        //           '${AppLocalization.current.age}: ${_appController.currentUser.value.age ?? 30}',
+        //           style: textStyle18400().merge(
+        //             const TextStyle(
+        //               shadows: [
+        //                 Shadow(
+        //                   color: AppColor.grayText2,
+        //                   offset: Offset(0, -5),
+        //                 ),
+        //               ],
+        //               color: Colors.transparent,
+        //               decoration: TextDecoration.underline,
+        //               decorationColor: AppColor.grayText2,
+        //             ),
+        //           ),
+        //         ),
+        //       ),
+        //     ),
+        //     SizedBox(width: 12.0.sp),
+        //     AppTouchable(
+        //       onPressed: _onPressGender,
+        //       padding: EdgeInsets.symmetric(
+        //         vertical: 8.0.sp,
+        //         horizontal: 12.0.sp,
+        //       ),
+        //       child: Obx(() {
+        //         Map gender = AppConstant.listGender.firstWhere(
+        //           (element) => element['id'] == _appController.currentUser.value.gender,
+        //           orElse: () => AppConstant.listGender[0],
+        //         );
+        //         return Text(
+        //           chooseContentByLanguage(
+        //             gender['nameEN'],
+        //             gender['nameVN'],
+        //           ),
+        //           style: textStyle18400().merge(
+        //             const TextStyle(
+        //               shadows: [
+        //                 Shadow(
+        //                   color: AppColor.grayText2,
+        //                   offset: Offset(0, -5),
+        //                 ),
+        //               ],
+        //               color: Colors.transparent,
+        //               decoration: TextDecoration.underline,
+        //               decorationColor: AppColor.grayText2,
+        //             ),
+        //           ),
+        //         );
+        //       }),
+        //     ),
+        //   ],
+        // ),
         SizedBox(height: 16.0.sp),
         Row(
           children: [

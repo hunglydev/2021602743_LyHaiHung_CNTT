@@ -98,4 +98,9 @@ class BMIModel extends HiveObject {
       return ConvertUtils.convertKgToLb(weight ?? 0.0).roundDouble(1);
     }
   }
+
+  @override
+  String toString() {
+    return "Chiều cao: ${heightCm}cm - Cân nặng: ${weightKg}kg - Ngày đo: ${DateTime.fromMillisecondsSinceEpoch(dateTime!).toString()}\n ";
+  }
 }

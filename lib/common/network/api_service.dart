@@ -30,6 +30,8 @@ class APIService {
           },
         ),
       );
+      print('[API URL] :$baseUrl$endpoint ');
+
       switch (method) {
         case DioMethod.post:
           return dio.post(

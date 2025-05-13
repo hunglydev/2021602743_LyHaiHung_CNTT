@@ -191,7 +191,7 @@ class BloodPressureController extends GetxController with DateTimeMixin, AlarmDi
       DateTime dateTime = DateTime.fromMillisecondsSinceEpoch(item.dateTime ?? 0);
       listOfData.add(
         [
-          DateFormat('MMM dd, yyyy').format(dateTime),
+          DateFormat('dd/MM/yyyy').format(dateTime),
           DateFormat('h:mm a').format(dateTime),
           '${item.systolic ?? 0}',
           '${item.diastolic ?? 0}',

@@ -45,7 +45,6 @@ class AddDataDialog extends StatelessWidget {
           Expanded(
             child: AppTouchable(
               onPressed: onSelectDate,
-              backgroundColor: AppColor.lightGray,
               padding: EdgeInsets.symmetric(
                 vertical: 8.sp,
                 horizontal: 4.sp,
@@ -61,17 +60,18 @@ class AddDataDialog extends StatelessWidget {
           SizedBox(
             width: 12.0.sp,
           ),
-          AppTouchable(
-            onPressed: onSelectTime,
-            backgroundColor: AppColor.lightGray,
-            padding: EdgeInsets.symmetric(
-              vertical: 8.sp,
-              horizontal: 8.sp,
-            ),
-            child: Obx(
-              () => Text(
-                rxStrTime.value,
-                style: textStyle18500(),
+          Expanded(
+            child: AppTouchable(
+              onPressed: onSelectTime,
+              padding: EdgeInsets.symmetric(
+                vertical: 8.sp,
+                horizontal: 8.sp,
+              ),
+              child: Obx(
+                () => Text(
+                  rxStrTime.value,
+                  style: textStyle18500(),
+                ),
               ),
             ),
           ),

@@ -79,8 +79,8 @@ class WeightBMIController extends GetxController with DateTimeMixin, AlarmDialog
       );
       final gender = chooseContentByLanguage(initialGender['nameEN'], initialGender['nameVN']);
       listOfData.add([
-        DateFormat('MMM dd, yyyy').format(dateTime),
-        DateFormat('h:mm a').format(dateTime),
+        DateFormat('dd/MM/yyyy').format(dateTime),
+        DateFormat('hh:mm').format(dateTime),
         '${item.bmi ?? 0}',
         '${item.weightKg}',
         '${item.heightCm}',

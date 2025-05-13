@@ -15,6 +15,7 @@ import 'common/injector/binding/app_binding.dart';
 import 'common/util/app_notification_local.dart';
 import 'common/util/share_preference_utils.dart';
 import 'presentation/app_page.dart';
+import 'package:timeago/timeago.dart' as timeago;
 
 late AndroidNotificationChannel channel;
 
@@ -22,14 +23,25 @@ late FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin;
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  timeago.setLocaleMessages('vi', timeago.ViMessages()); // 👈 Thêm dòng này
+
   configDI();
+  flutterLocalNotificationsPlugin = FlutterLocalNotificationsPlugin();
+
   final hiveConfig = getIt<HiveConfig>();
   await hiveConfig.init();
   await getIt<SharePreferenceUtils>().init();
   AppNotificationLocal.initNotificationLocal();
 
   tz.initializeTimeZones();
+  const AndroidInitializationSettings initializationSettingsAndroid =
+      AndroidInitializationSettings('@mipmap/ic_launcher');
 
+  const InitializationSettings initializationSettings = InitializationSettings(
+    android: initializationSettingsAndroid,
+  );
+
+  await flutterLocalNotificationsPlugin.initialize(initializationSettings);
   SystemChrome.setSystemUIOverlayStyle(
     const SystemUiOverlayStyle(
       statusBarColor: Colors.transparent,

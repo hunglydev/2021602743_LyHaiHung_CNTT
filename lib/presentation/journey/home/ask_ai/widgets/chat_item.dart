@@ -4,17 +4,24 @@ import 'package:flutter_markdown/flutter_markdown.dart';
 import 'package:get/get_utils/src/extensions/widget_extensions.dart';
 import 'package:hunglydev_datn/common/constants/app_image.dart';
 import 'package:hunglydev_datn/common/util/extensions/int_extension.dart';
+import 'package:hunglydev_datn/domain/model/chat_data.dart';
 import 'package:hunglydev_datn/presentation/theme/app_color.dart';
 import 'package:hunglydev_datn/presentation/widget/cache_image_widget.dart';
+import 'package:intl/intl.dart';
+import 'package:timeago/timeago.dart' as timeago;
 
 class ChatItem extends StatefulWidget {
-  final bool isMe;
-  final String content;
+  final Locale locale;
+  final bool hasAnimated;
+  final VoidCallback onAnimated;
+  final ChatData chatData;
 
   const ChatItem({
     super.key,
-    required this.isMe,
-    required this.content,
+    required this.chatData,
+    required this.hasAnimated,
+    required this.onAnimated,
+    required this.locale,
   });
 
   @override
@@ -23,13 +30,11 @@ class ChatItem extends StatefulWidget {
 
 class _ChatItemState extends State<ChatItem> {
   final TextEditingController _contentController = TextEditingController();
-  String _textContent = "";
   bool isShowMarkDown = false;
   @override
   void initState() {
     super.initState();
-    _contentController.text = widget.content;
-    _textContent = widget.content;
+    _contentController.text = widget.chatData.content;
   }
 
   bool _isValidUrl(String url) {
@@ -40,7 +45,7 @@ class _ChatItemState extends State<ChatItem> {
 
   List<Widget> _chatComponents() {
     return [
-      widget.isMe
+      widget.chatData.isMe
           ? const SizedBox.shrink()
           : Container(
               width: 36,
@@ -59,11 +64,11 @@ class _ChatItemState extends State<ChatItem> {
       12.width,
       Flexible(
         child: Column(
-          crossAxisAlignment: widget.isMe ? CrossAxisAlignment.end : CrossAxisAlignment.start,
+          crossAxisAlignment: widget.chatData.isMe ? CrossAxisAlignment.end : CrossAxisAlignment.start,
           children: [
-            _isValidUrl(widget.content)
+            _isValidUrl(widget.chatData.content)
                 ? CachedImageWidget(
-                    url: widget.content,
+                    url: widget.chatData.content,
                     height: 200,
                     fit: BoxFit.cover,
                     radius: 12,
@@ -77,37 +82,46 @@ class _ChatItemState extends State<ChatItem> {
                       ),
                     ),
                   )
-                : Container(
-                    decoration: BoxDecoration(
-                      color: widget.isMe ? const Color(0xff7ceaf5) : AppColor.lightGray,
-                      borderRadius: BorderRadius.circular(
-                        12,
-                      ),
-                    ),
-                    padding: const EdgeInsets.all(
-                      12,
-                    ),
-                    child: isShowMarkDown
-                        ? MarkdownBody(data: widget.content)
-                        : AnimatedTextKit(
-                            isRepeatingAnimation: false,
-                            totalRepeatCount: 1,
-                            animatedTexts: [
-                              TypewriterAnimatedText(
-                                widget.content,
-                                textStyle: const TextStyle(
-                                  fontSize: 16.0,
-                                  color: Colors.black87,
-                                ),
-                                speed: const Duration(milliseconds: 5),
-                              ),
-                            ],
-                            onFinished: () {
-                              setState(() {
-                                isShowMarkDown = true;
-                              });
-                            },
+                : Column(
+                    crossAxisAlignment: widget.chatData.isMe ? CrossAxisAlignment.end : CrossAxisAlignment.start,
+                    children: [
+                      Container(
+                        decoration: BoxDecoration(
+                          color: widget.chatData.isMe ? const Color(0xff7ceaf5) : AppColor.lightGray,
+                          borderRadius: BorderRadius.circular(
+                            12,
                           ),
+                        ),
+                        padding: const EdgeInsets.all(
+                          12,
+                        ),
+                        child: widget.hasAnimated || isShowMarkDown
+                            ? MarkdownBody(data: widget.chatData.content)
+                            : AnimatedTextKit(
+                                isRepeatingAnimation: false,
+                                totalRepeatCount: 1,
+                                animatedTexts: [
+                                  TypewriterAnimatedText(
+                                    widget.chatData.content,
+                                    textStyle: const TextStyle(
+                                      fontSize: 16.0,
+                                      color: Colors.black87,
+                                    ),
+                                    speed: const Duration(milliseconds: 5),
+                                  ),
+                                ],
+                                onFinished: () {
+                                  widget.onAnimated(); // 👈 Lưu trạng thái đã animate
+
+                                  setState(() {
+                                    isShowMarkDown = true;
+                                  });
+                                },
+                              ),
+                      ),
+                      Text(timeago.format(widget.chatData.createdAt ?? DateTime.now(),
+                          locale: widget.locale.languageCode))
+                    ],
                   ),
             8.height,
           ],
@@ -121,9 +135,9 @@ class _ChatItemState extends State<ChatItem> {
     return Column(
       children: [
         Row(
-          mainAxisAlignment: widget.isMe ? MainAxisAlignment.end : MainAxisAlignment.start,
+          mainAxisAlignment: widget.chatData.isMe ? MainAxisAlignment.end : MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: widget.isMe
+          children: widget.chatData.isMe
               ? _chatComponents()
                   .reversed
                   .map(

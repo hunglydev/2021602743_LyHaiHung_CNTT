@@ -32,4 +32,8 @@ class BloodPressureModel extends HiveObject {
 
   DateTime get bloodPressDate => DateTime.fromMillisecondsSinceEpoch(dateTime!);
   BloodPressureType get bloodType => BloodPressureTyeEnum.getBloodPressureTypeById(type!);
+  @override
+  String toString() {
+    return 'Huyết áp tâm trương: $systolic - Huyết áp tâm thu: $diastolic - Nhịp tim: $pulse - Ngày đo: ${DateTime.fromMillisecondsSinceEpoch(dateTime!).toString()}\n';
+  }
 }

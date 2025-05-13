@@ -75,7 +75,7 @@ class BMIDetailWidget extends StatelessWidget {
                     ),
                     children: [
                       TextSpan(
-                        text: 'kg',
+                        text: ' kg',
                         style: textStyle14500().copyWith(color: AppColor.black),
                       )
                     ],
@@ -87,7 +87,7 @@ class BMIDetailWidget extends StatelessWidget {
                     style: textStyle30600().copyWith(color: AppColor.black),
                     children: [
                       TextSpan(
-                        text: 'cm',
+                        text: ' cm',
                         style: textStyle14500().copyWith(color: AppColor.black),
                       )
                     ],
