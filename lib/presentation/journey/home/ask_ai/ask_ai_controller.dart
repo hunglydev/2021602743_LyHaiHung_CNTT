@@ -31,13 +31,7 @@ class AskAIController extends GetxController {
     listBmi = _bmiUseCase.getAll();
 
     listBloodPressure = _bloodPressureUseCase.getAll();
-    print('-----------${listBloodPressure.toString()}');
-    listBloodPressure!.forEach(
-      (element) => {print('--------e: ${element.toString()}')},
-    );
-    listBmi!.forEach(
-      (element) => {print('--------sss: ${element.toString()}')},
-    );
+
     scrollController.addListener(_onScroll);
     loadMore();
     super.onInit();

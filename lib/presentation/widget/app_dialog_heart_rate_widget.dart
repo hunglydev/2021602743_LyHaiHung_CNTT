@@ -7,7 +7,6 @@ import 'package:intl/intl.dart';
 
 import '../../../common/constants/app_constant.dart';
 import '../../common/constants/app_image.dart';
-import '../../common/util/app_util.dart';
 import '../../common/util/disable_glow_behavior.dart';
 import '../../domain/model/user_model.dart';
 import '../controller/app_controller.dart';

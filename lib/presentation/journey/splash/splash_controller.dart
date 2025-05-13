@@ -2,10 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hunglydev_datn/common/config/hive_config/hive_config.dart';
 import 'package:hunglydev_datn/common/injector/app_di.dart';
-import 'package:hunglydev_datn/common/util/app_util.dart';
 import 'package:hunglydev_datn/presentation/journey/auth/login.dart';
-import 'package:hunglydev_datn/presentation/journey/personal/personal_screen.dart';
-import 'package:hunglydev_datn/presentation/journey/personal/screen/account_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../common/constants/app_constant.dart';

@@ -4,11 +4,9 @@ import 'package:get/get.dart';
 import 'package:hunglydev_datn/domain/enum/blood_pressure_type.dart';
 import 'package:intl/intl.dart';
 
-import '../../../../../common/constants/app_image.dart';
 import '../../../../controller/app_controller.dart';
 import '../../../../theme/app_color.dart';
 import '../../../../theme/theme_text.dart';
-import '../../../../widget/app_image_widget.dart';
 import '../../../../widget/app_touchable.dart';
 import '../../../../widget/container_widget.dart';
 import '../../widget/home_bar_chart_widget/home_bar_chart.dart';

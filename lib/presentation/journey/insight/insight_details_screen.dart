@@ -3,7 +3,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 import '../../../common/util/disable_glow_behavior.dart';
-import '../../theme/app_color.dart';
 import '../../theme/theme_text.dart';
 import '../../widget/app_container.dart';
 import '../../widget/app_header.dart';

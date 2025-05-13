@@ -8,7 +8,6 @@ import 'package:hunglydev_datn/generated/l10n.dart';
 import 'package:hunglydev_datn/presentation/journey/home/weight_bmi/add_weight_bmi/widget/unit_button.dart';
 
 import '../../../../../common/constants/app_image.dart';
-import '../../../../../common/util/app_util.dart';
 import '../../../../../common/util/format_utils.dart';
 import '../../../../../domain/model/bmi_model.dart';
 import '../../../../theme/app_color.dart';

@@ -1,4 +1,5 @@
 import 'package:hive/hive.dart';
+
 import '../../common/config/hive_config/hive_constants.dart';
 
 part 'user_model.g.dart';

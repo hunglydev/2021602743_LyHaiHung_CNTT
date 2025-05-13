@@ -6,16 +6,15 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:hunglydev_datn/generated/l10n.dart';
 import 'package:hunglydev_datn/presentation/controller/app_controller.dart';
+import 'package:timeago/timeago.dart' as timeago;
 import 'package:timezone/data/latest_all.dart' as tz;
 
 import 'common/config/hive_config/hive_config.dart';
 import 'common/constants/app_route.dart';
 import 'common/injector/app_di.dart';
-import 'common/injector/binding/app_binding.dart';
 import 'common/util/app_notification_local.dart';
 import 'common/util/share_preference_utils.dart';
 import 'presentation/app_page.dart';
-import 'package:timeago/timeago.dart' as timeago;
 
 late AndroidNotificationChannel channel;
 

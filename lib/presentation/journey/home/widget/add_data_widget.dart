@@ -4,7 +4,6 @@ import 'package:get/get.dart';
 import 'package:hunglydev_datn/generated/l10n.dart';
 
 import '../../../../common/util/app_util.dart';
-import '../../../theme/app_color.dart';
 import '../../../theme/theme_text.dart';
 import '../../../widget/app_dialog.dart';
 import '../../../widget/app_touchable.dart';

@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hunglydev_datn/common/constants/app_image.dart';
-import 'package:hunglydev_datn/common/mixin/alarm_dialog_mixin.dart';
 import 'package:hunglydev_datn/common/util/extensions/int_extension.dart';
 import 'package:hunglydev_datn/domain/enum/loading_state.dart';
 import 'package:hunglydev_datn/generated/l10n.dart';

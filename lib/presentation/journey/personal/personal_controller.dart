@@ -1,6 +1,5 @@
 import 'package:get/get.dart';
 import 'package:hunglydev_datn/common/constants/api_constant.dart';
-import 'package:hunglydev_datn/common/constants/app_route.dart';
 import 'package:hunglydev_datn/common/injector/app_di.dart';
 import 'package:hunglydev_datn/common/network/api_service.dart';
 import 'package:hunglydev_datn/common/util/app_util.dart';
