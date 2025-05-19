@@ -263,5 +263,16 @@
   "youHaveAccount": "Bạn đã có tài khoản?",
   "passwordNotMatch": "Mật khẩu không giống nhau",
   "confirmPassword": "Nhập lại mật khẩu",
-  "logout": "Đăng xuất"
+  "logout": "Đăng xuất",
+  "stepTaken": "Bước đã đi",
+  "steps": "Bước",
+  "caloriesBurned": "Calo đã đốt",
+  "resume": "Tiếp tục",
+  "pause": "Tạm dừng",
+  "reset": "Đặt lại",
+  "pedestrianStatus": "Trạng thái đi bộ",
+  "walking": "Đi bộ",
+  "stopped": "Dừng lại",
+  "permissionDenied": "Quyền truy cập bị từ chối",
+  "permissionDeniedMessage": "Vui lòng cấp quyền truy cập vị trí cho ứng dụng để sử dụng chức năng này"
 }

@@ -54,7 +54,7 @@ class AskAIController extends GetxController {
       ),
       DioMethod.get,
     );
-
+    print("_-------------api");
     if (res.data['status'] == 'success') {
       final items = res.data['items'] as List;
       List<ChatData> newChats = [];

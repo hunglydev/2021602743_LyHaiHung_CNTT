@@ -93,29 +93,31 @@ class _ChatItemState extends State<ChatItem> {
                         padding: const EdgeInsets.all(
                           12,
                         ),
-                        child: widget.hasAnimated || isShowMarkDown
-                            ? MarkdownBody(data: widget.chatData.content)
-                            : AnimatedTextKit(
-                                isRepeatingAnimation: false,
-                                totalRepeatCount: 1,
-                                animatedTexts: [
-                                  TypewriterAnimatedText(
-                                    widget.chatData.content,
-                                    textStyle: const TextStyle(
-                                      fontSize: 16.0,
-                                      color: Colors.black87,
-                                    ),
-                                    speed: const Duration(milliseconds: 5),
-                                  ),
-                                ],
-                                onFinished: () {
-                                  widget.onAnimated(); // 👈 Lưu trạng thái đã animate
+                        child:
+                            // widget.hasAnimated || isShowMarkDown
+                            true
+                                ? MarkdownBody(data: widget.chatData.content)
+                                : AnimatedTextKit(
+                                    isRepeatingAnimation: false,
+                                    totalRepeatCount: 1,
+                                    animatedTexts: [
+                                      TypewriterAnimatedText(
+                                        widget.chatData.content,
+                                        textStyle: const TextStyle(
+                                          fontSize: 16.0,
+                                          color: Colors.black87,
+                                        ),
+                                        speed: const Duration(milliseconds: 5),
+                                      ),
+                                    ],
+                                    onFinished: () {
+                                      widget.onAnimated(); // 👈 Lưu trạng thái đã animate
 
-                                  setState(() {
-                                    isShowMarkDown = true;
-                                  });
-                                },
-                              ),
+                                      setState(() {
+                                        isShowMarkDown = true;
+                                      });
+                                    },
+                                  ),
                       ),
                       Text(timeago.format(widget.chatData.createdAt ?? DateTime.now(),
                           locale: widget.locale.languageCode))

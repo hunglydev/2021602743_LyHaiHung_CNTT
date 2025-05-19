@@ -2,6 +2,8 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:hunglydev_datn/common/util/show_snack_bar.dart';
+import 'package:hunglydev_datn/generated/l10n.dart';
 import 'package:pedometer/pedometer.dart';
 import 'package:permission_handler/permission_handler.dart';
 
@@ -80,13 +82,23 @@ class _PedometerScreenState extends State<PedometerScreen> {
   }
 
   Future<bool> _checkActivityRecognitionPermission() async {
-    bool granted = await Permission.activityRecognition.isGranted;
-
-    if (!granted) {
-      granted = await Permission.activityRecognition.request() == PermissionStatus.granted;
+    final permissionStatus = await Permission.activityRecognition.request();
+    if (permissionStatus.isGranted) {
+      return true;
+    } else if (permissionStatus.isDenied) {
+      showSnackBar(context,
+          title: AppLocalization.of(context).permissionDenied,
+          subtitle: AppLocalization.of(context).permissionDeniedMessage,
+          type: SnackBarType.error);
+      return false;
+    } else if (permissionStatus.isPermanentlyDenied) {
+      // Permission permanently denied, open app settings
+      await openAppSettings();
+      return false;
+    } else {
+      // Handle other permission states if needed
+      return false;
     }
-
-    return granted;
   }
 
   Future<void> initPlatformState() async {
@@ -130,7 +142,7 @@ class _PedometerScreenState extends State<PedometerScreen> {
       child: Column(
         children: <Widget>[
           AppHeader(
-            title: "Pedometer",
+            title: AppLocalization.of(context).pedometer,
             leftWidget: AppTouchable.common(
               width: 40.0.sp,
               height: 40.0.sp,
@@ -164,7 +176,7 @@ class _PedometerScreenState extends State<PedometerScreen> {
                           child: Column(
                             children: [
                               Text(
-                                'Steps Taken',
+                                AppLocalization.of(context).stepTaken,
                                 style: TextStyle(
                                   fontSize: 24.0.sp,
                                   fontWeight: FontWeight.w500,
@@ -185,7 +197,7 @@ class _PedometerScreenState extends State<PedometerScreen> {
                                   ),
                                   SizedBox(width: 4.0.sp),
                                   Text(
-                                    'steps',
+                                    AppLocalization.of(context).steps,
                                     style: TextStyle(
                                       fontSize: 20.0.sp,
                                     ),
@@ -194,7 +206,7 @@ class _PedometerScreenState extends State<PedometerScreen> {
                               ),
                               SizedBox(height: 16.0.sp),
                               Text(
-                                'Calories Burned',
+                                AppLocalization.of(context).caloriesBurned,
                                 style: TextStyle(
                                   fontSize: 24.0.sp,
                                   fontWeight: FontWeight.w500,
@@ -251,7 +263,7 @@ class _PedometerScreenState extends State<PedometerScreen> {
                                 ),
                                 SizedBox(width: 4.0.sp),
                                 Text(
-                                  _isPaused ? 'Resume' : 'Pause',
+                                  _isPaused ? AppLocalization.of(context).resume : AppLocalization.of(context).pause,
                                   style: context.textTheme.bodyLarge?.copyWith(
                                     color: Colors.black,
                                     fontSize: 14.0.sp,
@@ -282,7 +294,7 @@ class _PedometerScreenState extends State<PedometerScreen> {
                                 ),
                                 SizedBox(width: 4.0.sp),
                                 Text(
-                                  "Reset",
+                                  AppLocalization.of(context).reset,
                                   style: context.textTheme.bodyLarge?.copyWith(
                                     color: Colors.black,
                                     fontSize: 14.0.sp,
@@ -306,7 +318,7 @@ class _PedometerScreenState extends State<PedometerScreen> {
                           child: Column(
                             children: [
                               Text(
-                                'Pedestrian Status',
+                                AppLocalization.of(context).pedestrianStatus,
                                 style: TextStyle(
                                   fontSize: 24.0.sp,
                                   fontWeight: FontWeight.w500,
@@ -328,7 +340,11 @@ class _PedometerScreenState extends State<PedometerScreen> {
                               ),
                               SizedBox(height: 8.0.sp),
                               Text(
-                                _status,
+                                _status == 'walking'
+                                    ? AppLocalization.of(context).walking
+                                    : _status == 'stopped'
+                                        ? AppLocalization.of(context).stopped
+                                        : "",
                                 style: TextStyle(
                                   fontSize: 20.0.sp,
                                   color: _status == 'walking'

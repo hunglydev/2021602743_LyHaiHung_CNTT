@@ -132,11 +132,7 @@ class BloodPressureDataWidget extends GetView<BloodPressureController> {
                       width: 40.0.sp,
                       height: 40.0.sp,
                       onPressed: controller.onPressDeleteData,
-                      child:
-                          // AppImageWidget.asset(
-                          //   path: AppImage.ic_del,
-                          // ),
-                          const Icon(
+                      child: const Icon(
                         Icons.delete_forever_outlined,
                         color: Colors.red,
                         size: 32,

@@ -3,11 +3,13 @@ import 'package:flutter/services.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_timezone/flutter_timezone.dart';
 import 'package:get/get.dart';
 import 'package:hunglydev_datn/generated/l10n.dart';
 import 'package:hunglydev_datn/presentation/controller/app_controller.dart';
 import 'package:timeago/timeago.dart' as timeago;
-import 'package:timezone/data/latest_all.dart' as tz;
+import 'package:timezone/data/latest.dart' as tz;
+import 'package:timezone/timezone.dart' as tz;
 
 import 'common/config/hive_config/hive_config.dart';
 import 'common/constants/app_route.dart';
@@ -33,6 +35,8 @@ Future<void> main() async {
   AppNotificationLocal.initNotificationLocal();
 
   tz.initializeTimeZones();
+  tz.setLocalLocation(tz.getLocation(await FlutterTimezone.getLocalTimezone()));
+
   const AndroidInitializationSettings initializationSettingsAndroid =
       AndroidInitializationSettings('@mipmap/ic_launcher');
 

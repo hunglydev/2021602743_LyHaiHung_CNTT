@@ -263,5 +263,16 @@
   "youHaveAccount": "You had account?",
   "passwordNotMatch": "Password not match",
   "confirmPassword": "Confirm password",
-  "logout": "Logout"
+  "logout": "Logout",
+  "stepTaken": "Step taken",
+  "step": "Step",
+  "caloriesBurn": "Calories burned",
+  "resume": "Resume",
+  "pause": "Pause",
+  "reset": "Reset",
+  "pedestrianStatus": "Pedestrian status",
+  "walking": "Walking",
+  "stopped": "Stopped",
+  "permissionDeniedMessage":"Please grant location access to the app to use this function.",
+  "permissionDenied": "Permission denied"
 }
