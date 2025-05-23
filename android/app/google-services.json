@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "906586677215",
+    "project_id": "datn-hunglydev",
+    "storage_bucket": "datn-hunglydev.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:906586677215:android:4393c43aabc4547f4b6e6a",
+        "android_client_info": {
+          "package_name": "com.example.hunglydev_datn"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBpBmmA_S821cD2POxmE2UtTBfpY79-n5o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

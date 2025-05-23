@@ -78,6 +78,8 @@ dependencies:
   package_info_plus: ^8.3.0
   animated_text_kit: ^4.2.3
   timeago: ^3.7.1
+  firebase_core: ^3.13.1
+  firebase_messaging: ^15.2.6
 
 dev_dependencies:
   flutter_test:
