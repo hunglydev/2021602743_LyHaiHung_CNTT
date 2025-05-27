@@ -2,6 +2,10 @@ import 'dart:convert';
 
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'package:get_it/get_it.dart';
+import 'package:hunglydev_datn/common/injector/app_di.dart';
+import 'package:hunglydev_datn/common/util/share_preference_utils.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 Future<void> handleBackgroundMessage(RemoteMessage message) async {
   print("Title: ${message.notification?.title}");
@@ -98,7 +102,8 @@ class AppFirebaseMessaging {
   Future<void> initNotification() async {
     await _firebaseMessaging.requestPermission();
     final fCMToken = await _firebaseMessaging.getToken();
-    print("Token: $fCMToken");
+    await getIt<SharePreferenceUtils>().setString('fcm_token', fCMToken ?? '');
+    print("Token: ${getIt<SharePreferenceUtils>().getString('fcm_token')}");
     initPushNotifications();
     initLocalNotifications();
   }

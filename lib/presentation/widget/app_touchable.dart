@@ -12,6 +12,7 @@ class AppTouchable extends StatelessWidget {
   final Color? backgroundColor;
   final Color? foregroundColor;
   final Color? rippleColor;
+  final Color? disabledBackgroundColor;
   final EdgeInsetsGeometry? padding;
   final EdgeInsetsGeometry? margin;
   final OutlinedBorder? outlinedBorder;
@@ -31,6 +32,7 @@ class AppTouchable extends StatelessWidget {
     this.margin,
     this.outlinedBorder,
     this.decoration,
+    this.disabledBackgroundColor,
   });
 
   const AppTouchable.common({
@@ -45,6 +47,7 @@ class AppTouchable extends StatelessWidget {
     this.rippleColor,
     this.padding,
     this.margin,
+    this.disabledBackgroundColor,
     this.outlinedBorder = const RoundedRectangleBorder(
       borderRadius: BorderRadius.all(
         Radius.circular(10),
@@ -74,6 +77,7 @@ class AppTouchable extends StatelessWidget {
     this.height,
     this.backgroundColor,
     this.foregroundColor,
+    this.disabledBackgroundColor,
     this.rippleColor,
     this.padding,
     this.margin,
@@ -103,6 +107,7 @@ class AppTouchable extends StatelessWidget {
     this.backgroundColor,
     this.foregroundColor,
     this.rippleColor,
+    this.disabledBackgroundColor,
     this.padding,
     this.margin,
     this.outlinedBorder = const RoundedRectangleBorder(
@@ -136,8 +141,8 @@ class AppTouchable extends StatelessWidget {
         onPressed: onPressed,
         onLongPress: onLongPressed,
         style: ButtonStyle(
-          backgroundColor:
-              WidgetStateProperty.all(onPressed == null ? Colors.grey : backgroundColor ?? Colors.transparent),
+          backgroundColor: WidgetStateProperty.all(
+              onPressed == null ? (disabledBackgroundColor ?? Colors.grey) : backgroundColor ?? Colors.transparent),
           overlayColor: WidgetStateProperty.all(
             rippleColor ?? const Color.fromRGBO(204, 223, 242, 0.4),
           ),

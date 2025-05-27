@@ -135,183 +135,39 @@ class AppTextField extends StatefulWidget {
 }
 
 class _AppTextFieldState extends State<AppTextField> {
-  bool isPasswordVisible = false;
+  bool obscureText = false;
   List<String> recentChat = [];
+  late final TextEditingController textEditingController;
 
-  // FormFieldValidator<String>? applyValidation() {
-  //   if (widget.isValidationRequired) {
-  //     if (widget.validator != null) {
-  //       return widget.validator;
-  //     } else if (widget.textFieldType == TextFieldType.email) {
-  //       return (s) {
-  //         if (s!.trim().isEmpty) {
-  //           return widget.errorThisFieldRequired.validate(value: errorThisFieldRequired);
-  //         }
-  //         if (!s.trim().validateEmail()) {
-  //           return widget.errorInvalidEmail.validate(value: 'Email is invalid');
-  //         }
-  //         return null;
-  //       };
-  //     } else if (widget.textFieldType == TextFieldType.emailEnhanced) {
-  //       return (s) {
-  //         if (s!.trim().isEmpty) {
-  //           return widget.errorThisFieldRequired.validate(value: errorThisFieldRequired);
-  //         }
-  //         if (!s.trim().validateEmailEnhanced()) {
-  //           return widget.errorInvalidEmail.validate(value: 'Email is invalid');
-  //         }
-  //         return null;
-  //       };
-  //     } else if (widget.textFieldType == TextFieldType.password) {
-  //       return (s) {
-  //         if (s!.trim().isEmpty) {
-  //           return widget.errorThisFieldRequired.validate(value: errorThisFieldRequired);
-  //         }
-  //         // if (s.trim().length < passwordLengthGlobal) {
-  //         //   return widget.errorMinimumPasswordLength
-  //         //       .validate(value: 'Minimum password length should be $passwordLengthGlobal');
-  //         // }
-  //         return null;
-  //       };
-  //     } else if (widget.textFieldType == TextFieldType.name ||
-  //         widget.textFieldType == TextFieldType.phone ||
-  //         widget.textFieldType == TextFieldType.number) {
-  //       return (s) {
-  //         if (s!.trim().isEmpty) {
-  //           return widget.errorThisFieldRequired.validate(value: errorThisFieldRequired);
-  //         }
-  //         return null;
-  //       };
-  //     } else if (widget.textFieldType == TextFieldType.url) {
-  //       return (s) {
-  //         if (s!.trim().isEmpty) {
-  //           return widget.errorThisFieldRequired.validate(value: errorThisFieldRequired);
-  //         }
-  //         if (!s.validateURL()) {
-  //           return widget.errorInvalidURL.validate(value: 'Invalid URL');
-  //         }
-  //         return null;
-  //       };
-  //     } else if (widget.textFieldType == TextFieldType.username) {
-  //       return (s) {
-  //         if (s!.trim().isEmpty) {
-  //           return widget.errorThisFieldRequired.validate(value: errorThisFieldRequired);
-  //         }
-  //         if (s.contains(' ')) {
-  //           return widget.errorInvalidUsername.validate(value: 'Username should not contain space');
-  //         }
-  //         return null;
-  //       };
-  //     } else if (widget.textFieldType == TextFieldType.multiline) {
-  //       return (s) {
-  //         if (s!.trim().isEmpty) {
-  //           return widget.errorThisFieldRequired.validate(value: errorThisFieldRequired);
-  //         }
-  //         return null;
-  //       };
-  //     } else {
-  //       return null;
-  //     }
-  //   } else {
-  //     return null;
-  //   }
-  // }
-
-  TextCapitalization applyTextCapitalization() {
-    if (widget.textCapitalization != null) {
-      return widget.textCapitalization!;
-    } else if (widget.textFieldType == TextFieldType.name) {
-      return TextCapitalization.words;
-    } else if (widget.textFieldType == TextFieldType.multiline) {
-      return TextCapitalization.sentences;
-    } else {
-      return TextCapitalization.none;
-    }
+  @override
+  void initState() {
+    textEditingController = widget.controller ?? TextEditingController();
+    super.initState();
   }
 
-  TextInputAction? applyTextInputAction() {
-    if (widget.textInputAction != null) {
-      return widget.textInputAction;
-    } else if (widget.textFieldType == TextFieldType.multiline) {
-      return TextInputAction.newline;
-    } else if (widget.nextFocus != null) {
-      return TextInputAction.next;
-    } else {
-      return TextInputAction.done;
-    }
-  }
-
-  TextInputType? applyTextInputType() {
-    if (widget.keyboardType != null) {
-      return widget.keyboardType;
-    } else if (widget.textFieldType == TextFieldType.email || widget.textFieldType == TextFieldType.emailEnhanced) {
-      return TextInputType.emailAddress;
-    } else if (widget.textFieldType == TextFieldType.multiline) {
-      return TextInputType.multiline;
-    } else if (widget.textFieldType == TextFieldType.password) {
-      return TextInputType.visiblePassword;
-    } else if (widget.textFieldType == TextFieldType.phone || widget.textFieldType == TextFieldType.number) {
-      return TextInputType.number;
-    } else if (widget.textFieldType == TextFieldType.url) {
-      return TextInputType.url;
-    } else {
-      return TextInputType.text;
-    }
-  }
-
-  void onPasswordVisibilityChange(bool val) {
-    isPasswordVisible = val;
-    setState(() {});
-  }
-
-  Widget? suffixIcon() {
-    if (widget.textFieldType == TextFieldType.password) {
-      if (widget.suffix != null) {
-        return widget.suffix;
-      } else {
-        if (isPasswordVisible) {
-          if (widget.suffixPasswordVisibleWidget != null) {
-            return InkWell(
-              onTap: () {
-                onPasswordVisibilityChange(false);
-              },
-              child: widget.suffixPasswordVisibleWidget!,
-            );
-          } else {
-            return InkWell(
-              onTap: () {
-                onPasswordVisibilityChange(false);
-              },
-              child: Icon(
-                Icons.visibility,
-                color: widget.suffixIconColor ?? Theme.of(context).iconTheme.color,
-              ),
-            );
-          }
-        } else {
-          if (widget.suffixPasswordInvisibleWidget != null) {
-            return InkWell(
-              onTap: () {
-                onPasswordVisibilityChange(true);
-              },
-              child: widget.suffixPasswordInvisibleWidget!,
-            );
-          } else {
-            return InkWell(
-              onTap: () {
-                onPasswordVisibilityChange(true);
-              },
-              child: Icon(
-                Icons.visibility_off,
-                color: widget.suffixIconColor ?? Theme.of(context).iconTheme.color,
-              ),
-            );
-          }
-        }
-      }
-    } else {
-      return widget.suffix;
-    }
+  Widget _suffixIcon() {
+    return widget.obscureText
+        ? IconButton(
+            onPressed: () {
+              setState(() {
+                obscureText = !obscureText;
+              });
+            },
+            icon: Icon(obscureText ? Icons.visibility : Icons.visibility_off),
+          )
+        : textEditingController.text.isNotEmpty
+            ? IconButton(
+                onPressed: () {
+                  setState(() {
+                    textEditingController.clear();
+                    if (widget.onChanged != null) {
+                      widget.onChanged!('');
+                    }
+                  });
+                },
+                icon: const Icon(Icons.clear),
+              )
+            : const SizedBox.shrink();
   }
 
   Iterable<String>? applyAutofillHints() {
@@ -326,9 +182,7 @@ class _AppTextFieldState extends State<AppTextField> {
   Widget textFormFieldWidget() {
     return TextFormField(
       controller: widget.controller,
-      obscureText: widget.textFieldType == TextFieldType.password && !isPasswordVisible && widget.obscureText,
-      textCapitalization: applyTextCapitalization(),
-      textInputAction: applyTextInputAction(),
+      obscureText: widget.textFieldType == TextFieldType.password && !obscureText && widget.obscureText,
       onFieldSubmitted: (s) {
         if (widget.nextFocus != null) {
           FocusScope.of(context).requestFocus(widget.nextFocus);
@@ -336,10 +190,9 @@ class _AppTextFieldState extends State<AppTextField> {
 
         if (widget.onFieldSubmitted != null) widget.onFieldSubmitted!.call(s);
       },
-      keyboardType: applyTextInputType(),
       decoration: widget.decoration != null
           ? widget.decoration!.copyWith(
-              suffixIcon: suffixIcon(),
+              suffixIcon: _suffixIcon(),
             )
           : const InputDecoration(),
       focusNode: widget.focus,

@@ -10,4 +10,7 @@ abstract class ApiConstant {
   //auth
   static const String login = '/api/login';
   static const String register = '/api/register';
+
+  //notification
+  static const String notifyUserByHealthData = '/api/notifyUserByHealthData';
 }

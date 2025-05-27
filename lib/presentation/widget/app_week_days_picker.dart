@@ -38,6 +38,7 @@ class AppWeekdaysPicker extends StatelessWidget {
         children: [
           for (int index = 0; index < weekDayNames.length; index++)
             AppTouchable(
+              disabledBackgroundColor: Colors.white,
               padding: EdgeInsets.symmetric(
                 horizontal: 8.sp,
                 vertical: 4.0.sp,

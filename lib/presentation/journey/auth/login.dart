@@ -73,6 +73,7 @@ class _LoginPageState extends State<LoginPage> {
               ),
               8.height,
               AppTextField(
+                obscureText: true,
                 controller: passwordController,
                 textFieldType: TextFieldType.password,
                 title: AppLocalization.of(context).password,
